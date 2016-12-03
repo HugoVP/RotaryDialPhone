@@ -12,6 +12,7 @@
 		9A41E9861D628E2000D29475 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A41E9841D628E2000D29475 /* Main.storyboard */; };
 		9A41E9881D628E2000D29475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A41E9871D628E2000D29475 /* Assets.xcassets */; };
 		9A41E98B1D628E2000D29475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A41E9891D628E2000D29475 /* LaunchScreen.storyboard */; };
+		9A54BA741DF34F900059F86B /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54BA731DF34F900059F86B /* GestureTestVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9A41E9871D628E2000D29475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A41E98A1D628E2000D29475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A41E98C1D628E2000D29475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A54BA731DF34F900059F86B /* GestureTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				9A41E9801D628E2000D29475 /* AppDelegate.swift */,
 				9A41E9821D628E2000D29475 /* ViewController.swift */,
+				9A54BA731DF34F900059F86B /* GestureTestVC.swift */,
 				9A41E9841D628E2000D29475 /* Main.storyboard */,
 				9A41E9871D628E2000D29475 /* Assets.xcassets */,
 				9A41E9891D628E2000D29475 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				9A41E9831D628E2000D29475 /* ViewController.swift in Sources */,
 				9A41E9811D628E2000D29475 /* AppDelegate.swift in Sources */,
+				9A54BA741DF34F900059F86B /* GestureTestVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
