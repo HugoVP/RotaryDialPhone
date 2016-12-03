@@ -11,8 +11,8 @@ import UIKit
 class GestureTestVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var syncBtn: UIButton!
-    
-    @IBOutlet weak var syncImageView: UIImageView!
+    @IBOutlet weak var syncImageView: UIImageView!   
+   
     var angle = 0.0
 
     override func viewDidLoad() {
