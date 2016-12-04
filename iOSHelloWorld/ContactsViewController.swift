@@ -23,6 +23,7 @@ class ContactsViewController: UIViewController {
     
     @IBAction func onClick(_ sender: UIButton) {
         print("Click desde contactos")
+        print("Test")
     }
 
     /*
