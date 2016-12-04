@@ -158,6 +158,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke2-9F-eUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="887" y="53"/>
+=======
+            <point key="canvasLocation" x="897" y="363"/>
+>>>>>>> Stashed changes
         </scene>
     </scenes>
     <resources>
