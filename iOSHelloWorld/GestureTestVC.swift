@@ -29,9 +29,6 @@ class GestureTestVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func handleTap (_ sender: UITapGestureRecognizer) {
-        print("tap")
-        print(M_PI)
-        
         //      syncImageView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
         startSpinning()
     }
