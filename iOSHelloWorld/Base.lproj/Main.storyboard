@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,14 +18,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tOv-vn-ICW">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS Hello World" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EZV-TA-wup">
-                                        <rect key="frame" x="8" y="29" width="398" height="23"/>
+                                        <rect key="frame" x="8" y="29" width="304" height="23"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="Hne-1b-VPk"/>
@@ -46,7 +46,7 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGU-jY-mNR" userLabel="Contacts Container View">
-                                <rect key="frame" x="0.0" y="528" width="414" height="208"/>
+                                <rect key="frame" x="0.0" y="360" width="320" height="208"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="208" id="cdj-SK-m9e"/>
                                 </constraints>
@@ -55,7 +55,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kht-Kl-W8D" userLabel="Gesture Test Container View">
-                                <rect key="frame" x="0.0" y="59" width="414" height="471"/>
+                                <rect key="frame" x="0.0" y="59" width="320" height="303"/>
                                 <connections>
                                     <segue destination="InE-Tm-L8O" kind="embed" id="HXc-yu-aMR"/>
                                 </connections>
@@ -92,11 +92,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Yjr-eV-dzm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ILB-qW-RTi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="208"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="208"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1n-6I-2qb">
-                                <rect key="frame" x="184" y="89" width="46" height="30"/>
+                                <rect key="frame" x="137" y="89" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5oA-pZ-foK"/>
                                     <constraint firstAttribute="width" constant="46" id="kV5-gg-azL"/>
@@ -127,35 +127,39 @@
                         <viewControllerLayoutGuide type="bottom" id="r7c-Wi-chy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IIa-uZ-Wqx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="471"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="303"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_sync" translatesAutoresizingMaskIntoConstraints="NO" id="Dd7-K0-Se6">
-                                <rect key="frame" x="137" y="161" width="141" height="148"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WheelNumbers" translatesAutoresizingMaskIntoConstraints="NO" id="AMm-uW-84Q">
+                                <rect key="frame" x="32" y="23" width="256" height="256"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="141" id="Hce-f5-3zl"/>
-                                    <constraint firstAttribute="height" constant="148" id="ee1-we-hiY"/>
+                                    <constraint firstAttribute="width" constant="256" id="hS0-JX-AKE"/>
+                                    <constraint firstAttribute="height" constant="256" id="pWt-xa-eGa"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3a-eo-Bv4">
-                                <rect key="frame" x="184" y="123" width="46" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WheelHoles" translatesAutoresizingMaskIntoConstraints="NO" id="Dd7-K0-Se6">
+                                <rect key="frame" x="32" y="23" width="256" height="256"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Eti-ai-Woa"/>
-                                    <constraint firstAttribute="width" constant="46" id="cuT-sN-VzY"/>
+                                    <constraint firstAttribute="width" constant="256" id="Hce-f5-3zl"/>
+                                    <constraint firstAttribute="height" constant="256" id="ee1-we-hiY"/>
                                 </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNq-nJ-4Y0">
+                                <rect key="frame" x="137" y="136" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sync"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94731987847222221" green="0.80392156862745101" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="g3a-eo-Bv4" firstAttribute="centerX" secondItem="Dd7-K0-Se6" secondAttribute="centerX" id="D92-kJ-9HD"/>
                             <constraint firstItem="Dd7-K0-Se6" firstAttribute="centerX" secondItem="IIa-uZ-Wqx" secondAttribute="centerX" id="RUX-0W-tyU"/>
-                            <constraint firstItem="Dd7-K0-Se6" firstAttribute="top" secondItem="g3a-eo-Bv4" secondAttribute="bottom" constant="8" id="VID-kS-e7U"/>
-                            <constraint firstItem="Dd7-K0-Se6" firstAttribute="centerY" secondItem="IIa-uZ-Wqx" secondAttribute="centerY" id="wxh-bT-SsP"/>
+                            <constraint firstItem="AMm-uW-84Q" firstAttribute="centerY" secondItem="IIa-uZ-Wqx" secondAttribute="centerY" id="Wxk-bE-ns1"/>
+                            <constraint firstItem="AMm-uW-84Q" firstAttribute="centerX" secondItem="IIa-uZ-Wqx" secondAttribute="centerX" id="ovh-dU-ZKn"/>
+                            <constraint firstItem="Dd7-K0-Se6" firstAttribute="centerY" secondItem="IIa-uZ-Wqx" secondAttribute="centerY" constant="-0.5" id="wxh-bT-SsP"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="syncBtn" destination="g3a-eo-Bv4" id="5pL-Y9-JNx"/>
+                        <outlet property="syncBtn" destination="uNq-nJ-4Y0" id="exQ-F9-QXY"/>
                         <outlet property="syncImageView" destination="Dd7-K0-Se6" id="H7M-hD-eFa"/>
                     </connections>
                 </viewController>
@@ -165,6 +169,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_sync" width="24" height="24"/>
+        <image name="WheelHoles" width="400" height="400"/>
+        <image name="WheelNumbers" width="400" height="400"/>
     </resources>
 </document>
