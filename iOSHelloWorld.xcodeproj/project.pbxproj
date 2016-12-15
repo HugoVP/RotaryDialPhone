@@ -98,11 +98,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0810;
-				ORGANIZATIONNAME = Hugo;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					9A41E97C1D628E1F00D29475 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = Y4G8SN4H8U;
+						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -272,7 +272,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = Y4G8SN4H8U;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = iOSHelloWorld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -287,7 +287,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = Y4G8SN4H8U;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = iOSHelloWorld/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
