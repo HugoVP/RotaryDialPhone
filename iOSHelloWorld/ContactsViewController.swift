@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Contacts
 
 class ContactsViewController: UIViewController {
 
@@ -24,6 +25,25 @@ class ContactsViewController: UIViewController {
     @IBAction func onClick(_ sender: UIButton) {
         print("Click desde contactos")
         print("Test")
+    }
+    
+    func requestForAccess(completionHandler: (accessGranted: Bool) -> Void) {
+        // Get authorization
+        let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
+        
+        switch authorizationStatus {
+        case .authorized:
+        case .denied, .notDetermined:
+        default:
+            <#code#>
+        }
+    }
+    
+    func showMessage(msg: String) {
+        let alertController = UIAlertController(title: "Alert", message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) -> Void in }
+        alertController.addAction(dismissAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     /*
