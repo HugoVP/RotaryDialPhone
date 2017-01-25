@@ -9,12 +9,15 @@
 import UIKit
 import Contacts
 
-class ContactsViewController: UIViewController {
+class ContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var contactsList : [String] = []
+    let cellIdentifier = "cellIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        getContacts()
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,20 +25,63 @@ class ContactsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onClick(_ sender: UIButton) {
-        print("Click desde contactos")
-        print("Test")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let contactItem = contactsList[indexPath.row]
+        cell.textLabel?.text = contactItem
+        return cell
     }
     
-    func requestForAccess(completionHandler: (accessGranted: Bool) -> Void) {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return contactsList.count
+    }
+    
+    func getContacts() {
+        let keys = CNContactFetchRequest(keysToFetch: [CNContactIdentifierKey as CNKeyDescriptor, CNContactPhoneNumbersKey as CNKeyDescriptor, CNContactFormatter.descriptorForRequiredKeys(for: CNContactFormatterStyle.fullName)])
+        let formatter = CNContactFormatter()
+        formatter.style = .fullName
+        
+        let contactsStore = CNContactStore()
+        do {
+            try contactsStore.enumerateContacts(with: keys, usingBlock:
+                {(contact: CNContact, cursor: UnsafeMutablePointer<ObjCBool>) -> Void in
+                    if(!contact.phoneNumbers.isEmpty){
+                        print("---------------------\n")
+                        let name = formatter.string(from: contact)
+                        print(name!)
+                        print("\(contact.phoneNumbers.first!.value.stringValue) \n")
+                        self.contactsList.append(name!)
+                    }
+                })
+        } catch {
+            print("Unable to fetch contacts")
+        }
+    }
+    
+    func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
         // Get authorization
         let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
         
         switch authorizationStatus {
         case .authorized:
+            completionHandler(true)
         case .denied, .notDetermined:
+            CNContactStore().requestAccess(for: CNEntityType.contacts, completionHandler: { (access, error) -> Void in
+                if(access){
+                    completionHandler(access)
+                }else if(authorizationStatus == CNAuthorizationStatus.denied){
+                    DispatchQueue.main.async {
+                        let message = "accessError!.localizedDescription)\n\nPlease allow the app to access your contacts through the Settings."
+                        self.showMessage(msg: message)
+                    }
+                }
+            })
         default:
-            <#code#>
+            completionHandler(false)
         }
     }
     
