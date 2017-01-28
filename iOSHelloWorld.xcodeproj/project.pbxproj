@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2F860A681DF377740077CE57 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsViewController.swift; path = iOSHelloWorld/ContactsViewController.swift; sourceTree = "<group>"; };
+		2F860A681DF377740077CE57 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		9A41E97D1D628E2000D29475 /* iOSHelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSHelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A41E9801D628E2000D29475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A41E9821D628E2000D29475 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +42,6 @@
 		9A41E9741D628E1E00D29475 = {
 			isa = PBXGroup;
 			children = (
-				2F860A681DF377740077CE57 /* ContactsViewController.swift */,
 				9A41E97F1D628E2000D29475 /* iOSHelloWorld */,
 				9A41E97E1D628E2000D29475 /* Products */,
 			);
@@ -59,6 +58,7 @@
 		9A41E97F1D628E2000D29475 /* iOSHelloWorld */ = {
 			isa = PBXGroup;
 			children = (
+				2F860A681DF377740077CE57 /* ContactsViewController.swift */,
 				9A41E9801D628E2000D29475 /* AppDelegate.swift */,
 				9A41E9821D628E2000D29475 /* ViewController.swift */,
 				9A54BA731DF34F900059F86B /* GestureTestVC.swift */,

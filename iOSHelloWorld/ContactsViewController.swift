@@ -11,13 +11,25 @@ import Contacts
 
 class ContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var contactsList : [String] = []
+    struct Contact {
+        init(name:String, number:String) {
+            self.name = name
+            self.number = number
+        }
+        var name:String
+        var number:String
+    }
+    
+    @IBOutlet var mTableView: UITableView!
+
+    var contactsList : [Contact] = []
     let cellIdentifier = "cellIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         getContacts()
+        mTableView.delegate = self
+        mTableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,9 +38,10 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as UITableViewCell
         let contactItem = contactsList[indexPath.row]
-        cell.textLabel?.text = contactItem
+        cell.textLabel?.text = contactItem.name
+        cell.detailTextLabel?.text = contactItem.number
         return cell
     }
     
@@ -41,24 +54,28 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func getContacts() {
-        let keys = CNContactFetchRequest(keysToFetch: [CNContactIdentifierKey as CNKeyDescriptor, CNContactPhoneNumbersKey as CNKeyDescriptor, CNContactFormatter.descriptorForRequiredKeys(for: CNContactFormatterStyle.fullName)])
-        let formatter = CNContactFormatter()
-        formatter.style = .fullName
-        
-        let contactsStore = CNContactStore()
-        do {
-            try contactsStore.enumerateContacts(with: keys, usingBlock:
-                {(contact: CNContact, cursor: UnsafeMutablePointer<ObjCBool>) -> Void in
-                    if(!contact.phoneNumbers.isEmpty){
-                        print("---------------------\n")
-                        let name = formatter.string(from: contact)
-                        print(name!)
-                        print("\(contact.phoneNumbers.first!.value.stringValue) \n")
-                        self.contactsList.append(name!)
-                    }
+        DispatchQueue.global().async {
+            let keys = CNContactFetchRequest(keysToFetch: [CNContactIdentifierKey as CNKeyDescriptor, CNContactPhoneNumbersKey as CNKeyDescriptor, CNContactFormatter.descriptorForRequiredKeys(for: CNContactFormatterStyle.fullName)])
+            let formatter = CNContactFormatter()
+            formatter.style = .fullName
+            
+            let contactsStore = CNContactStore()
+            do {
+                try contactsStore.enumerateContacts(with: keys, usingBlock:
+                    {(contact: CNContact, cursor: UnsafeMutablePointer<ObjCBool>) -> Void in
+                        if(!contact.phoneNumbers.isEmpty) {
+                            let curretnName = formatter.string(from: contact)
+                            let currentNumber = contact.phoneNumbers.first!.value.stringValue
+                            let contact = Contact(name: curretnName!, number: currentNumber)
+                            self.contactsList.append(contact)
+                        }
                 })
-        } catch {
-            print("Unable to fetch contacts")
+            } catch {
+                print("Unable to fetch contacts")
+            }
+            DispatchQueue.main.async {
+                self.mTableView.reloadData()
+            }
         }
     }
     
