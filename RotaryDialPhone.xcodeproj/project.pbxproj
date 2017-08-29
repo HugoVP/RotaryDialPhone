@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2F860A691DF377740077CE57 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F860A681DF377740077CE57 /* ContactsViewController.swift */; };
-		9A41E9811D628E2000D29475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41E9801D628E2000D29475 /* AppDelegate.swift */; };
-		9A41E9831D628E2000D29475 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41E9821D628E2000D29475 /* ViewController.swift */; };
-		9A41E9881D628E2000D29475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A41E9871D628E2000D29475 /* Assets.xcassets */; };
+		9A30E5AF1F560CA600835FC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A30E5AE1F560CA600835FC7 /* Assets.xcassets */; };
+		9A30E5B31F560CB500835FC7 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */; };
+		9A30E5B41F560CB500835FC7 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B11F560CB500835FC7 /* GestureTestVC.swift */; };
+		9A30E5B51F560CB500835FC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B21F560CB500835FC7 /* MainViewController.swift */; };
+		9A30E5B71F560CC200835FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B61F560CC200835FC7 /* AppDelegate.swift */; };
 		9A41E98B1D628E2000D29475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A41E9891D628E2000D29475 /* LaunchScreen.storyboard */; };
-		9A54BA741DF34F900059F86B /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A54BA731DF34F900059F86B /* GestureTestVC.swift */; };
 		9A78AC5E1DF93C7D00247FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A78AC5C1DF93C7D00247FC9 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2F860A681DF377740077CE57 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsViewController.swift; path = iOSHelloWorld/ContactsViewController.swift; sourceTree = "<group>"; };
-		9A41E97D1D628E2000D29475 /* iOSHelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSHelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A41E9801D628E2000D29475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A41E9821D628E2000D29475 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9A41E9871D628E2000D29475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A30E5AC1F560C9C00835FC7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A30E5AE1F560CA600835FC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		9A30E5B11F560CB500835FC7 /* GestureTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
+		9A30E5B21F560CB500835FC7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9A30E5B61F560CC200835FC7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9A41E97D1D628E2000D29475 /* RotaryDialPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RotaryDialPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A41E98A1D628E2000D29475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9A41E98C1D628E2000D29475 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9A54BA731DF34F900059F86B /* GestureTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
 		9A78AC5D1DF93C7D00247FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,11 +39,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A30E5A91F56075800835FC7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */,
+				9A30E5B11F560CB500835FC7 /* GestureTestVC.swift */,
+				9A30E5B21F560CB500835FC7 /* MainViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		9A30E5AA1F5607B600835FC7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9A30E5AE1F560CA600835FC7 /* Assets.xcassets */,
+				9A30E5AC1F560C9C00835FC7 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9A30E5AB1F5607CA00835FC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A41E9891D628E2000D29475 /* LaunchScreen.storyboard */,
+				9A78AC5C1DF93C7D00247FC9 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		9A41E9741D628E1E00D29475 = {
 			isa = PBXGroup;
 			children = (
-				2F860A681DF377740077CE57 /* ContactsViewController.swift */,
-				9A41E97F1D628E2000D29475 /* iOSHelloWorld */,
+				9A41E97F1D628E2000D29475 /* RotaryDialPhone */,
 				9A41E97E1D628E2000D29475 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,31 +78,28 @@
 		9A41E97E1D628E2000D29475 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9A41E97D1D628E2000D29475 /* iOSHelloWorld.app */,
+				9A41E97D1D628E2000D29475 /* RotaryDialPhone.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9A41E97F1D628E2000D29475 /* iOSHelloWorld */ = {
+		9A41E97F1D628E2000D29475 /* RotaryDialPhone */ = {
 			isa = PBXGroup;
 			children = (
-				9A41E9801D628E2000D29475 /* AppDelegate.swift */,
-				9A41E9821D628E2000D29475 /* ViewController.swift */,
-				9A54BA731DF34F900059F86B /* GestureTestVC.swift */,
-				9A78AC5C1DF93C7D00247FC9 /* Main.storyboard */,
-				9A41E9871D628E2000D29475 /* Assets.xcassets */,
-				9A41E9891D628E2000D29475 /* LaunchScreen.storyboard */,
-				9A41E98C1D628E2000D29475 /* Info.plist */,
+				9A30E5B61F560CC200835FC7 /* AppDelegate.swift */,
+				9A30E5AB1F5607CA00835FC7 /* View */,
+				9A30E5A91F56075800835FC7 /* Controller */,
+				9A30E5AA1F5607B600835FC7 /* Resources */,
 			);
-			path = iOSHelloWorld;
+			path = RotaryDialPhone;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9A41E97C1D628E1F00D29475 /* iOSHelloWorld */ = {
+		9A41E97C1D628E1F00D29475 /* RotaryDialPhone */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9A41E98F1D628E2000D29475 /* Build configuration list for PBXNativeTarget "iOSHelloWorld" */;
+			buildConfigurationList = 9A41E98F1D628E2000D29475 /* Build configuration list for PBXNativeTarget "RotaryDialPhone" */;
 			buildPhases = (
 				9A41E9791D628E1F00D29475 /* Sources */,
 				9A41E97A1D628E1F00D29475 /* Frameworks */,
@@ -85,9 +109,9 @@
 			);
 			dependencies = (
 			);
-			name = iOSHelloWorld;
-			productName = iOSHelloWorld;
-			productReference = 9A41E97D1D628E2000D29475 /* iOSHelloWorld.app */;
+			name = RotaryDialPhone;
+			productName = RotaryDialPhone;
+			productReference = 9A41E97D1D628E2000D29475 /* RotaryDialPhone.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,12 +126,12 @@
 				TargetAttributes = {
 					9A41E97C1D628E1F00D29475 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = "";
+						DevelopmentTeam = Y4G8SN4H8U;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 9A41E9781D628E1F00D29475 /* Build configuration list for PBXProject "iOSHelloWorld" */;
+			buildConfigurationList = 9A41E9781D628E1F00D29475 /* Build configuration list for PBXProject "RotaryDialPhone" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -120,7 +144,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9A41E97C1D628E1F00D29475 /* iOSHelloWorld */,
+				9A41E97C1D628E1F00D29475 /* RotaryDialPhone */,
 			);
 		};
 /* End PBXProject section */
@@ -130,9 +154,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A78AC5E1DF93C7D00247FC9 /* Main.storyboard in Resources */,
 				9A41E98B1D628E2000D29475 /* LaunchScreen.storyboard in Resources */,
-				9A41E9881D628E2000D29475 /* Assets.xcassets in Resources */,
+				9A78AC5E1DF93C7D00247FC9 /* Main.storyboard in Resources */,
+				9A30E5AF1F560CA600835FC7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,10 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A41E9831D628E2000D29475 /* ViewController.swift in Sources */,
-				9A41E9811D628E2000D29475 /* AppDelegate.swift in Sources */,
-				9A54BA741DF34F900059F86B /* GestureTestVC.swift in Sources */,
-				2F860A691DF377740077CE57 /* ContactsViewController.swift in Sources */,
+				9A30E5B71F560CC200835FC7 /* AppDelegate.swift in Sources */,
+				9A30E5B31F560CB500835FC7 /* ContactsViewController.swift in Sources */,
+				9A30E5B41F560CB500835FC7 /* GestureTestVC.swift in Sources */,
+				9A30E5B51F560CB500835FC7 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +237,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -258,7 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -272,13 +296,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = iOSHelloWorld/Info.plist;
+				DEVELOPMENT_TEAM = Y4G8SN4H8U;
+				INFOPLIST_FILE = "$(SRCROOT)/RotaryDialPhone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tech.paleo.iOSHelloWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.paleo.RotaryDialPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -287,20 +312,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = iOSHelloWorld/Info.plist;
+				DEVELOPMENT_TEAM = Y4G8SN4H8U;
+				INFOPLIST_FILE = "$(SRCROOT)/RotaryDialPhone/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tech.paleo.iOSHelloWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.paleo.RotaryDialPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9A41E9781D628E1F00D29475 /* Build configuration list for PBXProject "iOSHelloWorld" */ = {
+		9A41E9781D628E1F00D29475 /* Build configuration list for PBXProject "RotaryDialPhone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9A41E98D1D628E2000D29475 /* Debug */,
@@ -309,7 +335,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9A41E98F1D628E2000D29475 /* Build configuration list for PBXNativeTarget "iOSHelloWorld" */ = {
+		9A41E98F1D628E2000D29475 /* Build configuration list for PBXNativeTarget "RotaryDialPhone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9A41E9901D628E2000D29475 /* Debug */,
