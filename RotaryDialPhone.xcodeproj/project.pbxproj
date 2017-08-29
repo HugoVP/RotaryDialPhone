@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1CA97A1F561DB30008FE6F /* RotaryDialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CA9791F561DB30008FE6F /* RotaryDialViewController.swift */; };
 		9A30E5AF1F560CA600835FC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A30E5AE1F560CA600835FC7 /* Assets.xcassets */; };
 		9A30E5B31F560CB500835FC7 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */; };
-		9A30E5B41F560CB500835FC7 /* GestureTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B11F560CB500835FC7 /* GestureTestVC.swift */; };
 		9A30E5B51F560CB500835FC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B21F560CB500835FC7 /* MainViewController.swift */; };
 		9A30E5B71F560CC200835FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B61F560CC200835FC7 /* AppDelegate.swift */; };
 		9A41E98B1D628E2000D29475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A41E9891D628E2000D29475 /* LaunchScreen.storyboard */; };
@@ -17,10 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A1CA9791F561DB30008FE6F /* RotaryDialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialViewController.swift; sourceTree = "<group>"; };
 		9A30E5AC1F560C9C00835FC7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A30E5AE1F560CA600835FC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
-		9A30E5B11F560CB500835FC7 /* GestureTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureTestVC.swift; sourceTree = "<group>"; };
 		9A30E5B21F560CB500835FC7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9A30E5B61F560CC200835FC7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A41E97D1D628E2000D29475 /* RotaryDialPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RotaryDialPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,9 +42,9 @@
 		9A30E5A91F56075800835FC7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */,
-				9A30E5B11F560CB500835FC7 /* GestureTestVC.swift */,
 				9A30E5B21F560CB500835FC7 /* MainViewController.swift */,
+				9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */,
+				9A1CA9791F561DB30008FE6F /* RotaryDialViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -169,8 +169,8 @@
 			files = (
 				9A30E5B71F560CC200835FC7 /* AppDelegate.swift in Sources */,
 				9A30E5B31F560CB500835FC7 /* ContactsViewController.swift in Sources */,
-				9A30E5B41F560CB500835FC7 /* GestureTestVC.swift in Sources */,
 				9A30E5B51F560CB500835FC7 /* MainViewController.swift in Sources */,
+				9A1CA97A1F561DB30008FE6F /* RotaryDialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
