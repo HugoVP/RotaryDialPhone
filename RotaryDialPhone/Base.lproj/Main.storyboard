@@ -122,19 +122,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQM-B8-CmP" customClass="CircleView" customModule="RotaryDialPhone" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8U-1g-VIK" customClass="DiskView" customModule="RotaryDialPhone" customModuleProvider="target">
                                 <rect key="frame" x="16" y="16" width="288" height="288"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94731987847222221" green="0.80392156862745101" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="lQM-B8-CmP" secondAttribute="bottom" constant="16" id="KFD-W7-QGQ"/>
-                            <constraint firstAttribute="trailing" secondItem="lQM-B8-CmP" secondAttribute="trailing" constant="16" id="OTg-kg-I8Q"/>
-                            <constraint firstItem="lQM-B8-CmP" firstAttribute="leading" secondItem="IIa-uZ-Wqx" secondAttribute="leading" constant="16" id="QRJ-UH-CcF"/>
-                            <constraint firstItem="lQM-B8-CmP" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="16" id="gpO-DT-NlK"/>
+                            <constraint firstItem="j8U-1g-VIK" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="16" id="Vlm-63-aX2"/>
+                            <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="j8U-1g-VIK" secondAttribute="bottom" constant="16" id="bXq-m6-Lwb"/>
+                            <constraint firstItem="j8U-1g-VIK" firstAttribute="leading" secondItem="IIa-uZ-Wqx" secondAttribute="leading" constant="16" id="dl4-dV-SeS"/>
+                            <constraint firstAttribute="trailing" secondItem="j8U-1g-VIK" secondAttribute="trailing" constant="16" id="fsI-8U-P34"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="diskView" destination="j8U-1g-VIK" id="No6-qN-7V8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke2-9F-eUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

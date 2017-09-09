@@ -8,18 +8,18 @@
 
 import UIKit
 
-class CircleView: UIView {
+class DiskView: UIView {
+    private var _model: RotaryDial!
+    
     let bz: CGFloat = 0.55228
     var path: UIBezierPath!
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .darkGray
-        circleLayer()
+    var model: RotaryDial {
+        return _model
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    func setModel(_ model: RotaryDial) {
+        _model = model
         backgroundColor = .darkGray
         circleLayer()
     }
@@ -40,7 +40,7 @@ class CircleView: UIView {
                 x: bounds.midX,
                 y: bounds.midY
             ),
-            radius: 15.0
+            radius: model.holesSize
         )
         
         let shapeLayer = CAShapeLayer()
