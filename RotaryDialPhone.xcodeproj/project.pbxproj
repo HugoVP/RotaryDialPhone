@@ -7,20 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A1CA97C1F562E7D0008FE6F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CA97B1F562E7D0008FE6F /* CustomView.swift */; };
 		9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */; };
 		9A30E5AF1F560CA600835FC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A30E5AE1F560CA600835FC7 /* Assets.xcassets */; };
 		9A30E5B31F560CB500835FC7 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */; };
 		9A30E5B51F560CB500835FC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B21F560CB500835FC7 /* MainViewController.swift */; };
 		9A30E5B71F560CC200835FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B61F560CC200835FC7 /* AppDelegate.swift */; };
 		9A41E98B1D628E2000D29475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A41E9891D628E2000D29475 /* LaunchScreen.storyboard */; };
-		9A41E9D81F61133B006F844F /* RotaryDialDiskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41E9D71F61133B006F844F /* RotaryDialDiskView.swift */; };
 		9A4794291F6272850080EABC /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4794281F6272850080EABC /* CircleView.swift */; };
 		9A78AC5E1DF93C7D00247FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A78AC5C1DF93C7D00247FC9 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9A1CA97B1F562E7D0008FE6F /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialViewController.swift; sourceTree = "<group>"; };
 		9A30E5AC1F560C9C00835FC7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A30E5AE1F560CA600835FC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -29,7 +26,6 @@
 		9A30E5B61F560CC200835FC7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A41E97D1D628E2000D29475 /* RotaryDialPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RotaryDialPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A41E98A1D628E2000D29475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9A41E9D71F61133B006F844F /* RotaryDialDiskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialDiskView.swift; sourceTree = "<group>"; };
 		9A4794281F6272850080EABC /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		9A78AC5D1DF93C7D00247FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,8 +65,6 @@
 			children = (
 				9A41E9891D628E2000D29475 /* LaunchScreen.storyboard */,
 				9A78AC5C1DF93C7D00247FC9 /* Main.storyboard */,
-				9A1CA97B1F562E7D0008FE6F /* CustomView.swift */,
-				9A41E9D71F61133B006F844F /* RotaryDialDiskView.swift */,
 				9A4794281F6272850080EABC /* CircleView.swift */,
 			);
 			name = View;
@@ -184,8 +178,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A41E9D81F61133B006F844F /* RotaryDialDiskView.swift in Sources */,
-				9A1CA97C1F562E7D0008FE6F /* CustomView.swift in Sources */,
 				9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */,
 				9A30E5B71F560CC200835FC7 /* AppDelegate.swift in Sources */,
 				9A30E5B31F560CB500835FC7 /* ContactsViewController.swift in Sources */,
