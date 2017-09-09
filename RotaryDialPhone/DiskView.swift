@@ -18,6 +18,14 @@ class DiskView: UIView {
         return _model
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     func setModel(_ model: RotaryDial) {
         _model = model
         backgroundColor = .darkGray
@@ -35,20 +43,29 @@ class DiskView: UIView {
             radius: bounds.width > bounds.height ? bounds.midY : bounds.midX
         )
         
-        drawCircle(
-            center: CGPoint(
-                x: bounds.midX,
-                y: bounds.midY
-            ),
-            radius: model.holesSize
-        )
+        model.holes.forEach { (hole) in
+            let shape = UIView(
+                frame: CGRect(
+                    x: hole.x - model.holesSize / 2.0,
+                    y: hole.y - model.holesSize / 2.0,
+                    width: model.holesSize,
+                    height: model.holesSize
+                )
+            )
+            
+            shape.layer.cornerRadius = shape.bounds.midX
+            shape.clipsToBounds = true
+            shape.layer.borderColor = UIColor.red.cgColor
+            shape.layer.borderWidth = 1.0
+            addSubview(shape)
+        }
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = UIColor.lightGray.cgColor
         shapeLayer.fillRule = kCAFillRuleEvenOdd
         shapeLayer.path = path.cgPath
         layer.mask = shapeLayer
-        // layer.addSublayer(shapeLayer)
+//         layer.addSublayer(shapeLayer)
     }
     
     func setPath() {
