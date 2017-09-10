@@ -11,8 +11,9 @@ import UIKit
 
 struct RotaryDial {
     private let holesCount = 10
-    private var _diskCenter: CGPoint!
-    private var _holesSize: CGFloat!
+    
+    private var _center: CGPoint!
+    private var _holeRadius: CGFloat!
     private var _distanceFromHolesToCenter: CGFloat!
     private var _holesSeparationAngle: CGFloat!
     private var _firstHoleAngle: CGFloat!
@@ -20,12 +21,12 @@ struct RotaryDial {
     private var _lockAngle: CGFloat!
     private var _holes = [CGPoint]()
     
-    var diskCenter: CGPoint {
-        return _diskCenter
+    var center: CGPoint {
+        return _center
     }
     
-    var holesSize: CGFloat {
-        return _holesSize
+    var holeRadius: CGFloat {
+        return _holeRadius
     }
 
     var distanceFromHolesToCenter: CGFloat {
@@ -45,14 +46,14 @@ struct RotaryDial {
     }
     
     init(
-        diskCenter: CGPoint,
-        holesSize: CGFloat,
+        center: CGPoint,
+        holeRadius: CGFloat,
         distanceFromHolesToCenter: CGFloat,
         firstHoleAngle: CGFloat,
         holesSeparationAngle: CGFloat
     ) {
-        _diskCenter = diskCenter
-        _holesSize = holesSize
+        _center = center
+        _holeRadius = holeRadius
         _distanceFromHolesToCenter = distanceFromHolesToCenter
         _firstHoleAngle = firstHoleAngle
         _holesSeparationAngle = holesSeparationAngle
@@ -67,8 +68,8 @@ struct RotaryDial {
             let holeAngle = firstHoleAngle + holesSeparationAngle * CGFloat(index)
             
             let hole = CGPoint(
-                x: distanceFromHolesToCenter * cos(holeAngle) + diskCenter.x,
-                y: distanceFromHolesToCenter * sin(holeAngle) + diskCenter.y
+                x: distanceFromHolesToCenter * cos(holeAngle) + center.x,
+                y: distanceFromHolesToCenter * sin(holeAngle) + center.y
             )
             
             _holes.append(hole)

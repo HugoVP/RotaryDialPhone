@@ -19,11 +19,12 @@ class RotaryDialViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let screenSize = UIScreen.main.bounds.width
+        /* Model params */
         let holeRadius: CGFloat!
         let distanceToCenter: CGFloat!
         
-        switch screenSize {
+        /* Set params based on screen size */
+        switch UIScreen.main.bounds.width {
         case 320:
             holeRadius = 45.0
             distanceToCenter = 112.5
@@ -36,11 +37,11 @@ class RotaryDialViewController: UIViewController {
         }
         
         model = RotaryDial(
-            diskCenter: CGPoint(
+            center: CGPoint(
                 x: diskView.bounds.midX,
                 y: diskView.bounds.midY
             ),
-            holesSize: holeRadius,
+            holeRadius: holeRadius / 2,
             distanceFromHolesToCenter: distanceToCenter,
             firstHoleAngle: 2.5 * CGFloat.pi / 7.0,
             holesSeparationAngle: CGFloat.pi / 7.0
