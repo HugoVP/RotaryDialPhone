@@ -10,13 +10,31 @@ import UIKit
 
 class DiskView: UIView {
     private var _model: RotaryDial!
-    private var holes = [CGPoint]()
+    private var _holes = [CGPoint]()
+    private var _holeRadius: CGFloat!
+    private var _distanceFromHolesToCenter: CGFloat!
+    
+    private var innerRadius: CGFloat {
+        return 2.0 * distanceFromHolesToCenter - bounds.midX
+    }
     
     let bz: CGFloat = 0.55228
     var path: UIBezierPath!
     
     var model: RotaryDial {
         return _model
+    }
+    
+    var holes: [CGPoint] {
+        return _holes
+    }
+    
+    var holeRadius: CGFloat {
+        return _holeRadius
+    }
+    
+    var distanceFromHolesToCenter: CGFloat {
+        return _distanceFromHolesToCenter
     }
     
     override init(frame: CGRect) {
@@ -35,14 +53,19 @@ class DiskView: UIView {
     
     func configure(
         holes: [CGPoint],
-        holeRadius: CGFloat
+        holeRadius: CGFloat,
+        distanceFromHolesToCenter: CGFloat
     ) {
-        
+        _holes = holes
+        _holeRadius = holeRadius
+        _distanceFromHolesToCenter = distanceFromHolesToCenter
+        circleLayer()
     }
     
     func circleLayer() {
         setPath()
         
+        /* Outter circle */
         drawCircle(
             center: CGPoint(
                 x: bounds.midX,
@@ -51,16 +74,27 @@ class DiskView: UIView {
             radius: bounds.width > bounds.height ? bounds.midY : bounds.midX
         )
         
-        model.holes.forEach { (hole) in
-            drawCircle(center: hole, radius: model.holeRadius)
+        /* Inner circle */
+        drawCircle(
+            center: CGPoint(
+                x: bounds.midX,
+                y: bounds.midY
+            ),
+            radius: innerRadius
+        )
+        
+        /* Holes */
+        holes.forEach { (hole) in
+            drawCircle(center: hole, radius: holeRadius)
         }
         
         let shapeLayer = CAShapeLayer()
-        shapeLayer.fillColor = UIColor.lightGray.cgColor
+        shapeLayer.fillColor = UIColor.darkGray.cgColor
         shapeLayer.fillRule = kCAFillRuleEvenOdd
         shapeLayer.path = path.cgPath
         layer.mask = shapeLayer
 //         layer.addSublayer(shapeLayer)
+        backgroundColor = .darkGray
     }
     
     func setPath() {
