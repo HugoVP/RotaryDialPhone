@@ -8,8 +8,7 @@
 
 import UIKit
 
-class DiskView: UIView {
-    private var _model: RotaryDial!
+class DiskView: UIView, CircleView {
     private var _holes = [CGPoint]()
     private var _holeRadius: CGFloat!
     private var _distanceFromHolesToCenter: CGFloat!
@@ -18,12 +17,7 @@ class DiskView: UIView {
         return 2.0 * distanceFromHolesToCenter - bounds.midX
     }
     
-    let bz: CGFloat = 0.55228
     var path: UIBezierPath!
-    
-    var model: RotaryDial {
-        return _model
-    }
     
     var holes: [CGPoint] {
         return _holes
@@ -45,12 +39,6 @@ class DiskView: UIView {
         super.init(coder: aDecoder)
     }
     
-    func setModel(_ model: RotaryDial) {
-        _model = model
-        backgroundColor = .darkGray
-        circleLayer()
-    }
-    
     func configure(
         holes: [CGPoint],
         holeRadius: CGFloat,
@@ -63,7 +51,8 @@ class DiskView: UIView {
     }
     
     func circleLayer() {
-        setPath()
+        /* Set path */
+        path = UIBezierPath()
         
         /* Outter circle */
         drawCircle(
@@ -94,40 +83,5 @@ class DiskView: UIView {
         shapeLayer.path = path.cgPath
         layer.mask = shapeLayer
 //         layer.addSublayer(shapeLayer)
-        backgroundColor = .darkGray
-    }
-    
-    func setPath() {
-        path = UIBezierPath()
-    }
-    
-    func drawCircle(center: CGPoint, radius: CGFloat) {
-        let bzCtrlPt = bz * radius
-        
-        path.move(to: CGPoint(x: center.x + radius, y: center.y))
-        
-        path.addCurve(
-            to: CGPoint(x: center.x, y: center.y - radius),
-            controlPoint1: CGPoint(x: center.x + radius, y: center.y - bzCtrlPt),
-            controlPoint2: CGPoint(x: center.x + bzCtrlPt, y: center.y - radius)
-        )
-        
-        path.addCurve(
-            to: CGPoint(x: center.x - radius, y: center.y),
-            controlPoint1: CGPoint(x: center.x - bzCtrlPt, y: center.y - radius),
-            controlPoint2: CGPoint(x: center.x - radius, y: center.y - bzCtrlPt)
-        )
-        
-        path.addCurve(
-            to: CGPoint(x: center.x, y: center.y + radius),
-            controlPoint1: CGPoint(x: center.x - radius, y: center.y + bzCtrlPt),
-            controlPoint2: CGPoint(x: center.x - bzCtrlPt, y: center.y + radius)
-        )
-        
-        path.addCurve(
-            to: CGPoint(x: center.x + radius, y: center.y),
-            controlPoint1: CGPoint(x: center.x + bzCtrlPt, y: center.y + radius),
-            controlPoint2: CGPoint(x: center.x + radius, y: center.y + bzCtrlPt)
-        )
     }
 }

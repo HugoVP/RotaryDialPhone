@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1A03181F651D22002D9272 /* NumpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A03171F651D22002D9272 /* NumpadView.swift */; };
 		9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */; };
+		9A2651281F66557F002CB5CE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2651271F66557F002CB5CE /* CircleView.swift */; };
 		9A30E5AF1F560CA600835FC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A30E5AE1F560CA600835FC7 /* Assets.xcassets */; };
 		9A30E5B31F560CB500835FC7 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */; };
 		9A30E5B51F560CB500835FC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B21F560CB500835FC7 /* MainViewController.swift */; };
@@ -19,7 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A1A03171F651D22002D9272 /* NumpadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumpadView.swift; sourceTree = "<group>"; };
 		9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialViewController.swift; sourceTree = "<group>"; };
+		9A2651271F66557F002CB5CE /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		9A30E5AC1F560C9C00835FC7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A30E5AE1F560CA600835FC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A2651261F665502002CB5CE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9A2651271F66557F002CB5CE /* CircleView.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		9A30E5A91F56075800835FC7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +77,7 @@
 		9A30E5AB1F5607CA00835FC7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9A1A03171F651D22002D9272 /* NumpadView.swift */,
 				9A50E6441F637D69002085D9 /* DiskView.swift */,
 				9A41E9891D628E2000D29475 /* LaunchScreen.storyboard */,
 				9A78AC5C1DF93C7D00247FC9 /* Main.storyboard */,
@@ -94,6 +107,7 @@
 				9A50E6471F638193002085D9 /* Model */,
 				9A30E5AB1F5607CA00835FC7 /* View */,
 				9A30E5A91F56075800835FC7 /* Controller */,
+				9A2651261F665502002CB5CE /* Protocols */,
 				9A30E5AA1F5607B600835FC7 /* Resources */,
 				9A4794271F61AD610080EABC /* Support */,
 			);
@@ -189,6 +203,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A2651281F66557F002CB5CE /* CircleView.swift in Sources */,
+				9A1A03181F651D22002D9272 /* NumpadView.swift in Sources */,
 				9A50E6451F637D69002085D9 /* DiskView.swift in Sources */,
 				9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */,
 				9A30E5B71F560CC200835FC7 /* AppDelegate.swift in Sources */,
