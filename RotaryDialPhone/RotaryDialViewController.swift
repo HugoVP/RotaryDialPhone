@@ -56,10 +56,10 @@ class RotaryDialViewController: UIViewController {
         
         /* Set circular shape to numpadView */
         numpadView.configure(
-            diskRadius: diskView.bounds.midX,
             diskCenter: model.center,
             holes: model.holes,
             holeRadius: model.holeRadius,
+            numbers: model.numbers,
             numberFontSize: numberFontSize
         )
         

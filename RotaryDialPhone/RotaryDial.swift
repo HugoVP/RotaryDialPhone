@@ -20,6 +20,7 @@ struct RotaryDial {
     private var _initHoleAngle: CGFloat!
     private var _lockAngle: CGFloat!
     private var _holes = [CGPoint]()
+    private var _numbers = [Int]()
     
     var center: CGPoint {
         return _center
@@ -43,6 +44,10 @@ struct RotaryDial {
     
     var holes: [CGPoint] {
         return _holes
+    }
+    
+    var numbers: [Int] {
+        return _numbers
     }
     
     init(
@@ -73,6 +78,18 @@ struct RotaryDial {
             )
             
             _holes.append(hole)
+            _numbers.append(getNumber(for: index))
+            print(index)
         }
+        
+        print(numbers)
+    }
+    
+    private func getNumber(for index: Int) -> Int {
+        if index > 0 {
+            return holesCount - index
+        }
+        
+        return 0
     }
 }

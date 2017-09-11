@@ -12,10 +12,11 @@ class NumpadView: UIView, CirclePath {
     var path: UIBezierPath!
     
     private var diskCenter: CGPoint!
-    private var diskRadius: CGFloat!
     private var holes: [CGPoint]!
     private var holeRadius: CGFloat!
+    private var numbers: [Int]!
     private var numberFontSize: CGFloat!
+    
     
     private var holeDiameter: CGFloat {
         return 2.0 * holeRadius
@@ -30,16 +31,16 @@ class NumpadView: UIView, CirclePath {
     }
     
     func configure(
-        diskRadius: CGFloat,
         diskCenter: CGPoint,
         holes: [CGPoint],
         holeRadius: CGFloat,
+        numbers: [Int],
         numberFontSize: CGFloat
         ) {
-        self.diskRadius = diskRadius
         self.diskCenter = diskCenter
         self.holes = holes
         self.holeRadius = holeRadius
+        self.numbers = numbers
         self.numberFontSize = numberFontSize
         numpadLayer()
     }
@@ -74,23 +75,8 @@ class NumpadView: UIView, CirclePath {
         
         /* Numbers */
         holes.enumerated().forEach { (index, hole) in
-//            path = UIBezierPath()
-//            
-//            drawCircle(
-//                center: CGPoint(
-//                    x: hole.x + bounds.midX - diskRadius,
-//                    y: hole.y + bounds.midY - diskRadius
-//                ),
-//                radius: holeRadius
-//            )
-//
-//            let shapeLayer = CAShapeLayer()
-//            shapeLayer.path = path.cgPath
-//            shapeLayer.fillColor = UIColor.white.cgColor
-//            layer.addSublayer(shapeLayer)
-            
             let textLayer = CATextLayer()
-            textLayer.string = "\(index)"
+            textLayer.string = "\(numbers[index])"
             textLayer.backgroundColor = UIColor.white.cgColor
             textLayer.foregroundColor = UIColor.darkGray.cgColor
             textLayer.font = UIFont(name: "Avenir Next", size: numberFontSize)
