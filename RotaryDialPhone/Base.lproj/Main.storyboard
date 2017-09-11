@@ -144,6 +144,7 @@
                     </view>
                     <connections>
                         <outlet property="diskView" destination="j8U-1g-VIK" id="No6-qN-7V8"/>
+                        <outlet property="numpadView" destination="rcn-jR-Dgc" id="U5E-a6-wsP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke2-9F-eUS" userLabel="First Responder" sceneMemberID="firstResponder"/>

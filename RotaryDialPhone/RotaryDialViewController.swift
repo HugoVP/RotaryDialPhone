@@ -9,7 +9,9 @@
 import UIKit
 
 class RotaryDialViewController: UIViewController {
+    @IBOutlet weak var numpadView: NumpadView!
     @IBOutlet weak var diskView: DiskView!
+    
     var model: RotaryDial!
     
     override func viewDidLoad() {
@@ -18,6 +20,8 @@ class RotaryDialViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        let numberFontSize: CGFloat!
     
         /* Model params */
         let holeRadius: CGFloat!
@@ -28,12 +32,15 @@ class RotaryDialViewController: UIViewController {
         case 320:
             holeRadius = 45.0 / 2.0
             distanceToCenter = 112.5
+            numberFontSize = 36.0
         case 375:
             holeRadius = 52.734375 / 2.0
             distanceToCenter = 131.8359375
+            numberFontSize = 42.0
         default: /* 414 */
             holeRadius = 58.21875 / 2.0
             distanceToCenter = 145.546875
+            numberFontSize = 46.0
         }
         
         model = RotaryDial(
@@ -47,8 +54,16 @@ class RotaryDialViewController: UIViewController {
             holesSeparationAngle: CGFloat.pi / 7.0
         )
         
-        // diskView.setModel(model)
+        /* Set circular shape to numpadView */
+        numpadView.configure(
+            diskRadius: diskView.bounds.midX,
+            diskCenter: model.center,
+            holes: model.holes,
+            holeRadius: model.holeRadius,
+            numberFontSize: numberFontSize
+        )
         
+        /* Set diskView */
         diskView.configure(
             holes: model.holes,
             holeRadius: model.holeRadius,

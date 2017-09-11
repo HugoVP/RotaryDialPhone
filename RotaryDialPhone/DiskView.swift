@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiskView: UIView, CircleView {
+class DiskView: UIView, CirclePath {
     private var _holes = [CGPoint]()
     private var _holeRadius: CGFloat!
     private var _distanceFromHolesToCenter: CGFloat!
@@ -78,10 +78,18 @@ class DiskView: UIView, CircleView {
         }
         
         let shapeLayer = CAShapeLayer()
-        shapeLayer.fillColor = UIColor.darkGray.cgColor
+        
+        if let backgroundColor = backgroundColor?.cgColor {
+            shapeLayer.fillColor = backgroundColor
+        } else {
+            shapeLayer.fillColor = UIColor.darkGray.cgColor
+        }
+        
+        backgroundColor = .clear
         shapeLayer.fillRule = kCAFillRuleEvenOdd
+        shapeLayer.strokeColor = UIColor.darkGray.cgColor
+        shapeLayer.lineWidth = 1.0
         shapeLayer.path = path.cgPath
-        layer.mask = shapeLayer
-//         layer.addSublayer(shapeLayer)
+        layer.addSublayer(shapeLayer)
     }
 }

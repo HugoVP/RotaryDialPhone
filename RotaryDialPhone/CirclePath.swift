@@ -7,11 +7,11 @@
 //
 import UIKit
 
-protocol CircleView {
+protocol CirclePath {
     var path: UIBezierPath! { get set }
 }
 
-extension CircleView where Self: UIView {
+extension CirclePath where Self: UIView {
     var bz: CGFloat {
         return 0.55228
     }
