@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RotaryDialViewController: UIViewController {
+class RotaryDialViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var numpadView: NumpadView!
     @IBOutlet weak var diskView: DiskView!
     
@@ -69,5 +69,24 @@ class RotaryDialViewController: UIViewController {
             holeRadius: model.holeRadius,
             distanceFromHolesToCenter: model.distanceFromHolesToCenter
         )
+    }
+    
+    @IBAction func rotateAction(_ sender: DiskGestureRecognizer) {
+        switch sender.state {
+        case .began:
+            print("BEGAN")
+         
+        case .cancelled:
+            print("CANCELLED")
+            
+        case .changed:
+            print("CHANGED")
+        
+        case .ended:
+            print("ENDED")
+            
+        default:
+            print("OTHER")
+        }
     }
 }

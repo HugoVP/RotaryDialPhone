@@ -79,10 +79,7 @@ struct RotaryDial {
             
             _holes.append(hole)
             _numbers.append(getNumber(for: index))
-            print(index)
         }
-        
-        print(numbers)
     }
     
     private func getNumber(for index: Int) -> Int {

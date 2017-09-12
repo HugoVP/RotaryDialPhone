@@ -12,7 +12,7 @@
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Menu View Controller" customClass="ViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Menu View Controller" customClass="MainViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -128,6 +128,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j8U-1g-VIK" customClass="DiskView" customModule="RotaryDialPhone" customModuleProvider="target">
                                 <rect key="frame" x="16" y="16" width="343" height="343"/>
                                 <color key="backgroundColor" red="0.83590728044509888" green="0.75107139348983765" blue="0.51069319248199463" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="3zb-aX-YiU" appends="YES" id="XOL-qg-x6Q"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94731987847222221" green="0.80392156862745101" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -148,6 +152,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke2-9F-eUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <gestureRecognizer id="3zb-aX-YiU" customClass="DiskGestureRecognizer" customModule="RotaryDialPhone" customModuleProvider="target">
+                    <connections>
+                        <action selector="rotateAction:" destination="InE-Tm-L8O" id="vex-Qj-k8x"/>
+                    </connections>
+                </gestureRecognizer>
             </objects>
             <point key="canvasLocation" x="772" y="37"/>
         </scene>
