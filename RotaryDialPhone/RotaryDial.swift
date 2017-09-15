@@ -42,6 +42,10 @@ struct RotaryDial {
         return _firstHoleAngle
     }
     
+    var initHolesAngle: CGFloat {
+        return _initHoleAngle
+    }
+    
     var holes: [CGPoint] {
         return _holes
     }

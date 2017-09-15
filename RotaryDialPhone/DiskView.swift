@@ -12,6 +12,7 @@ class DiskView: UIView, CirclePath {
     private var _holes = [CGPoint]()
     private var _holeRadius: CGFloat!
     private var _distanceFromHolesToCenter: CGFloat!
+    private var _initHoleAngle: CGFloat!
     
     private var innerRadius: CGFloat {
         return 2.0 * distanceFromHolesToCenter - bounds.midX
@@ -31,6 +32,10 @@ class DiskView: UIView, CirclePath {
         return _distanceFromHolesToCenter
     }
     
+    var initHoleAngle: CGFloat {
+        return _initHoleAngle
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -42,11 +47,14 @@ class DiskView: UIView, CirclePath {
     func configure(
         holes: [CGPoint],
         holeRadius: CGFloat,
-        distanceFromHolesToCenter: CGFloat
+        distanceFromHolesToCenter: CGFloat,
+        initHoleAngle: CGFloat
     ) {
         _holes = holes
         _holeRadius = holeRadius
         _distanceFromHolesToCenter = distanceFromHolesToCenter
+        _initHoleAngle = initHoleAngle
+        
         circleLayer()
     }
     

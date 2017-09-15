@@ -67,26 +67,44 @@ class RotaryDialViewController: UIViewController, UIGestureRecognizerDelegate {
         diskView.configure(
             holes: model.holes,
             holeRadius: model.holeRadius,
-            distanceFromHolesToCenter: model.distanceFromHolesToCenter
+            distanceFromHolesToCenter: model.distanceFromHolesToCenter,
+            initHoleAngle: model.initHolesAngle
         )
     }
     
     @IBAction func rotateAction(_ sender: DiskGestureRecognizer) {
         switch sender.state {
-        case .began:
-            print("BEGAN")
-         
         case .cancelled:
-            print("CANCELLED")
+            UIView.animate(
+                withDuration: 0.1,
+                animations: {
+                    self.diskView.transform = CGAffineTransform(rotationAngle: 0.0)
+            },
+                completion: nil
+            )
             
         case .changed:
-            print("CHANGED")
+            if let rotationAngle = sender.rotationAngle {
+                diskView.transform = CGAffineTransform(rotationAngle: rotationAngle)
+            }
         
         case .ended:
-            print("ENDED")
+            UIView.animate(
+                withDuration: 0.1,
+                animations: {
+                    self.diskView.transform = CGAffineTransform(rotationAngle: 0.0)
+                },
+                completion: nil
+            )
             
         default:
-            print("OTHER")
+            break
         }
+    }
+}
+
+extension CGFloat {
+    func toDegrees() -> CGFloat {
+        return self * 180.0 / CGFloat.pi
     }
 }
