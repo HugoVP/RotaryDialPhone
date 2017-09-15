@@ -9,52 +9,20 @@
 import UIKit
 
 class DiskView: UIView, CirclePath {
-    private var _holes = [CGPoint]()
-    private var _holeRadius: CGFloat!
-    private var _distanceFromHolesToCenter: CGFloat!
-    private var _initHoleAngle: CGFloat!
+    private var _model: RotaryDial!
     
     private var innerRadius: CGFloat {
-        return 2.0 * distanceFromHolesToCenter - bounds.midX
+        return 2.0 * model.distanceFromHolesToCenter - bounds.midX
     }
     
     var path: UIBezierPath!
     
-    var holes: [CGPoint] {
-        return _holes
+    var model: RotaryDial {
+        return _model
     }
     
-    var holeRadius: CGFloat {
-        return _holeRadius
-    }
-    
-    var distanceFromHolesToCenter: CGFloat {
-        return _distanceFromHolesToCenter
-    }
-    
-    var initHoleAngle: CGFloat {
-        return _initHoleAngle
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    func configure(
-        holes: [CGPoint],
-        holeRadius: CGFloat,
-        distanceFromHolesToCenter: CGFloat,
-        initHoleAngle: CGFloat
-    ) {
-        _holes = holes
-        _holeRadius = holeRadius
-        _distanceFromHolesToCenter = distanceFromHolesToCenter
-        _initHoleAngle = initHoleAngle
-        
+    func setModel(_ model: RotaryDial) {
+        _model = model
         circleLayer()
     }
     
@@ -62,7 +30,7 @@ class DiskView: UIView, CirclePath {
         /* Set path */
         path = UIBezierPath()
         
-        /* Outter circle */
+        /* Outter circle path */
         drawCircle(
             center: CGPoint(
                 x: bounds.midX,
@@ -71,7 +39,7 @@ class DiskView: UIView, CirclePath {
             radius: bounds.width > bounds.height ? bounds.midY : bounds.midX
         )
         
-        /* Inner circle */
+        /* Inner circle path */
         drawCircle(
             center: CGPoint(
                 x: bounds.midX,
@@ -80,13 +48,16 @@ class DiskView: UIView, CirclePath {
             radius: innerRadius
         )
         
-        /* Holes */
-        holes.forEach { (hole) in
-            drawCircle(center: hole, radius: holeRadius)
+        /* Holes paths */
+        model.holes.forEach { (hole) in
+            drawCircle(center: hole, radius: model.holeRadius)
         }
+        
+        /* Drawing the disk holes */
         
         let shapeLayer = CAShapeLayer()
         
+        /* Get the background color to set the fill color */
         if let backgroundColor = backgroundColor?.cgColor {
             shapeLayer.fillColor = backgroundColor
         } else {

@@ -125,7 +125,7 @@ class DiskGestureRecognizer: UIGestureRecognizer {
         
         // return angle
         
-        let transformedAngle = (angle - diskView.initHoleAngle + CGFLOAT_2_PI).truncatingRemainder(dividingBy: CGFLOAT_2_PI)
+        let transformedAngle = (angle - diskView.model.initHolesAngle + CGFLOAT_2_PI).truncatingRemainder(dividingBy: CGFLOAT_2_PI)
         
         return transformedAngle
     }
@@ -135,15 +135,15 @@ class DiskGestureRecognizer: UIGestureRecognizer {
             return nil
         }
         
-        for index in 0 ..< diskView.holes.count {
-            let hole = diskView.holes[index]
+        for index in 0 ..< diskView.model.holes.count {
+            let hole = diskView.model.holes[index]
             
             let distanceToHole = sqrt(
                 pow(abs(touchedLocation.x - hole.x), 2) +
                 pow(abs(touchedLocation.y - hole.y), 2)
             )
             
-            if distanceToHole <= diskView.holeRadius {
+            if distanceToHole <= diskView.model.holeRadius {
                 return index
             }
         }
@@ -157,8 +157,8 @@ class DiskGestureRecognizer: UIGestureRecognizer {
             let diffY = abs(touchedLocation.y - diskView.bounds.midY)
             let distanceToCenter = sqrt(pow(diffX, 2.0) + pow(diffY, 2.0))
         
-            if distanceToCenter < diskView.distanceFromHolesToCenter + diskView.holeRadius {
-                if distanceToCenter > diskView.distanceFromHolesToCenter - diskView.holeRadius {
+            if distanceToCenter < diskView.model.distanceFromHolesToCenter + diskView.model.holeRadius {
+                if distanceToCenter > diskView.model.distanceFromHolesToCenter - diskView.model.holeRadius {
                     return true
                 }
             }

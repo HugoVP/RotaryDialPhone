@@ -64,12 +64,7 @@ class RotaryDialViewController: UIViewController, UIGestureRecognizerDelegate {
         )
         
         /* Set diskView */
-        diskView.configure(
-            holes: model.holes,
-            holeRadius: model.holeRadius,
-            distanceFromHolesToCenter: model.distanceFromHolesToCenter,
-            initHoleAngle: model.initHolesAngle
-        )
+        diskView.setModel(model)
     }
     
     @IBAction func rotateAction(_ sender: DiskGestureRecognizer) {

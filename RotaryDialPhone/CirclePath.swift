@@ -12,12 +12,16 @@ protocol CirclePath {
 }
 
 extension CirclePath where Self: UIView {
+    /* Control point constant */
     var bz: CGFloat {
         return 0.55228
     }
     
     func drawCircle(center: CGPoint, radius: CGFloat) {
+        /* Control point actual size */
         let bzCtrlPt = bz * radius
+        
+        /* Set path for the circle */
         
         path.move(to: CGPoint(x: center.x + radius, y: center.y))
         
