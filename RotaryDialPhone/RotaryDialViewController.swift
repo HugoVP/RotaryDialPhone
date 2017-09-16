@@ -93,9 +93,3 @@ class RotaryDialViewController: UIViewController {
         }
     }
 }
-
-extension CGFloat {
-    func toDegrees() -> CGFloat {
-        return self * 180.0 / CGFloat.pi
-    }
-}

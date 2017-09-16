@@ -22,13 +22,9 @@ class RotaryDialGestureRecognizer: UIGestureRecognizer {
         }
         
         let diffAngle = currentAngle - firstAngle
-        let rotationAngle = (CGFLOAT_2_PI + diffAngle).truncatingRemainder(dividingBy: CGFLOAT_2_PI)
+        let rotationAngle = (CGFloat.M_2_PI + diffAngle).truncatingRemainder(dividingBy: CGFloat.M_2_PI)
             
         return rotationAngle
-    }
-    
-    private var CGFLOAT_2_PI: CGFloat {
-        return 2.0 * CGFloat.pi
     }
     
     private var _touchedHoleIndex: Int!
@@ -65,7 +61,7 @@ class RotaryDialGestureRecognizer: UIGestureRecognizer {
         }
         
         guard let touchedLocation = touches.first?.location(in: view),
-            checkBounderies(for: touchedLocation) == true else {
+            checkBoundaries(for: touchedLocation) == true else {
                 state = .cancelled
                 return
             }
@@ -113,7 +109,7 @@ class RotaryDialGestureRecognizer: UIGestureRecognizer {
             angle = atan + 1.5 * CGFloat.pi
         }
         
-        let transformedAngle = (angle - view.initHoleAngle + CGFLOAT_2_PI).truncatingRemainder(dividingBy: CGFLOAT_2_PI)
+        let transformedAngle = (angle - view.initHoleAngle + CGFloat.M_2_PI).truncatingRemainder(dividingBy: CGFloat.M_2_PI)
         
         return transformedAngle
     }
@@ -139,7 +135,7 @@ class RotaryDialGestureRecognizer: UIGestureRecognizer {
         return nil
     }
     
-    private func checkBounderies(for touchedLocation: CGPoint) -> Bool {
+    private func checkBoundaries(for touchedLocation: CGPoint) -> Bool {
         if let view = view {
             let diffX = abs(touchedLocation.x - view.bounds.midX)
             let diffY = abs(touchedLocation.y - view.bounds.midY)
