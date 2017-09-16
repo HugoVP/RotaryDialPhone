@@ -8,11 +8,9 @@
 
 import UIKit
 
-class RotaryDialViewController: UIViewController, UIGestureRecognizerDelegate {
-    @IBOutlet weak var numpadView: NumpadView!
-    @IBOutlet weak var diskView: DiskView!
-    
-    var model: RotaryDial!
+class RotaryDialViewController: UIViewController {
+    @IBOutlet weak var numpadImageView: RotaryDialView!
+    @IBOutlet weak var diskImageView: RotaryDialView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,52 +41,49 @@ class RotaryDialViewController: UIViewController, UIGestureRecognizerDelegate {
             numberFontSize = 46.0
         }
         
-        model = RotaryDial(
-            center: CGPoint(
-                x: diskView.bounds.midX,
-                y: diskView.bounds.midY
-            ),
-            holeRadius: holeRadius,
-            distanceFromHolesToCenter: distanceToCenter,
-            firstHoleAngle: 2.5 * CGFloat.pi / 7.0,
-            holesSeparationAngle: CGFloat.pi / 7.0
-        )
-        
         /* Set numpadView model */
-        numpadView.model = model
-        numpadView.numberFontSize = numberFontSize
+        numpadImageView.holesRadius = holeRadius
+        numpadImageView.distanceFromHolesToCenter = distanceToCenter
+        numpadImageView.holesSeparationAngle = CGFloat.pi / 7.0
+        numpadImageView.firstHoleAngle = numpadImageView.holesSeparationAngle * 2.5
+        numpadImageView.numberFontSize = numberFontSize
         
         /* Drae numpadView */
-        numpadView.draw()
+        numpadImageView.image = nil
+        numpadImageView.drawNumpad()
         
-        /* Set diskView model */
-        diskView.model = model
+        /* Set diskImageView model */
+        diskImageView.holesRadius = holeRadius
+        diskImageView.distanceFromHolesToCenter = distanceToCenter
+        diskImageView.holesSeparationAngle = CGFloat.pi / 7.0
+        diskImageView.firstHoleAngle = diskImageView.holesSeparationAngle * 2.5
         
-        /* Draw diskView */
-        diskView.draw()
+        /* Draw diskImageView */
+        diskImageView.image = nil
+        diskImageView.drawDisk()
     }
     
-    @IBAction func rotateAction(_ sender: DiskGestureRecognizer) {
+    @IBAction func rotateAction(_ sender: RotaryDialGestureRecognizer) {
         switch sender.state {
         case .cancelled:
             UIView.animate(
                 withDuration: 0.1,
                 animations: {
-                    self.diskView.transform = CGAffineTransform(rotationAngle: 0.0)
+                    self.diskImageView.transform = CGAffineTransform(rotationAngle: 0.0)
             },
                 completion: nil
             )
             
         case .changed:
             if let rotationAngle = sender.rotationAngle {
-                diskView.transform = CGAffineTransform(rotationAngle: rotationAngle)
+                diskImageView.transform = CGAffineTransform(rotationAngle: rotationAngle)
             }
         
         case .ended:
             UIView.animate(
                 withDuration: 0.1,
                 animations: {
-                    self.diskView.transform = CGAffineTransform(rotationAngle: 0.0)
+                    self.diskImageView.transform = CGAffineTransform(rotationAngle: 0.0)
                 },
                 completion: nil
             )

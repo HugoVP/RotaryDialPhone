@@ -9,7 +9,7 @@
 import UIKit
 import UIKit.UIGestureRecognizerSubclass
 
-class DiskGestureRecognizer: UIGestureRecognizer {
+class RotaryDialGestureRecognizer: UIGestureRecognizer {
     var touchedHoleIndex: Int {
         return _touchedHoleIndex
     }
@@ -36,16 +36,8 @@ class DiskGestureRecognizer: UIGestureRecognizer {
     private var _firstAngle: CGFloat!
     private var _currentAngle: CGFloat!
     
-//    override var view: DiskView? {
-//        return super.view as? DiskView
-//    }
-    
-    var diskView: DiskView? {
-        // if view != nil {
-            return view as? DiskView
-        // }
-        
-        // return nil
+    override var view: RotaryDialView? {
+        return super.view as? RotaryDialView
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
@@ -93,12 +85,12 @@ class DiskGestureRecognizer: UIGestureRecognizer {
     }
     
     private func getAngle(for touchedLocation: CGPoint) -> CGFloat {
-        guard let diskView = diskView else {
+        guard let view = view else {
             return 0.0
         }
         
-        let x = Float(touchedLocation.x - diskView.bounds.midX)
-        let y = -Float(touchedLocation.y - diskView.bounds.midY)
+        let x = Float(touchedLocation.x - view.bounds.midX)
+        let y = -Float(touchedLocation.y - view.bounds.midY)
         
         if y == 0.0 {
             if x > 0.0 {
@@ -113,37 +105,33 @@ class DiskGestureRecognizer: UIGestureRecognizer {
         
         /* Quad I & Quad II */
         if y < 0.0 {
-            // return atan + 0.5 * CGFloat.pi
             angle = atan + 0.5 * CGFloat.pi
         }
         
         /* Quad III & Quad IV */
         else /* if y > 0.0 */ {
-            // return atan + 1.5 * CGFloat.pi
             angle = atan + 1.5 * CGFloat.pi
         }
         
-        // return angle
-        
-        let transformedAngle = (angle - diskView.model.initHolesAngle + CGFLOAT_2_PI).truncatingRemainder(dividingBy: CGFLOAT_2_PI)
+        let transformedAngle = (angle - view.initHoleAngle + CGFLOAT_2_PI).truncatingRemainder(dividingBy: CGFLOAT_2_PI)
         
         return transformedAngle
     }
     
     private func getHoleIndex(from touchedLocation: CGPoint) -> Int? {
-        guard let diskView = diskView else {
+        guard let view = view else {
             return nil
         }
         
-        for index in 0 ..< diskView.model.holes.count {
-            let hole = diskView.model.holes[index]
+        for index in 0 ..< view.holesCount {
+            let hole = view.hole(index)
             
             let distanceToHole = sqrt(
                 pow(abs(touchedLocation.x - hole.x), 2) +
                 pow(abs(touchedLocation.y - hole.y), 2)
             )
             
-            if distanceToHole <= diskView.model.holeRadius {
+            if distanceToHole <= view.holesRadius {
                 return index
             }
         }
@@ -152,13 +140,13 @@ class DiskGestureRecognizer: UIGestureRecognizer {
     }
     
     private func checkBounderies(for touchedLocation: CGPoint) -> Bool {
-        if let diskView = diskView {
-            let diffX = abs(touchedLocation.x - diskView.bounds.midX)
-            let diffY = abs(touchedLocation.y - diskView.bounds.midY)
+        if let view = view {
+            let diffX = abs(touchedLocation.x - view.bounds.midX)
+            let diffY = abs(touchedLocation.y - view.bounds.midY)
             let distanceToCenter = sqrt(pow(diffX, 2.0) + pow(diffY, 2.0))
         
-            if distanceToCenter < diskView.model.distanceFromHolesToCenter + diskView.model.holeRadius {
-                if distanceToCenter > diskView.model.distanceFromHolesToCenter - diskView.model.holeRadius {
+            if distanceToCenter < view.distanceFromHolesToCenter + view.holesRadius {
+                if distanceToCenter > view.distanceFromHolesToCenter - view.holesRadius {
                     return true
                 }
             }
