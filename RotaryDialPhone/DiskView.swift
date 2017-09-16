@@ -8,25 +8,17 @@
 
 import UIKit
 
-class DiskView: UIView, CirclePath {
-    private var _model: RotaryDial!
-    
+class DiskView: UIView {
+    var path: UIBezierPath!
+    var model: RotaryDial!
+}
+
+extension DiskView: CirclePath {
     private var innerRadius: CGFloat {
         return 2.0 * model.distanceFromHolesToCenter - bounds.midX
     }
     
-    var path: UIBezierPath!
-    
-    var model: RotaryDial {
-        return _model
-    }
-    
-    func setModel(_ model: RotaryDial) {
-        _model = model
-        circleLayer()
-    }
-    
-    func circleLayer() {
+    func draw() {
         /* Set path */
         path = UIBezierPath()
         

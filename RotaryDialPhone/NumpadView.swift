@@ -8,44 +8,14 @@
 
 import UIKit
 
-class NumpadView: UIView, CirclePath {
+class NumpadView: UIView {
     var path: UIBezierPath!
-    
-    private var diskCenter: CGPoint!
-    private var holes: [CGPoint]!
-    private var holeRadius: CGFloat!
-    private var numbers: [Int]!
-    private var numberFontSize: CGFloat!
-    
-    
-    private var holeDiameter: CGFloat {
-        return 2.0 * holeRadius
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    func configure(
-        diskCenter: CGPoint,
-        holes: [CGPoint],
-        holeRadius: CGFloat,
-        numbers: [Int],
-        numberFontSize: CGFloat
-        ) {
-        self.diskCenter = diskCenter
-        self.holes = holes
-        self.holeRadius = holeRadius
-        self.numbers = numbers
-        self.numberFontSize = numberFontSize
-        numpadLayer()
-    }
-    
-    func numpadLayer() {
+    var model: RotaryDial!
+    var numberFontSize: CGFloat!
+}
+
+extension NumpadView: CirclePath {
+    func draw() {
         /* Set path */
         path = UIBezierPath()
         
@@ -74,9 +44,9 @@ class NumpadView: UIView, CirclePath {
         layer.addSublayer(shapeLayer)
         
         /* Numbers */
-        holes.enumerated().forEach { (index, hole) in
+        model.holes.enumerated().forEach { (index, hole) in
             let textLayer = CATextLayer()
-            textLayer.string = "\(numbers[index])"
+            textLayer.string = "\(model.numbers[index])"
             textLayer.backgroundColor = UIColor.white.cgColor
             textLayer.foregroundColor = UIColor.darkGray.cgColor
             textLayer.font = UIFont(name: "Avenir Next", size: numberFontSize)
@@ -84,10 +54,10 @@ class NumpadView: UIView, CirclePath {
             textLayer.alignmentMode = kCAAlignmentCenter
             
             textLayer.frame = CGRect(
-                x: hole.x + bounds.midX - diskCenter.x - holeRadius,
-                y: hole.y + bounds.midY - diskCenter.y - holeRadius,
-                width: holeDiameter,
-                height: holeDiameter
+                x: hole.x + bounds.midX - model.center.x - model.holeRadius,
+                y: hole.y + bounds.midY - model.center.y - model.holeRadius,
+                width: model.holeRadius * 2.0,
+                height: model.holeRadius * 2.0
             )
             
             textLayer.cornerRadius = textLayer.bounds.midX

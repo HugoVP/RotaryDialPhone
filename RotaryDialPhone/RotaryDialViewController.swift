@@ -54,17 +54,18 @@ class RotaryDialViewController: UIViewController, UIGestureRecognizerDelegate {
             holesSeparationAngle: CGFloat.pi / 7.0
         )
         
-        /* Set circular shape to numpadView */
-        numpadView.configure(
-            diskCenter: model.center,
-            holes: model.holes,
-            holeRadius: model.holeRadius,
-            numbers: model.numbers,
-            numberFontSize: numberFontSize
-        )
+        /* Set numpadView model */
+        numpadView.model = model
+        numpadView.numberFontSize = numberFontSize
         
-        /* Set diskView */
-        diskView.setModel(model)
+        /* Drae numpadView */
+        numpadView.draw()
+        
+        /* Set diskView model */
+        diskView.model = model
+        
+        /* Draw diskView */
+        diskView.draw()
     }
     
     @IBAction func rotateAction(_ sender: DiskGestureRecognizer) {
