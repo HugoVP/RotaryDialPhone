@@ -23,7 +23,17 @@ class RotaryDialView: UIImageView {
     }
     
     var lockAngle: CGFloat {
-        return CGFloat.M_2_PI - holesSeparationAngle / 2.0
+        return CGFloat.M_PI_2 * 3 - holesSeparationAngle / 2.0
+    }
+    
+    var C: CGFloat {
+        let A = (CGFloat.pi - holesSeparationAngle) / 2.0
+        
+        let a = sqrt(pow(distanceFromHolesToCenter, 2.0) + pow(holesRadius, 2.0) - 2.0 * distanceFromHolesToCenter * holesRadius * cos(A))
+        
+        let C = acos((pow(a, 2.0) + pow(distanceFromHolesToCenter, 2.0) - pow(holesRadius, 2.0)) / (2.0 * a * distanceFromHolesToCenter))
+        
+        return C
     }
     
     func hole(_ index: Int) -> CGPoint {
