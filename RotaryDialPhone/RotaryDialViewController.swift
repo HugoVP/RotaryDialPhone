@@ -9,6 +9,7 @@
 import UIKit
 
 class RotaryDialViewController: UIViewController {
+    @IBOutlet weak var rotaryDialView: RotaryDialView!
     @IBOutlet weak var numpadImageView: RotaryDialView!
     @IBOutlet weak var diskImageView: RotaryDialView!
     
@@ -42,13 +43,19 @@ class RotaryDialViewController: UIViewController {
         }
         
         /* Set numpadView model */
+        rotaryDialView.holesRadius = holeRadius
+        rotaryDialView.distanceFromHolesToCenter = distanceToCenter
+        rotaryDialView.holesSeparationAngle = CGFloat.pi / 7.0
+        rotaryDialView.firstHoleAngle = rotaryDialView.holesSeparationAngle * 2.5
+        
+        /* Set numpadView model */
         numpadImageView.holesRadius = holeRadius
         numpadImageView.distanceFromHolesToCenter = distanceToCenter
         numpadImageView.holesSeparationAngle = CGFloat.pi / 7.0
         numpadImageView.firstHoleAngle = numpadImageView.holesSeparationAngle * 2.5
         numpadImageView.numberFontSize = numberFontSize
         
-        /* Drae numpadView */
+        /* Draw numpadView */
         numpadImageView.image = nil
         numpadImageView.drawNumpad()
         
@@ -65,31 +72,53 @@ class RotaryDialViewController: UIViewController {
     
     @IBAction func rotateAction(_ sender: RotaryDialGestureRecognizer) {
         switch sender.state {
-        case .cancelled:
-            UIView.animate(
-                withDuration: 0.1,
-                animations: {
-                    self.diskImageView.transform = CGAffineTransform(rotationAngle: 0.0)
-            },
-                completion: nil
-            )
+        case .began:
+            print("began")
+            
+            if let holeNumber = sender.touchedNumber {
+                print("number: ", holeNumber)
+            }
             
         case .changed:
-            if let rotationAngle = sender.rotationAngle {
-                diskImageView.transform = CGAffineTransform(rotationAngle: rotationAngle)
-            }
+            diskImageView.transform = CGAffineTransform(rotationAngle: sender.rotationAngle!)
         
         case .ended:
-            UIView.animate(
-                withDuration: 0.1,
-                animations: {
-                    self.diskImageView.transform = CGAffineTransform(rotationAngle: 0.0)
-                },
-                completion: nil
-            )
+            reverseRotationAnimation(with: sender.rotationAngle!)
+            print("ended")
+            
+        case .cancelled:
+            reverseRotationAnimation(with: sender.rotationAngle!)
+            print("cancelled")
             
         default:
             break
         }
+    }
+    
+    func reverseRotationAnimation (with angle: CGFloat) {
+        let baseTime: CGFloat = 0.4
+        let baseAngle = 4 * rotaryDialView.holesSeparationAngle
+        let midRotation = angle / 2.0
+        let durationTime = midRotation * baseTime / baseAngle
+        
+        UIView.animate(
+            withDuration: Double(durationTime),
+            delay: 0,
+            options: .curveLinear,
+            animations: {
+                self.diskImageView.transform = CGAffineTransform(rotationAngle: midRotation)
+                },
+            completion: { (finished) in
+                UIView.animate(
+                    withDuration: Double(durationTime),
+                    delay: 0,
+                    options: .curveLinear,
+                    animations: {
+                        self.diskImageView.transform = CGAffineTransform(rotationAngle: 0)
+                },
+                    completion: nil
+                )
+            }
+        )
     }
 }
