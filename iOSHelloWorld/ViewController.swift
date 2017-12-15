@@ -14,8 +14,19 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchBarDele
     @IBOutlet weak var nameContactLabel: UILabel!
     @IBOutlet weak var numberContactLabel: UILabel!
     
+    let keys = [CNContactIdentifierKey as CNKeyDescriptor,
+                CNContactPhoneNumbersKey as CNKeyDescriptor,
+                CNContactFormatter.descriptorForRequiredKeys(for:CNContactFormatterStyle.fullName)]
+    let formatter = CNContactFormatter()
+    let contactStore = CNContactStore()
+    
+    //var contacts = [CNContact]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.formatter.style = .fullName
+        self.nameContactLabel.text = ""
+        self.numberContactLabel.text = ""
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -30,41 +41,19 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchBarDele
         definesPresentationContext = true
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        if let inputText = (searchBar.text), !inputText.isEmpty {
-            searchContact(input: inputText)
-        }
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
-    }
-    
     func updateSearchResults(for searchController: UISearchController) {
-        print(searchController.searchBar.text!)
-    }
-    
-    
-    @IBAction func contactInput(_ sender: UITextField) {
-        if let inputText = (sender.text), !inputText.isEmpty {
+        if let inputText = (searchController.searchBar.text), !inputText.isEmpty {
             searchContact(input: inputText)
         }
-    }
+    }    
     
     func searchContact(input: String) {
+        self.nameContactLabel.alpha = 0;
+        self.numberContactLabel.alpha = 0;
         DispatchQueue.global().async {
             let predicate = CNContact.predicateForContacts(matchingName: input)
-            let keys = [CNContactIdentifierKey as CNKeyDescriptor,
-                        CNContactPhoneNumbersKey as CNKeyDescriptor,
-                        CNContactFormatter.descriptorForRequiredKeys(for:CNContactFormatterStyle.fullName)]
-            let formatter = CNContactFormatter()
-            formatter.style = .fullName
-            
-            let contactStore = CNContactStore()
-            
-            var contacts = [CNContact]()
             do {
-                contacts = try contactStore.unifiedContacts(matching: predicate, keysToFetch: keys)
+                let contacts = try self.contactStore.unifiedContacts(matching: predicate, keysToFetch: self.keys)
                 if(contacts.count == 0) {
                     DispatchQueue.main.async {
                         self.nameContactLabel.text = "No contact found."
@@ -72,43 +61,21 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchBarDele
                     }
                 } else {
                     for contact in contacts {
-                        print(formatter.string(from: contact)!)
+                        print(self.formatter.string(from: contact)!)
                     }
                     DispatchQueue.main.async {
-                        self.nameContactLabel.text = formatter.string(from: contacts[0])!
-                        self.numberContactLabel.text = contacts[0].phoneNumbers.first!.value.stringValue
+                        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+                            self.nameContactLabel.alpha = 1;
+                            self.numberContactLabel.alpha = 1;
+                            self.nameContactLabel.text = self.formatter.string(from: contacts[0])!
+                            self.numberContactLabel.text = contacts[0].phoneNumbers.first!.value.stringValue
+                        }, completion: nil);
                     }
                 }
             } catch {
                 print("Unable to fetch contacts")
             }
         }
-    }
-    
-    func getContacts() {
-        /*DispatchQueue.global().async {
-            let keys = CNContactFetchRequest(keysToFetch: [CNContactIdentifierKey as CNKeyDescriptor, CNContactPhoneNumbersKey as CNKeyDescriptor, CNContactFormatter.descriptorForRequiredKeys(for: CNContactFormatterStyle.fullName)])
-            let formatter = CNContactFormatter()
-            formatter.style = .fullName
-            
-            let contactsStore = CNContactStore()
-            do {
-                try contactsStore.enumerateContacts(with: keys, usingBlock:
-                {(contact: CNContact, cursor: UnsafeMutablePointer<ObjCBool>) -> Void in
-                    if(!contact.phoneNumbers.isEmpty) {
-                        let curretnName = formatter.string(from: contact)
-                        let currentNumber = contact.phoneNumbers.first!.value.stringValue
-                        let contact = Contact(name: curretnName!, number: currentNumber)
-                        self.contactsList.append(contact)
-                    }
-                })
-            } catch {
-                print("Unable to fetch contacts")
-            }
-            DispatchQueue.main.async {
-                self.mTableView.reloadData()
-            }
-        }*/
     }
 
     override func didReceiveMemoryWarning() {
