@@ -39,7 +39,7 @@ class GestureTestVC: UIViewController, UIGestureRecognizerDelegate {
     
 //    @IBAction func fire (_ timer: Timer) {
     func fire () {
-        print(angle)
+        //print(angle)
         syncImageView.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
         angle += 0.0174533 * 25.7142857143
     }
