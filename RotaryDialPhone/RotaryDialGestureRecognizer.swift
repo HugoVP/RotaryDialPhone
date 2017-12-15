@@ -11,34 +11,34 @@ import UIKit.UIGestureRecognizerSubclass
 
 class RotaryDialGestureRecognizer: UIGestureRecognizer {
     var rotationAngle: CGFloat? {
-        return _rotationAngle
+      return _rotationAngle
     }
     
     var touchedNumber: Int? {
-        return view!.number(_touchedHoleIndex!)
+      return _touchedNumber
     }
     
     override var view: RotaryDialView? {
         return super.view as? RotaryDialView
     }
-    
+  
     private var firstAngle: CGFloat?
-    private var currentAngle: CGFloat?
     private var _rotationAngle: CGFloat?
     private var _touchedHoleIndex: Int?
+    private var _touchedNumber: Int?
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent) {
         super.touchesBegan(touches, with: event)
-        
+      
         guard touches.count == 1,
             let touchedLocation = touches.first?.location(in: view),
             let touchedHoleIndex = getHoleIndex(from: touchedLocation)
-            
+
         else {
             state = .failed
             return
         }
-        
+
         firstAngle = getAngle(for: touchedLocation)
         _touchedHoleIndex = touchedHoleIndex
         state = .began
@@ -51,7 +51,10 @@ class RotaryDialGestureRecognizer: UIGestureRecognizer {
             return
         }
         
-        guard let touchedLocation = touches.first?.location(in: view) else {
+        guard let touchedLocation = touches.first?.location(in: view),
+            let touchedHoleIndex = _touchedHoleIndex
+          
+        else {
             state = .failed
             return
         }
@@ -61,8 +64,9 @@ class RotaryDialGestureRecognizer: UIGestureRecognizer {
         
         if diffAngle <= 0 {
             _rotationAngle = 0
+            firstAngle = currentAngle
             
-            guard isTouchedLocation(touchedLocation, insideHole: _touchedHoleIndex!) == true else {
+            if isTouchedLocation(touchedLocation, insideHole: touchedHoleIndex) == false {
                 state = .failed
                 return
             }
@@ -71,17 +75,49 @@ class RotaryDialGestureRecognizer: UIGestureRecognizer {
         else {
             _rotationAngle = diffAngle
             
-            guard checkBoundaries(for: touchedLocation) == true else {
+            if checkBoundaries(for: touchedLocation) == false {
                 state = .failed
                 return
             }
+            
+            /* Successfully complete gesture when lockAngle location is reached */
+            if currentAngle >= transformAngle((view?.lockAngle)!) {
+                if let touchedNumber = view?.number(touchedHoleIndex) {
+                    _touchedNumber = touchedNumber
+                }
+
+                state = .recognized
+                return
+            }
         }
+        
+//        print("firstAngle: \(firstAngle!.degrees)")
+//        print("currentAngle: \(currentAngle.degrees)")
+//        print("rotationAngle: \(rotationAngle!.degrees)")
+//        print("lockAngle: \((view?.lockAngle)!.degrees)")
         
         state = .changed
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent) {
         super.touchesEnded(touches, with: event)
+      
+        /* Get touchedLocation */
+        guard let touchedLocation = touches.first?.location(in: view) else {
+            state = .failed
+            return
+        }
+      
+        /* Get currentAngle */
+        let currentAngle = getAngle(for: touchedLocation)
+      
+        /* If lockAngle was not reached by the currentAngle, gesture fails */
+        if currentAngle < transformAngle((view?.lockAngle)!) {
+            // print("lockAngle location was not reached")
+            state = .failed
+            return
+        }
+      
         state = .ended
     }
     
@@ -92,9 +128,9 @@ class RotaryDialGestureRecognizer: UIGestureRecognizer {
     
     override func reset() {
         firstAngle = nil
-        currentAngle = nil
         _rotationAngle = nil
         _touchedHoleIndex = nil
+        _touchedNumber = nil
     }
     
     private func getAngle(for touchedLocation: CGPoint) -> CGFloat {
@@ -102,28 +138,40 @@ class RotaryDialGestureRecognizer: UIGestureRecognizer {
             return 0.0
         }
         
-        let x = Float(touchedLocation.x - view.bounds.midX)
-        let y = -Float(touchedLocation.y - view.bounds.midY)
+        let x = touchedLocation.x - view.bounds.midX
+        let y = -(touchedLocation.y - view.bounds.midY)
         
         if y == 0.0 {
             if x > 0.0 {
-                return 0.0
+                return transformAngle(0.0)
             } else /* x <= 0 */ {
-                return CGFloat.pi
+                return transformAngle(CGFloat.pi)
             }
         }
         
-        let atan = CGFloat(atanf(x / y))
+        let angle = atan(x / y)
         
         /* Quad I & Quad II */
         if y < 0.0 {
-            return atan + CGFloat.M_PI_2
+            return transformAngle(angle + CGFloat.M_PI_2)
         }
         
         /* Quad III & Quad IV */
         else /* if y > 0.0 */ {
-            return atan + CGFloat.M_PI_2 * 3.0
+            return transformAngle(angle + CGFloat.M_PI_2 * 3.0)
         }
+    }
+    
+    /* Transform the given angle into relative one to the disk holes  */
+    private func transformAngle(_ angle: CGFloat) -> CGFloat {
+        /* Get the startAngle from the view */
+        guard let startAngle = view?.startAngle else {
+            return 0.0
+        }
+        
+        /* Substract startAngle from the given angle; then plus 360º, finally module 360º.
+         * The result should be a positive angle. */
+        return (angle - startAngle + CGFloat.M_2_PI).truncatingRemainder(dividingBy: CGFloat.M_2_PI)
     }
     
     private func getHoleIndex(from touchedLocation: CGPoint) -> Int? {

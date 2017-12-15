@@ -20,50 +20,41 @@ class RotaryDialViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let numberFontSize: CGFloat!
-    
-        /* Model params */
-        let holeRadius: CGFloat!
-        let distanceToCenter: CGFloat!
-        
         /* Set params based on screen size */
         switch UIScreen.main.bounds.width {
         case 320:
-            holeRadius = 45.0 / 2.0
-            distanceToCenter = 112.5
-            numberFontSize = 36.0
+            rotaryDialView.holesRadius = 45.0 / 2.0
+            rotaryDialView.distanceFromHolesToCenter = 112.5
+            numpadImageView.numberFontSize = 36.0
         case 375:
-            holeRadius = 52.734375 / 2.0
-            distanceToCenter = 131.8359375
-            numberFontSize = 42.0
+            rotaryDialView.holesRadius = 52.734375 / 2.0
+            rotaryDialView.distanceFromHolesToCenter = 131.8359375
+            numpadImageView.numberFontSize = 42.0
         default: /* 414 */
-            holeRadius = 58.21875 / 2.0
-            distanceToCenter = 145.546875
-            numberFontSize = 46.0
+            rotaryDialView.holesRadius = 58.21875 / 2.0
+            rotaryDialView.distanceFromHolesToCenter = 145.546875
+            numpadImageView.numberFontSize = 46.0
         }
         
         /* Set numpadView model */
-        rotaryDialView.holesRadius = holeRadius
-        rotaryDialView.distanceFromHolesToCenter = distanceToCenter
-        rotaryDialView.holesSeparationAngle = CGFloat.pi / 7.0
+        rotaryDialView.holesSeparationAngle = CGFloat.M_2_PI / 14.0
         rotaryDialView.firstHoleAngle = rotaryDialView.holesSeparationAngle * 2.5
         
         /* Set numpadView model */
-        numpadImageView.holesRadius = holeRadius
-        numpadImageView.distanceFromHolesToCenter = distanceToCenter
-        numpadImageView.holesSeparationAngle = CGFloat.pi / 7.0
-        numpadImageView.firstHoleAngle = numpadImageView.holesSeparationAngle * 2.5
-        numpadImageView.numberFontSize = numberFontSize
+        numpadImageView.holesRadius = rotaryDialView.holesRadius
+        numpadImageView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
+        numpadImageView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
+        numpadImageView.firstHoleAngle = rotaryDialView.firstHoleAngle
         
         /* Draw numpadView */
         numpadImageView.image = nil
         numpadImageView.drawNumpad()
         
         /* Set diskImageView model */
-        diskImageView.holesRadius = holeRadius
-        diskImageView.distanceFromHolesToCenter = distanceToCenter
-        diskImageView.holesSeparationAngle = CGFloat.pi / 7.0
-        diskImageView.firstHoleAngle = diskImageView.holesSeparationAngle * 2.5
+        diskImageView.holesRadius = rotaryDialView.holesRadius
+        diskImageView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
+        diskImageView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
+        diskImageView.firstHoleAngle = rotaryDialView.firstHoleAngle
         
         /* Draw diskImageView */
         diskImageView.image = nil
@@ -75,19 +66,27 @@ class RotaryDialViewController: UIViewController {
         case .began:
             print("began")
             
+        case .changed:
+            if let rotationAngle = sender.rotationAngle {
+                diskImageView.transform = CGAffineTransform(rotationAngle: rotationAngle)
+            }
+        
+        case .ended:
+            if let rotationAngle = sender.rotationAngle {
+                reverseRotationAnimation(with: rotationAngle)
+            }
+            
             if let holeNumber = sender.touchedNumber {
                 print("number: ", holeNumber)
             }
             
-        case .changed:
-            diskImageView.transform = CGAffineTransform(rotationAngle: sender.rotationAngle!)
-        
-        case .ended:
-            reverseRotationAnimation(with: sender.rotationAngle!)
             print("ended")
             
         case .cancelled:
-            reverseRotationAnimation(with: sender.rotationAngle!)
+            if let rotationAngle = sender.rotationAngle {
+                reverseRotationAnimation(with: rotationAngle)
+            }
+            
             print("cancelled")
             
         default:
