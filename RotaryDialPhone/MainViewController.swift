@@ -9,7 +9,7 @@
 import UIKit
 import Contacts
 
-class ViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
+class MainViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
 
     @IBOutlet weak var nameContactLabel: UILabel!
     @IBOutlet weak var numberContactLabel: UILabel!
@@ -29,7 +29,11 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchBarDele
         self.numberContactLabel.text = ""
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
+      if #available(iOS 9.1, *) {
         searchController.obscuresBackgroundDuringPresentation = false
+      } else {
+        // Fallback on earlier versions
+      }
         searchController.searchBar.placeholder = "Nombre del contacto"
         searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()

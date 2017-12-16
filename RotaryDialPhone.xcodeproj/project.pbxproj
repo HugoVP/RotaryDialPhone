@@ -7,18 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD:RotaryDialPhone.xcodeproj/project.pbxproj
 		9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */; };
 		9A26512A1F665C4F002CB5CE /* CirclePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2651291F665C4F002CB5CE /* CirclePath.swift */; };
 		9A30E5AF1F560CA600835FC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A30E5AE1F560CA600835FC7 /* Assets.xcassets */; };
 		9A30E5B31F560CB500835FC7 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */; };
 		9A30E5B51F560CB500835FC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B21F560CB500835FC7 /* MainViewController.swift */; };
 		9A30E5B71F560CC200835FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B61F560CC200835FC7 /* AppDelegate.swift */; };
-=======
-		9A41E9811D628E2000D29475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41E9801D628E2000D29475 /* AppDelegate.swift */; };
-		9A41E9831D628E2000D29475 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A41E9821D628E2000D29475 /* ViewController.swift */; };
-		9A41E9881D628E2000D29475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A41E9871D628E2000D29475 /* Assets.xcassets */; };
->>>>>>> origin/master:iOSHelloWorld.xcodeproj/project.pbxproj
 		9A41E98B1D628E2000D29475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A41E9891D628E2000D29475 /* LaunchScreen.storyboard */; };
 		9A78AC5E1DF93C7D00247FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A78AC5C1DF93C7D00247FC9 /* Main.storyboard */; };
 		9A875F8D1F6CBFBE00FB6398 /* RotaryDialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A875F8C1F6CBFBE00FB6398 /* RotaryDialView.swift */; };
@@ -27,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD:RotaryDialPhone.xcodeproj/project.pbxproj
 		9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialViewController.swift; sourceTree = "<group>"; };
 		9A2651291F665C4F002CB5CE /* CirclePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePath.swift; sourceTree = "<group>"; };
 		9A30E5AC1F560C9C00835FC7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,12 +29,6 @@
 		9A30E5B21F560CB500835FC7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9A30E5B61F560CC200835FC7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A41E97D1D628E2000D29475 /* RotaryDialPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RotaryDialPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
-=======
-		9A41E97D1D628E2000D29475 /* iOSHelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSHelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A41E9801D628E2000D29475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9A41E9821D628E2000D29475 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9A41E9871D628E2000D29475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
->>>>>>> origin/master:iOSHelloWorld.xcodeproj/project.pbxproj
 		9A41E98A1D628E2000D29475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A78AC5D1DF93C7D00247FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A875F8C1F6CBFBE00FB6398 /* RotaryDialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialView.swift; sourceTree = "<group>"; };
@@ -100,11 +87,7 @@
 		9A41E9741D628E1E00D29475 = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD:RotaryDialPhone.xcodeproj/project.pbxproj
 				9A41E97F1D628E2000D29475 /* RotaryDialPhone */,
-=======
-				9A41E97F1D628E2000D29475 /* iOSHelloWorld */,
->>>>>>> origin/master:iOSHelloWorld.xcodeproj/project.pbxproj
 				9A41E97E1D628E2000D29475 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -188,6 +171,7 @@
 					9A41E97C1D628E1F00D29475 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = Y4G8SN4H8U;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -228,7 +212,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD:RotaryDialPhone.xcodeproj/project.pbxproj
 				9A8B90A31F6CFC4D00E753FE /* CGFloat+Ext.swift in Sources */,
 				9A26512A1F665C4F002CB5CE /* CirclePath.swift in Sources */,
 				9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */,
@@ -237,11 +220,6 @@
 				9A875F8D1F6CBFBE00FB6398 /* RotaryDialView.swift in Sources */,
 				9A30E5B31F560CB500835FC7 /* ContactsViewController.swift in Sources */,
 				9A30E5B51F560CB500835FC7 /* MainViewController.swift in Sources */,
-=======
-				9A41E9831D628E2000D29475 /* ViewController.swift in Sources */,
-				9A41E9811D628E2000D29475 /* AppDelegate.swift in Sources */,
-				9A54BA741DF34F900059F86B /* GestureTestVC.swift in Sources */,
->>>>>>> origin/master:iOSHelloWorld.xcodeproj/project.pbxproj
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +365,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tech.paleo.RotaryDialPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -405,7 +384,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tech.paleo.RotaryDialPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
