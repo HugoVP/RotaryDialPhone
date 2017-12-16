@@ -42,6 +42,7 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchBarDele
     }
     
     func updateSearchResults(for searchController: UISearchController) {
+        //let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
         if let inputText = (searchController.searchBar.text), !inputText.isEmpty {
             searchContact(input: inputText)
         }
@@ -83,7 +84,6 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchBarDele
     }
     
     func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
-        // Get authorization
         let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
         
         switch authorizationStatus {
