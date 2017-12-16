@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  iOSHelloWorld
+//  RotaryDialPhone
 //
 //  Created by Hugo on 15/08/16.
 //  Copyright © 2016 Hugo. All rights reserved.
@@ -10,18 +10,18 @@ import UIKit
 import Contacts
 
 class ViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
-   
+
     @IBOutlet weak var nameContactLabel: UILabel!
     @IBOutlet weak var numberContactLabel: UILabel!
-    
+
     let keys = [CNContactIdentifierKey as CNKeyDescriptor,
                 CNContactPhoneNumbersKey as CNKeyDescriptor,
                 CNContactFormatter.descriptorForRequiredKeys(for:CNContactFormatterStyle.fullName)]
     let formatter = CNContactFormatter()
     let contactStore = CNContactStore()
-    
+
     //var contacts = [CNContact]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.formatter.style = .fullName
@@ -40,14 +40,14 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchBarDele
         }
         definesPresentationContext = true
     }
-    
+
     func updateSearchResults(for searchController: UISearchController) {
         //let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
         if let inputText = (searchController.searchBar.text), !inputText.isEmpty {
             searchContact(input: inputText)
         }
-    }    
-    
+    }
+
     func searchContact(input: String) {
         self.nameContactLabel.alpha = 0;
         self.numberContactLabel.alpha = 0;
@@ -82,10 +82,10 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchBarDele
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
         let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
-        
+
         switch authorizationStatus {
         case .authorized:
             completionHandler(true)
@@ -104,16 +104,15 @@ class ViewController: UIViewController, UISearchResultsUpdating, UISearchBarDele
             completionHandler(false)
         }
     }
-    
+
     func showMessage(msg: String) {
         let alertController = UIAlertController(title: "Alert", message: msg, preferredStyle: UIAlertControllerStyle.alert)
         let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action) -> Void in }
         alertController.addAction(dismissAction)
         self.present(alertController, animated: true, completion: nil)
     }
-    
+
     func requestContactsPermition() {
-    
+
     }
 }
-
