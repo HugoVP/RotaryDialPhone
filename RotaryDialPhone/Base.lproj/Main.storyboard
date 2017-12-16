@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
             <string>AvenirNext-DemiBold</string>
+        </array>
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
         </array>
     </customFonts>
     <scenes>
@@ -135,6 +138,31 @@
                                 <rect key="frame" x="16" y="16" width="288" height="288"/>
                                 <color key="backgroundColor" red="0.83590728039999995" green="0.75107139349999996" blue="0.5106931925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="l0f-s4-E48">
+                                <rect key="frame" x="80" y="140" width="160" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtR-az-b4a">
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="40"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                        <state key="normal" title="RESET">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetBtnPressed:" destination="InE-Tm-L8O" eventType="touchUpInside" id="Bnm-DE-Kd4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ydk-ku-ZAr">
+                                        <rect key="frame" x="84" y="0.0" width="76" height="40"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                        <state key="normal" title="CALL">
+                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="callBtnPressed:" destination="InE-Tm-L8O" eventType="touchUpInside" id="iSh-hg-bkL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.94731987847222221" green="0.80392156862745101" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -145,6 +173,8 @@
                             <constraint firstItem="FhM-8A-Iya" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="16" id="VYF-FV-dic"/>
                             <constraint firstItem="HEG-0J-mVn" firstAttribute="leading" secondItem="IIa-uZ-Wqx" secondAttribute="leading" constant="8" id="ZH0-Zz-8A3"/>
                             <constraint firstAttribute="trailing" secondItem="HEG-0J-mVn" secondAttribute="trailing" constant="8" id="aQz-LO-ANK"/>
+                            <constraint firstItem="l0f-s4-E48" firstAttribute="centerX" secondItem="IIa-uZ-Wqx" secondAttribute="centerX" id="mGi-AQ-4CH"/>
+                            <constraint firstItem="l0f-s4-E48" firstAttribute="centerY" secondItem="IIa-uZ-Wqx" secondAttribute="centerY" id="qCO-TQ-mXp"/>
                             <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="HEG-0J-mVn" secondAttribute="bottom" constant="8" id="uRJ-RJ-g57"/>
                         </constraints>
                         <connections>
@@ -164,7 +194,7 @@
                     </connections>
                 </gestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="772" y="37"/>
+            <point key="canvasLocation" x="770.625" y="36.971830985915496"/>
         </scene>
     </scenes>
     <resources>
