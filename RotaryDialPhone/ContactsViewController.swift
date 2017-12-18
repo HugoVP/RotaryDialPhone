@@ -32,7 +32,7 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UISearc
 
     func updateSearchResults(for searchController: UISearchController) {
         let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
-        if let inputText = (searchController.searchBar.text), !inputText.isEmpty, authorizationStatus == .authorized {
+        if let inputText = (searchController.searchBar.text), !inputText.isEmpty, authorizationStatus == .authorized{
             searchContact(input: inputText)
         }
     }
@@ -40,29 +40,23 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UISearc
     func searchContact(input: String) {
         self.nameContactLabel.alpha = 0;
         self.numberContactLabel.alpha = 0;
-        //requestForAccess { (accessGranted) in
-            //if accessGranted {
-                let predicate = CNContact.predicateForContacts(matchingName: input)
-                do {
-                    let contacts = try self.contactStore.unifiedContacts(matching: predicate, keysToFetch: self.keys)
-                    if(contacts.count == 0) {
-                        //DispatchQueue.main.async {
-                        self.nameContactLabel.text = "No contact found."
-                        self.numberContactLabel.text = ""
-                        //}
-                    } else {
-                        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
-                            self.nameContactLabel.alpha = 1;
-                            self.numberContactLabel.alpha = 1;
-                            self.nameContactLabel.text = self.formatter.string(from: contacts[0])!
-                            self.numberContactLabel.text = contacts[0].phoneNumbers.first!.value.stringValue
-                        }, completion: nil);
-                    }
-                } catch {
-                    print("Unable to fetch contacts")
-                }
-            //}
-        //}
+        let predicate = CNContact.predicateForContacts(matchingName: input)
+        do {
+            let contacts = try self.contactStore.unifiedContacts(matching: predicate, keysToFetch: self.keys)
+            if(contacts.count == 0) {
+                self.nameContactLabel.text = "No contacts found."
+                self.numberContactLabel.text = ""
+            } else {
+                UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+                    self.nameContactLabel.alpha = 1;
+                    self.numberContactLabel.alpha = 1;
+                    self.nameContactLabel.text = self.formatter.string(from: contacts[0])!
+                    self.numberContactLabel.text = contacts[0].phoneNumbers.first!.value.stringValue
+                }, completion: nil);
+            }
+        } catch {
+            print("Unable to fetch contacts")
+        }
     }
     
     func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {

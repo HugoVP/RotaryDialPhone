@@ -37,7 +37,7 @@
                                     <segue destination="InE-Tm-L8O" kind="embed" id="EL6-YD-uLA"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54L-bw-Ymi">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54L-bw-Ymi" userLabel="Contact Container View">
                                 <rect key="frame" x="0.0" y="392" width="320" height="176"/>
                                 <connections>
                                     <segue destination="lvp-5M-0lX" kind="embed" identifier="contactSegue" id="WWf-79-kKQ"/>
@@ -56,6 +56,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Rotary Dial" id="sgi-CS-7gV"/>
+                    <connections>
+                        <outlet property="heightConstraint" destination="Mdn-WA-Z7F" id="2gc-6Y-iFy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,6 +164,10 @@
         <scene sceneID="QU5-H7-PAz">
             <objects>
                 <viewController id="lvp-5M-0lX" customClass="ContactsViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s4o-po-O6s"/>
+                        <viewControllerLayoutGuide type="bottom" id="ENT-d1-zeE"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1AX-z9-pBi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,7 +185,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LEc-Jv-Mrj" firstAttribute="leading" secondItem="LQJ-Vg-HfG" secondAttribute="leading" id="7Lz-ke-Fs1"/>
                             <constraint firstItem="LQJ-Vg-HfG" firstAttribute="leading" secondItem="1AX-z9-pBi" secondAttribute="leadingMargin" id="WnQ-Dl-4FZ"/>
