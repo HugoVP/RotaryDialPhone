@@ -59,7 +59,53 @@ class RotaryDialViewController: UIViewController {
     diskImageView.drawDisk()
   }
   
-  func reverseRotationAnimation (with angle: CGFloat) {
+  @IBAction func rotateAction(_ sender: RotaryDialGestureRecognizer) {
+    switch sender.state {
+    case .began:
+      print("began")
+      
+    case .changed:
+      // print("changed")
+      
+      if let rotationAngle = sender.rotationAngle {
+        diskImageView.transform = CGAffineTransform(rotationAngle: rotationAngle)
+      }
+      
+    case .ended:
+      // print("ended")
+      
+      /* Get the touched number and add to the full phone number */
+      if let holeNumber = sender.touchedNumber {
+        // print("number: ", holeNumber)
+        phoneNumber += "\(holeNumber)"
+        print("Phone Number: \(phoneNumber)")
+      }
+      
+      /* Make reset disk angle animation */
+      if let rotationAngle = sender.rotationAngle {
+        reverseRotationAnimation(with: rotationAngle, ended: true)
+      }
+      
+    case .cancelled:
+      // print("cancelled")
+      
+      if let rotationAngle = sender.rotationAngle {
+        reverseRotationAnimation(with: rotationAngle)
+      }
+      
+    default:
+      break
+    }
+  }
+  
+  @IBAction func resetBtnPressed(_ sender: UIButton) {
+    // print("Reset")
+    phoneNumber = ""
+  }
+}
+
+extension RotaryDialViewController {
+  func reverseRotationAnimation (with angle: CGFloat, ended: Bool = false) {
     let baseTime: CGFloat = 0.4
     let baseAngle = 4 * rotaryDialView.holesSeparationAngle
     let midRotation = angle / 2.0
@@ -79,99 +125,52 @@ class RotaryDialViewController: UIViewController {
           options: .curveLinear,
           animations: {
             self.diskImageView.transform = CGAffineTransform(rotationAngle: 0)
-        },
-          completion: nil
+          },
+          completion: { (finished) in
+            if (ended) {
+              print("ended: \(ended)")
+              
+              switch self.phoneNumber.count {
+              case 7...8: /* XXX XXXX | XXXX XXXX */
+                print("call to landline")
+                fallthrough
+              
+              case 10: /* XXX XXX XXXX | XX XXXX XXXX */
+                print("call to mobile")
+                fallthrough
+                
+              case 12: /* 01 (XXX XXX | XX XXXX) XXXX  */
+                print("call to landline (long distance)")
+                fallthrough
+                
+              case 13: /* (044 | 045) (XXX XXX | XX XXXX) XXXX */
+                print("call to mobile (from landline)")
+                
+                if #available(iOS 10.0, *) {
+                  self.makePhoneCall()
+                }
+                
+              default:
+                break
+              }
+            }
+          }
         )
       }
     )
   }
-}
-
-extension RotaryDialViewController {
-  @IBAction func rotateAction(_ sender: RotaryDialGestureRecognizer) {
-    switch sender.state {
-    case .began:
-      print("began")
-      
-    case .changed:
-      if let rotationAngle = sender.rotationAngle {
-        diskImageView.transform = CGAffineTransform(rotationAngle: rotationAngle)
-      }
-      
-    case .ended:
-      if let rotationAngle = sender.rotationAngle {
-        reverseRotationAnimation(with: rotationAngle)
-      }
-      
-      if let holeNumber = sender.touchedNumber {
-        // print("number: ", holeNumber)
-        phoneNumber += "\(holeNumber)"
-        print("Phone Number: \(phoneNumber)")
-      }
-      
-      print("ended")
-      
-    case .cancelled:
-      if let rotationAngle = sender.rotationAngle {
-        reverseRotationAnimation(with: rotationAngle)
-      }
-      
-      print("cancelled")
-      
-    default:
-      break
-    }
-  }
-  
-  @IBAction func resetBtnPressed(_ sender: UIButton) {
-    print("Reset")
-    phoneNumber = ""
-  }
   
   @available(iOS 10.0, *)
-  @IBAction func callBtnPressed(_ sender: UIButton) {
-    print("Call")
-    
+  func makePhoneCall() {
     guard phoneNumber.count > 0,
       let phoneNumberURL = URL(string: "tel://\(phoneNumber)"),
-      UIApplication.shared.canOpenURL(phoneNumberURL)
-    
-    else {
+      UIApplication.shared.canOpenURL(phoneNumberURL) == true
+      
+      else {
         return
     }
     
-    print("\(phoneNumberURL)")
-    
-    //        let alertController = UIAlertController(
-    //          title: "MyApp",
-    //          message: "This is my message",
-    //          preferredStyle: .alert
-    //        )
-    //
-    //        let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-    //          UIApplication.shared.open(phoneNumberURL, options: [:], completionHandler: nil)
-    //        }
-    //
-    //        let noAction = UIAlertAction(title: "No", style: .default) { (action) in
-    //          print("No")
-    //        }
-    //
-    //        alertController.addAction(yesAction)
-    //        alertController.addAction(noAction)
-    //
-    //        present(alertController, animated: true) {
-    //          print("done")
-    //        }
-    
-    UIApplication.shared.open(phoneNumberURL, options: [:]) { (done) in
-      if done {
-        print("\(done)")
-      }
-        
-      else {
-        print("not done")
-      }
-    }
+    UIApplication.shared.open(phoneNumberURL, options: [:], completionHandler: nil)
   }
 }
 
