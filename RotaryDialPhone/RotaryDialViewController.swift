@@ -21,6 +21,7 @@ class RotaryDialViewController: UIViewController {
   
   /* Rotation animation */
   let baseRotationAnimationTime: CGFloat = 0.4
+  
   var baseRotationAnimationAngle: CGFloat {
     return 4 * rotaryDialView.holesSeparationAngle
   }
@@ -36,17 +37,22 @@ extension RotaryDialViewController {
       rotaryDialView.holesRadius = 45.0 / 2.0
       rotaryDialView.distanceFromHolesToCenter = 112.5
       numpadImageView.numberFontSize = 36.0
+    
     case 375:
       rotaryDialView.holesRadius = 52.734375 / 2.0
       rotaryDialView.distanceFromHolesToCenter = 131.8359375
       numpadImageView.numberFontSize = 42.0
-    default: /* 414 */
+    
+    case 414:
       rotaryDialView.holesRadius = 58.21875 / 2.0
       rotaryDialView.distanceFromHolesToCenter = 145.546875
       numpadImageView.numberFontSize = 46.0
+      
+    default:
+      break
     }
     
-    /* Set numpadView model */
+    /* Set rotaryDialView */
     rotaryDialView.holesSeparationAngle = CGFloat.M_2_PI / 14.0
     rotaryDialView.firstHoleAngle = rotaryDialView.holesSeparationAngle * 2.5
     
@@ -74,24 +80,17 @@ extension RotaryDialViewController {
   @IBAction func rotateAction(_ sender: RotaryDialGestureRecognizer) {
     switch sender.state {
     case .began:
-      // print("began")
-      
       /* Cancel all previus calls to the makePhoneCall method */
       NSObject.cancelPreviousPerformRequests(withTarget: self)
       
     case .changed:
-      // print("changed")
-      
       if let rotationAngle = sender.rotationAngle {
         diskImageView.transform = CGAffineTransform(rotationAngle: rotationAngle)
       }
       
     case .ended:
-      // print("ended")
-      
       /* Get the touched number and add to the full phone number */
       if let holeNumber = sender.touchedNumber {
-        // print("number: ", holeNumber)
         phoneNumber += "\(holeNumber)"
         print("Phone Number: \(phoneNumber)")
       }
@@ -102,8 +101,6 @@ extension RotaryDialViewController {
       }
       
     case .cancelled:
-      // print("cancelled")
-      
       if let rotationAngle = sender.rotationAngle {
         reverseRotationAnimation(with: rotationAngle)
       }
@@ -113,8 +110,7 @@ extension RotaryDialViewController {
     }
   }
   
-  @IBAction func resetBtnPressed(_ sender: UIButton) {
-    // print("Reset")
+  @IBAction func resetBtnPresed(_ sender: UIButton) {
     phoneNumber = ""
   }
 }
