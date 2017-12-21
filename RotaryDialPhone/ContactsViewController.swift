@@ -14,6 +14,9 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UISearc
     @IBOutlet weak var numberContactLabel: UILabel!
     @IBOutlet weak var nameContactLabel: UILabel!
     
+    let searchDelay = DispatchTime(uptimeNanoseconds: 100)
+    var isSearching = false
+    
     let keys = [CNContactIdentifierKey as CNKeyDescriptor,
                 CNContactPhoneNumbersKey as CNKeyDescriptor,
                 CNContactFormatter.descriptorForRequiredKeys(for:CNContactFormatterStyle.fullName)]
@@ -38,24 +41,35 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UISearc
     }
     
     func searchContact(input: String) {
+        if isSearching { return }
+        self.isSearching = true
         self.nameContactLabel.alpha = 0;
         self.numberContactLabel.alpha = 0;
         let predicate = CNContact.predicateForContacts(matchingName: input)
-        do {
-            let contacts = try self.contactStore.unifiedContacts(matching: predicate, keysToFetch: self.keys)
-            if(contacts.count == 0) {
-                self.nameContactLabel.text = "No contacts found."
-                self.numberContactLabel.text = ""
-            } else {
+        DispatchQueue.global().asyncAfter(deadline: searchDelay) {
+            var contactName = ""
+            var contactNumber = ""
+            do {
+                let contacts = try self.contactStore.unifiedContacts(matching: predicate, keysToFetch: self.keys)
+                if(contacts.count == 0) {
+                    contactName = "No contacts found."
+                    contactNumber = ""
+                } else {
+                    contactName = self.formatter.string(from: contacts[0])!
+                    contactNumber = contacts[0].phoneNumbers.first!.value.stringValue
+                }
+            } catch {
+                print("Unable to fetch contacts")
+            }
+            self.isSearching = false
+            DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
                     self.nameContactLabel.alpha = 1;
                     self.numberContactLabel.alpha = 1;
-                    self.nameContactLabel.text = self.formatter.string(from: contacts[0])!
-                    self.numberContactLabel.text = contacts[0].phoneNumbers.first!.value.stringValue
+                    self.nameContactLabel.text = contactName
+                    self.numberContactLabel.text = contactNumber
                 }, completion: nil);
             }
-        } catch {
-            print("Unable to fetch contacts")
         }
     }
     
