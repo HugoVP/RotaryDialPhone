@@ -10,8 +10,8 @@ import UIKit
 
 class RotaryDialViewController: UIViewController {
   @IBOutlet weak var rotaryDialView: RotaryDialView!
-  @IBOutlet weak var numpadImageView: RotaryDialView!
-  @IBOutlet weak var diskImageView: RotaryDialView!
+  @IBOutlet weak var numpadImageView: NumpadImageView!
+  @IBOutlet weak var diskImageView: DiskImageView!
   
   var phoneNumber = ""
   
@@ -53,27 +53,30 @@ extension RotaryDialViewController {
     }
     
     /* Set rotaryDialView */
+    rotaryDialView.holesCount = 10
     rotaryDialView.holesSeparationAngle = CGFloat.M_2_PI / 14.0
     rotaryDialView.firstHoleAngle = rotaryDialView.holesSeparationAngle * 2.5
     
     /* Set numpadView model */
+    numpadImageView.holesCount = rotaryDialView.holesCount
     numpadImageView.holesRadius = rotaryDialView.holesRadius
     numpadImageView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
     numpadImageView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
     numpadImageView.firstHoleAngle = rotaryDialView.firstHoleAngle
+    numpadImageView.image = nil
     
     /* Draw numpadView */
-    numpadImageView.image = nil
     numpadImageView.drawNumpad()
     
     /* Set diskImageView model */
+    diskImageView.holesCount = rotaryDialView.holesCount
     diskImageView.holesRadius = rotaryDialView.holesRadius
     diskImageView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
     diskImageView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
     diskImageView.firstHoleAngle = rotaryDialView.firstHoleAngle
+    diskImageView.image = nil
     
     /* Draw diskImageView */
-    diskImageView.image = nil
     diskImageView.drawDisk()
   }
   

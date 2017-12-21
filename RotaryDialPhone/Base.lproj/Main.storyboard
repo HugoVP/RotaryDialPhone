@@ -73,13 +73,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="numpad" translatesAutoresizingMaskIntoConstraints="NO" id="HEG-0J-mVn" customClass="RotaryDialView" customModule="RotaryDialPhone" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="numpad" translatesAutoresizingMaskIntoConstraints="NO" id="HEG-0J-mVn" customClass="NumpadImageView" customModule="RotaryDialPhone" customModuleProvider="target">
                                 <rect key="frame" x="8" y="8" width="304" height="304"/>
                                 <color key="backgroundColor" red="0.56772500276565552" green="0.48581844568252563" blue="0.43562567234039307" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disk" translatesAutoresizingMaskIntoConstraints="NO" id="FhM-8A-Iya" customClass="RotaryDialView" customModule="RotaryDialPhone" customModuleProvider="target">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disk" translatesAutoresizingMaskIntoConstraints="NO" id="FhM-8A-Iya" customClass="DiskImageView" customModule="RotaryDialPhone" customModuleProvider="target">
                                 <rect key="frame" x="16" y="16" width="288" height="288"/>
                                 <color key="backgroundColor" red="0.83590728039999995" green="0.75107139349999996" blue="0.5106931925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtR-az-b4a">
                                 <rect key="frame" x="122" y="140" width="76" height="40"/>
@@ -105,7 +106,7 @@
                             <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="HEG-0J-mVn" secondAttribute="bottom" constant="8" id="uRJ-RJ-g57"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="3zb-aX-YiU" appends="YES" id="Esj-Yy-D3N"/>
+                            <outletCollection property="gestureRecognizers" destination="ktI-nR-pEk" appends="YES" id="DYT-pI-whA"/>
                         </connections>
                     </view>
                     <connections>
@@ -115,9 +116,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ke2-9F-eUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <gestureRecognizer id="3zb-aX-YiU" customClass="RotaryDialGestureRecognizer" customModule="RotaryDialPhone" customModuleProvider="target">
+                <gestureRecognizer id="ktI-nR-pEk" customClass="RotaryDialGestureRecognizer" customModule="RotaryDialPhone" customModuleProvider="target">
                     <connections>
-                        <action selector="rotateAction:" destination="InE-Tm-L8O" id="vex-Qj-k8x"/>
+                        <action selector="rotateAction:" destination="InE-Tm-L8O" id="hDu-CR-drQ"/>
                     </connections>
                 </gestureRecognizer>
             </objects>
