@@ -15,14 +15,16 @@ class MainViewController: UIViewController {
     
     var contactViewController: ContactsViewController? = nil
     let searchController = UISearchController(searchResultsController: nil)
+    let searchBar = UISearchBar()
     var prevHeight = CGFloat()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchController.searchResultsUpdater = self.contactViewController
-        if #available(iOS 9.1, *) {
-            searchController.obscuresBackgroundDuringPresentation = false
-        }
+        self.searchBar.delegate = self.contactViewController
+        self.searchBar.placeholder = "Nombre del contacto"
+        self.searchBar.sizeToFit()
+        /*searchController.searchResultsUpdater = self.contactViewController
+        searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Nombre del contacto"
         searchController.searchBar.delegate = self.contactViewController
         searchController.searchBar.sizeToFit()
@@ -30,30 +32,34 @@ class MainViewController: UIViewController {
             navigationItem.searchController = searchController
          } else {
             navigationItem.titleView = searchController.searchBar
-        }
+        }*/
+        navigationItem.titleView = self.searchBar
         definesPresentationContext = true
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        prevHeight = self.heightConstraint.constant
+
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: .UIKeyboardWillHide, object: nil)
+        self.prevHeight = self.heightConstraint.constant
         
     }
     
     @objc func handleKeyboardNotification(notification: Notification) {
         if let userInfo = notification.userInfo {
-            if let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+                let animationDuration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval
+            {
                 let isKeyboardShowing = notification.name == .UIKeyboardWillShow
                 let dy = isKeyboardShowing ? -keyboardFrame.height : prevHeight
-                UIView.animate(withDuration: 0, delay: 0, options: .curveEaseOut, animations: {
-                    self.heightConstraint.constant = dy
-                    self.contactViewController?.view.layoutIfNeeded()
-                }, completion: nil)
+                self.heightConstraint.constant = dy
+                UIView.animate(withDuration: animationDuration, animations: {
+                    self.view.layoutIfNeeded()
+                })
             }
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        searchController.searchBar.endEditing(true)
+        //self.searchController.searchBar.endEditing(true)
+        self.searchBar.endEditing(true)
         self.view.endEditing(true)
     }
     

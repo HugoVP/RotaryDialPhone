@@ -32,7 +32,18 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UISearc
             // Nothing here
         }
     }
-
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
+        if searchText.count > 2, authorizationStatus == .authorized{
+            searchContact(input: searchText)
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
         if let inputText = (searchController.searchBar.text), !inputText.isEmpty, authorizationStatus == .authorized{
