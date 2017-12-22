@@ -17,6 +17,9 @@ class NumpadImageView: UIImageView, RotaryDialViewProtocol {
   var distanceFromHolesToCenter: CGFloat!
   var holesSeparationAngle: CGFloat!
   var firstHoleAngle: CGFloat!
+  
+  var lockAngle: CGFloat!
+  var number: ((Int) -> Int)!
 }
 
 /* Draw Numpad */
