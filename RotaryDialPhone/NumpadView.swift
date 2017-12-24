@@ -9,19 +9,8 @@ import UIKit
 
 /* Attributes */
 @IBDesignable
-class NumpadView: UIView, RotaryDialViewProtocol {
-  var path: UIBezierPath!
-  
-  @IBInspectable var fillColor: UIColor = .clear
+class NumpadView: RotaryDialElementView {
   @IBInspectable var numberFontSize: CGFloat = 37.0
-  
-  @IBInspectable var holesCount: Int = 10
-  @IBInspectable var holesRadius: CGFloat = 25.0
-  @IBInspectable var distanceFromHolesToCenter: CGFloat = 115.0
-  @IBInspectable var holesSeparationAngle: CGFloat = CGFloat.M_2_PI / 11.5
-  @IBInspectable var firstHoleAngle: CGFloat = CGFloat.M_2_PI / 11.5 * 1.25
-  
-  var number: ((Int) -> Int)! = { (index) in index > 0 ? 10 - index : 0 }
 }
 
 /* Draw Numpad */

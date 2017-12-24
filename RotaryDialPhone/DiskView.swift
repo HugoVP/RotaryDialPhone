@@ -9,17 +9,7 @@ import UIKit
 
 /* Attributes */
 @IBDesignable
-class DiskView: UIView, RotaryDialViewProtocol {
-  var path: UIBezierPath!
-  
-  @IBInspectable var fillColor: UIColor = .clear
-  
-  @IBInspectable var holesCount: Int = 10
-  @IBInspectable var holesRadius: CGFloat = 25.0
-  @IBInspectable var distanceFromHolesToCenter: CGFloat = 115.0
-  @IBInspectable var holesSeparationAngle: CGFloat = CGFloat.M_2_PI / 11.5
-  @IBInspectable var firstHoleAngle: CGFloat = CGFloat.M_2_PI / 11.5 * 1.25
-  
+class DiskView: RotaryDialElementView {
   @IBInspectable var outterBound: CGFloat = 8
   @IBInspectable var innerBound: CGFloat = 8
   
@@ -30,8 +20,6 @@ class DiskView: UIView, RotaryDialViewProtocol {
   private var innerRadius: CGFloat! {
     return distanceFromHolesToCenter - holesRadius - innerBound
   }
-  
-  var number: ((Int) -> Int)!
 }
 
 extension DiskView: CirclePath, RedrawableView {

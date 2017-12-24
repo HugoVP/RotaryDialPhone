@@ -9,14 +9,14 @@
 import UIKit
 
 class RotaryDialView: UIView, RotaryDialViewProtocol {
-  var holesCount: Int = 10
-  var holesRadius: CGFloat = 25.0
-  var distanceFromHolesToCenter: CGFloat = 115.0
-  var holesSeparationAngle: CGFloat = CGFloat.M_2_PI / 11.5
-  var firstHoleAngle: CGFloat = CGFloat.M_2_PI / 11.5 * 1.25
+  var holesCount: Int = 0
+  var holesRadius: CGFloat = 0.0
+  var distanceFromHolesToCenter: CGFloat = 0.0
+  var holesSeparationAngle: CGFloat = 0.0
+  var firstHoleAngle: CGFloat = 0.0
   
   /* The angle where the lock is located  */
-  var lockAngle: CGFloat = CGFloat.M_2_PI / 11.5 * 0.25
+  var lockAngle: CGFloat = 0.0
   
   /* The angle where's located the first hole's border. */
   var startAngle: CGFloat {
