@@ -8,26 +8,30 @@
 import UIKit
 
 /* Attributes */
-class NumpadImageView: UIImageView, RotaryDialViewProtocol {
+@IBDesignable
+class NumpadView: UIView, RotaryDialViewProtocol {
   var path: UIBezierPath!
-  var numberFontSize: CGFloat!
   
-  var holesCount: Int!
-  var holesRadius: CGFloat!
-  var distanceFromHolesToCenter: CGFloat!
-  var holesSeparationAngle: CGFloat!
-  var firstHoleAngle: CGFloat!
   
-  var lockAngle: CGFloat!
-  var number: ((Int) -> Int)!
+  @IBInspectable var fillColor: UIColor = .clear
+  @IBInspectable var numberFontSize: CGFloat = 37.0
+  
+  @IBInspectable var holesCount: Int = 10
+  @IBInspectable var holesRadius: CGFloat = 25.0
+  @IBInspectable var distanceFromHolesToCenter: CGFloat = 115.0
+  @IBInspectable var holesSeparationAngle: CGFloat = CGFloat.M_2_PI / 11.5
+  @IBInspectable var firstHoleAngle: CGFloat = CGFloat.M_2_PI / 11.5 * 1.25
+  var lockAngle: CGFloat = CGFloat.M_2_PI / 11.5 * 0.25
+  
+  var number: ((Int) -> Int)! = { (index) in index > 0 ? 10 - index : 0 }
 }
 
 /* Draw Numpad */
-extension NumpadImageView: CirclePath {
-  func drawNumpad() {
+extension NumpadView: CirclePath {
+  override func draw(_ rect: CGRect) {
     /* Set path */
     path = UIBezierPath()
-    
+
     /* Numpad Circle */
     drawCircle(
       center: CGPoint(
@@ -36,22 +40,17 @@ extension NumpadImageView: CirclePath {
       ),
       radius: bounds.width > bounds.height ? bounds.midY : bounds.midX
     )
-    
+
     let shapeLayer = CAShapeLayer()
-    shapeLayer.path = path.cgPath
-    
-    
-    if let backgroundColor = backgroundColor?.cgColor {
-      shapeLayer.fillColor = backgroundColor
-    } else {
-      shapeLayer.fillColor = UIColor.darkGray.cgColor
-    }
-    
+    shapeLayer.fillColor = fillColor.cgColor
+    shapeLayer.fillRule = kCAFillRuleEvenOdd
     shapeLayer.strokeColor = UIColor.darkGray.cgColor
     shapeLayer.lineWidth = 1.0
+    shapeLayer.path = path.cgPath
     backgroundColor = .clear
+
     layer.addSublayer(shapeLayer)
-    
+
     /* Numbers */
     for index in 0 ..< holesCount {
       let textLayer = CATextLayer()
@@ -62,14 +61,14 @@ extension NumpadImageView: CirclePath {
       textLayer.fontSize = numberFontSize
       textLayer.alignmentMode = kCAAlignmentCenter
       let hole = self.hole(index)
-      
+
       textLayer.frame = CGRect(
         x: hole.x + bounds.midX - bounds.midX - holesRadius,
         y: hole.y + bounds.midY - bounds.midY - holesRadius,
         width: holesRadius * 2.0,
         height: holesRadius * 2.0
       )
-      
+
       textLayer.cornerRadius = textLayer.bounds.midX
       textLayer.contentsScale = UIScreen.main.scale
       layer.addSublayer(textLayer)

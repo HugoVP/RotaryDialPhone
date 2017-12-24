@@ -8,14 +8,14 @@
 import UIKit
 
 protocol RotaryDialViewProtocol {
-  var holesCount: Int! { get set }
-  var holesRadius: CGFloat! { get set }
-  var distanceFromHolesToCenter: CGFloat! { get set }
-  var holesSeparationAngle: CGFloat! { get set }
-  var firstHoleAngle: CGFloat! { get set }
+  var holesCount: Int { get set }
+  var holesRadius: CGFloat { get set }
+  var distanceFromHolesToCenter: CGFloat { get set }
+  var holesSeparationAngle: CGFloat { get set }
+  var firstHoleAngle: CGFloat { get set }
   
   /* lockAngle: The angle where the lock is located  */
-  var lockAngle: CGFloat! { get }
+  var lockAngle: CGFloat { get }
   
   /* Get the number character by the index postion */
   var number: ((Int) -> Int)! { get set }

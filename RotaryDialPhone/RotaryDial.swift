@@ -16,4 +16,9 @@ struct RotaryDial {
   
   var lockAngle: CGFloat!
   var number: ((Int) -> Int)!
+  
+  /* Temp attrs */
+  var numberFontSize: CGFloat!
+  var outterDiskBound: CGFloat!
+  var innerDiskBound: CGFloat!
 }

@@ -46,12 +46,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="54L-bw-Ymi" secondAttribute="bottom" id="8SZ-Gt-eex"/>
                             <constraint firstAttribute="trailing" secondItem="wOh-bh-vDW" secondAttribute="trailing" id="8Ua-J7-EnS"/>
                             <constraint firstItem="54L-bw-Ymi" firstAttribute="top" secondItem="wOh-bh-vDW" secondAttribute="bottom" constant="8" id="Mdn-WA-Z7F"/>
-                            <constraint firstItem="wOh-bh-vDW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Pj2-0i-k0e"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="54L-bw-Ymi" secondAttribute="bottom" id="OT8-Sr-EQf"/>
                             <constraint firstAttribute="trailing" secondItem="54L-bw-Ymi" secondAttribute="trailing" id="VnE-h8-qVD"/>
                             <constraint firstItem="54L-bw-Ymi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ec9-ty-tyb"/>
+                            <constraint firstItem="wOh-bh-vDW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="g5y-90-ht5"/>
                             <constraint firstItem="wOh-bh-vDW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="utv-Vv-TlV"/>
                         </constraints>
                     </view>
@@ -73,15 +73,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="numpad" translatesAutoresizingMaskIntoConstraints="NO" id="HEG-0J-mVn" customClass="NumpadImageView" customModule="RotaryDialPhone" customModuleProvider="target">
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="FQt-40-gGm" customClass="NumpadView" customModule="RotaryDialPhone" customModuleProvider="target">
                                 <rect key="frame" x="8" y="8" width="304" height="304"/>
-                                <color key="backgroundColor" red="0.56772500276565552" green="0.48581844568252563" blue="0.43562567234039307" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disk" translatesAutoresizingMaskIntoConstraints="NO" id="FhM-8A-Iya" customClass="DiskImageView" customModule="RotaryDialPhone" customModuleProvider="target">
-                                <rect key="frame" x="16" y="16" width="288" height="288"/>
-                                <color key="backgroundColor" red="0.83590728039999995" green="0.75107139349999996" blue="0.5106931925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <gestureRecognizers/>
-                            </imageView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="distanceFromHolesToCenter">
+                                        <real key="value" value="115"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="holesSeparationAngle">
+                                        <real key="value" value="0.22439947530000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="firstHoleAngle">
+                                        <real key="value" value="0.56099868829999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="holesCount">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="holesRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                        <color key="value" red="0.56862745098039214" green="0.48627450980392156" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="numberFontSize">
+                                        <real key="value" value="37"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="73M-gk-b3q" customClass="DiskView" customModule="RotaryDialPhone" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="304" height="304"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="holesCount">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="holesRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="distanceFromHolesToCenter">
+                                        <real key="value" value="115"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="holesSeparationAngle">
+                                        <real key="value" value="0.54636393979999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="firstHoleAngle">
+                                        <real key="value" value="0.81954590959999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="outterBound">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="innerBound">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                        <color key="value" red="0.83529411760000005" green="0.75294117650000003" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="iBB-eQ-tNP" customClass="LockView" customModule="RotaryDialPhone" customModuleProvider="target">
+                                <rect key="frame" x="8" y="8" width="304" height="304"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtR-az-b4a">
                                 <rect key="frame" x="122" y="140" width="76" height="40"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
@@ -93,25 +150,42 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="FhM-8A-Iya" secondAttribute="trailing" constant="16" id="1oK-Cp-HAC"/>
-                            <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="FhM-8A-Iya" secondAttribute="bottom" constant="16" id="8AF-Ag-GGV"/>
-                            <constraint firstItem="FhM-8A-Iya" firstAttribute="leading" secondItem="IIa-uZ-Wqx" secondAttribute="leading" constant="16" id="OpW-6p-H7a"/>
-                            <constraint firstItem="HEG-0J-mVn" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="8" id="RFV-WO-RAs"/>
-                            <constraint firstItem="FhM-8A-Iya" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="16" id="VYF-FV-dic"/>
-                            <constraint firstItem="qtR-az-b4a" firstAttribute="centerX" secondItem="FhM-8A-Iya" secondAttribute="centerX" id="WTO-sn-bV1"/>
-                            <constraint firstItem="qtR-az-b4a" firstAttribute="centerY" secondItem="FhM-8A-Iya" secondAttribute="centerY" id="Yij-yo-Hmg"/>
-                            <constraint firstItem="HEG-0J-mVn" firstAttribute="leading" secondItem="IIa-uZ-Wqx" secondAttribute="leading" constant="8" id="ZH0-Zz-8A3"/>
-                            <constraint firstAttribute="trailing" secondItem="HEG-0J-mVn" secondAttribute="trailing" constant="8" id="aQz-LO-ANK"/>
-                            <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="HEG-0J-mVn" secondAttribute="bottom" constant="8" id="uRJ-RJ-g57"/>
+                            <constraint firstAttribute="trailing" secondItem="iBB-eQ-tNP" secondAttribute="trailing" constant="8" id="0zv-Bg-FlQ"/>
+                            <constraint firstItem="73M-gk-b3q" firstAttribute="leading" secondItem="IIa-uZ-Wqx" secondAttribute="leading" constant="8" id="31n-OV-Ky9"/>
+                            <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="iBB-eQ-tNP" secondAttribute="bottom" constant="8" id="65B-Te-lHA"/>
+                            <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="FQt-40-gGm" secondAttribute="bottom" constant="8" id="GwR-Pr-js1"/>
+                            <constraint firstItem="qtR-az-b4a" firstAttribute="centerX" secondItem="IIa-uZ-Wqx" secondAttribute="centerX" id="Mlt-wg-jHy"/>
+                            <constraint firstItem="73M-gk-b3q" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="8" id="MxW-ij-5SM"/>
+                            <constraint firstAttribute="trailing" secondItem="73M-gk-b3q" secondAttribute="trailing" constant="8" id="TEP-4D-5Of"/>
+                            <constraint firstItem="iBB-eQ-tNP" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="8" id="Uuh-bl-3Yi"/>
+                            <constraint firstItem="FQt-40-gGm" firstAttribute="leading" secondItem="IIa-uZ-Wqx" secondAttribute="leading" constant="8" id="hk6-ml-PZA"/>
+                            <constraint firstItem="qtR-az-b4a" firstAttribute="centerY" secondItem="IIa-uZ-Wqx" secondAttribute="centerY" id="j12-B8-m60"/>
+                            <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="73M-gk-b3q" secondAttribute="bottom" constant="8" id="njr-IY-hQH"/>
+                            <constraint firstItem="iBB-eQ-tNP" firstAttribute="leading" secondItem="IIa-uZ-Wqx" secondAttribute="leading" constant="8" id="tAg-xs-9kE"/>
+                            <constraint firstItem="FQt-40-gGm" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="8" id="twa-Bc-sUd"/>
+                            <constraint firstAttribute="trailing" secondItem="FQt-40-gGm" secondAttribute="trailing" constant="8" id="wNy-Ld-zaz"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="iBB-eQ-tNP"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="0zv-Bg-FlQ"/>
+                                <exclude reference="Uuh-bl-3Yi"/>
+                                <exclude reference="tAg-xs-9kE"/>
+                                <exclude reference="65B-Te-lHA"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ktI-nR-pEk" appends="YES" id="DYT-pI-whA"/>
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="diskImageView" destination="FhM-8A-Iya" id="2bg-fp-bzQ"/>
-                        <outlet property="numpadImageView" destination="HEG-0J-mVn" id="oJx-Pa-zR5"/>
+                        <outlet property="diskView" destination="73M-gk-b3q" id="aWM-xO-b1a"/>
+                        <outlet property="lockView" destination="iBB-eQ-tNP" id="WtN-z1-uFv"/>
+                        <outlet property="numpadView" destination="FQt-40-gGm" id="ESh-VL-QTc"/>
                         <outlet property="rotaryDialView" destination="IIa-uZ-Wqx" id="r8p-SU-kxo"/>
                     </connections>
                 </viewController>
@@ -187,8 +261,4 @@
             <point key="canvasLocation" x="1168.125" y="400.35211267605632"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="disk" width="409" height="409"/>
-        <image name="numpad" width="409" height="409"/>
-    </resources>
 </document>

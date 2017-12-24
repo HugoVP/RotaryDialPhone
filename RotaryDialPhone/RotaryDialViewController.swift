@@ -10,8 +10,9 @@ import UIKit
 
 class RotaryDialViewController: UIViewController {
   @IBOutlet weak var rotaryDialView: RotaryDialView!
-  @IBOutlet weak var numpadImageView: NumpadImageView!
-  @IBOutlet weak var diskImageView: DiskImageView!
+  @IBOutlet weak var numpadView: NumpadView!
+  @IBOutlet weak var diskView: DiskView!
+  @IBOutlet weak var lockView: LockView!
   
   var models = [RotaryDial]()
   
@@ -32,6 +33,10 @@ class RotaryDialViewController: UIViewController {
 extension RotaryDialViewController {
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
     /* Feed Models Array */
     feedModelsArray()
@@ -49,30 +54,26 @@ extension RotaryDialViewController {
     rotaryDialView.number = model.number
     
     /* Set numpadView */
-    numpadImageView.holesCount = rotaryDialView.holesCount
-    numpadImageView.holesRadius = rotaryDialView.holesRadius
-    numpadImageView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
-    numpadImageView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
-    numpadImageView.firstHoleAngle = rotaryDialView.firstHoleAngle
-    numpadImageView.lockAngle = rotaryDialView.lockAngle
-    numpadImageView.number = rotaryDialView.number
-    numpadImageView.image = nil
+    numpadView.holesCount = rotaryDialView.holesCount
+    numpadView.holesRadius = rotaryDialView.holesRadius
+    numpadView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
+    numpadView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
+    numpadView.firstHoleAngle = rotaryDialView.firstHoleAngle
+    numpadView.lockAngle = rotaryDialView.lockAngle
+    numpadView.number = rotaryDialView.number
+    numpadView.numberFontSize = model.numberFontSize
     
-    /* Draw numpadView */
-    numpadImageView.drawNumpad()
     
     /* Set diskImageView */
-    diskImageView.holesCount = rotaryDialView.holesCount
-    diskImageView.holesRadius = rotaryDialView.holesRadius
-    diskImageView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
-    diskImageView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
-    diskImageView.firstHoleAngle = rotaryDialView.firstHoleAngle
-    diskImageView.lockAngle = rotaryDialView.lockAngle
-    diskImageView.number = rotaryDialView.number
-    diskImageView.image = nil
-    
-    /* Draw diskImageView */
-    diskImageView.drawDisk()
+    diskView.holesCount = rotaryDialView.holesCount
+    diskView.holesRadius = rotaryDialView.holesRadius
+    diskView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
+    diskView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
+    diskView.firstHoleAngle = rotaryDialView.firstHoleAngle
+    diskView.lockAngle = rotaryDialView.lockAngle
+    diskView.number = rotaryDialView.number
+    diskView.outterBound = model.outterDiskBound
+    diskView.innerBound = model.innerDiskBound
   }
   
   @IBAction func rotateAction(_ sender: RotaryDialGestureRecognizer) {
@@ -83,7 +84,7 @@ extension RotaryDialViewController {
       
     case .changed:
       if let rotationAngle = sender.rotationAngle {
-        diskImageView.transform = CGAffineTransform(rotationAngle: rotationAngle)
+        diskView.transform = CGAffineTransform(rotationAngle: rotationAngle)
       }
       
     case .ended:
@@ -123,7 +124,7 @@ extension RotaryDialViewController {
       delay: 0,
       options: .curveLinear,
       animations: {
-        self.diskImageView.transform = CGAffineTransform(rotationAngle: midRotation)
+        self.diskView.transform = CGAffineTransform(rotationAngle: midRotation)
       },
       completion: { (finished) in
         UIView.animate(
@@ -131,7 +132,7 @@ extension RotaryDialViewController {
           delay: 0,
           options: .curveLinear,
           animations: {
-            self.diskImageView.transform = CGAffineTransform(rotationAngle: 0)
+            self.diskView.transform = CGAffineTransform(rotationAngle: 0)
           },
           completion: { (finished) in
             if (ended) {
@@ -188,72 +189,55 @@ extension RotaryDialViewController {
   }
   
   func feedModelsArray() {
-    
-    /* Model params */
-    var holesCount = 10
-    var holesSeparationAngle = CGFloat.M_2_PI / 14.0
-    var firstHoleAngle = holesSeparationAngle * 2.5
-    var lockAngle = firstHoleAngle - holesSeparationAngle
-    
-    func number(index: Int) -> Int {
-      if index > 0 {
-        return holesCount - index
-      }
-      
-      return 0
-    }
-    
-    let model1: RotaryDial!
-    
-    /* Set params based on screen size */
-    switch UIScreen.main.bounds.width {
-    case 320:
-      /* Init model */
-      model1 = RotaryDial(
-        holesCount: holesCount,
-        holesRadius: 45.0 / 2.0,
-        distanceFromHolesToCenter: 112.5,
-        holesSeparationAngle: holesSeparationAngle,
-        firstHoleAngle: firstHoleAngle,
-        lockAngle: lockAngle,
-        number: number
-      )
-      
-      /* Fonst size */
-      numpadImageView.numberFontSize = 36.0
-      
-    case 375:
-      /* Init model */
-      model1 = RotaryDial(
-        holesCount: holesCount,
-        holesRadius: 52.734375 / 2.0,
-        distanceFromHolesToCenter: 131.8359375,
-        holesSeparationAngle: holesSeparationAngle,
-        firstHoleAngle: firstHoleAngle,
-        lockAngle: lockAngle,
-        number: number
-      )
-      
-      /* Fonst size */
-      numpadImageView.numberFontSize = 42.0
-      
-    default: /* 414 */
-      /* Init model */
-      model1 = RotaryDial(
-        holesCount: holesCount,
-        holesRadius: 58.21875 / 2.0,
-        distanceFromHolesToCenter: 145.546875,
-        holesSeparationAngle: holesSeparationAngle,
-        firstHoleAngle: firstHoleAngle,
-        lockAngle: lockAngle,
-        number: number
-      )
-      
-      /* Fonst size */
-      numpadImageView.numberFontSize = 46.0
-    }
+    let constant = UIScreen.main.bounds.width / 320.0
+
+    /* Set Model 1 */
+    let model1 = RotaryDial(
+      holesCount: 10,
+      holesRadius: 45.0 / 2 * constant,
+      distanceFromHolesToCenter: 112.5 * constant,
+      holesSeparationAngle: CGFloat.M_2_PI / 14.0,
+      firstHoleAngle: CGFloat.M_2_PI / 14.0 * 2.5,
+      lockAngle: CGFloat.M_2_PI / 14.0 * 1.5,
+      number: { (index) in index > 0 ? 10 - index : 0 },
+      numberFontSize: 30 + 7 * constant,
+      outterDiskBound: 8,
+      innerDiskBound: 8
+    )
     
     models.append(model1)
+    
+    /* Set Model 2 */
+    let model2 = RotaryDial(
+      holesCount: 10,
+      holesRadius: 58.0 / 2 * constant,
+      distanceFromHolesToCenter: 115.0 * constant,
+      holesSeparationAngle: CGFloat.M_2_PI / 11.5,
+      firstHoleAngle: CGFloat.M_2_PI / 11.5 * 1.25,
+      lockAngle: CGFloat.M_2_PI / 11.5 * 0.25,
+      number: { (index) in index > 0 ? 10 - index : 0 },
+      numberFontSize: 37 + 7 * constant,
+      outterDiskBound: 8,
+      innerDiskBound: 8
+    )
+    
+    models.append(model2)
+    
+    /* Set Model 3 */
+    let model3 = RotaryDial(
+      holesCount: 10,
+      holesRadius: 50.0 / 2 * constant,
+      distanceFromHolesToCenter: 115.0 * constant,
+      holesSeparationAngle: CGFloat.M_2_PI / 12,
+      firstHoleAngle: CGFloat.M_2_PI / 12 * 1.5,
+      lockAngle: CGFloat.M_2_PI / 12 * 1.0,
+      number: { (index) in index },
+      numberFontSize: 32 + 7 * constant,
+      outterDiskBound: 6,
+      innerDiskBound: 12
+    )
+    
+    models.append(model3)
   }
 }
 
