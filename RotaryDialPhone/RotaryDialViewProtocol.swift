@@ -14,19 +14,11 @@ protocol RotaryDialViewProtocol {
   var holesSeparationAngle: CGFloat { get set }
   var firstHoleAngle: CGFloat { get set }
   
-  /* lockAngle: The angle where the lock is located  */
-  var lockAngle: CGFloat { get }
-  
   /* Get the number character by the index postion */
   var number: ((Int) -> Int)! { get set }
 }
 
 extension RotaryDialViewProtocol where Self: UIView {
-  /* startAngle: The angle where's located the first hole's border. */
-  var startAngle: CGFloat {
-    return firstHoleAngle - atan(holesRadius / distanceFromHolesToCenter)
-  }
-  
   /* Get the hole location by the index position */
   func hole(_ index: Int) -> CGPoint {
     let angle = firstHoleAngle + holesSeparationAngle * CGFloat(index)

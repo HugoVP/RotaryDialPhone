@@ -19,7 +19,6 @@ class DiskView: UIView, RotaryDialViewProtocol {
   @IBInspectable var distanceFromHolesToCenter: CGFloat = 115.0
   @IBInspectable var holesSeparationAngle: CGFloat = CGFloat.M_2_PI / 11.5
   @IBInspectable var firstHoleAngle: CGFloat = CGFloat.M_2_PI / 11.5 * 1.25
-  var lockAngle: CGFloat = CGFloat.M_2_PI / 11.5 * 0.25
   
   @IBInspectable var outterBound: CGFloat = 8
   @IBInspectable var innerBound: CGFloat = 8
@@ -32,7 +31,7 @@ class DiskView: UIView, RotaryDialViewProtocol {
     return distanceFromHolesToCenter - holesRadius - innerBound
   }
   
-  var number: ((Int) -> Int)! = { (index) in index }
+  var number: ((Int) -> Int)!
 }
 
 extension DiskView: CirclePath, RedrawableView {

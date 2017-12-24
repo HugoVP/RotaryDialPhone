@@ -12,7 +12,6 @@ import UIKit
 class NumpadView: UIView, RotaryDialViewProtocol {
   var path: UIBezierPath!
   
-  
   @IBInspectable var fillColor: UIColor = .clear
   @IBInspectable var numberFontSize: CGFloat = 37.0
   
@@ -21,7 +20,6 @@ class NumpadView: UIView, RotaryDialViewProtocol {
   @IBInspectable var distanceFromHolesToCenter: CGFloat = 115.0
   @IBInspectable var holesSeparationAngle: CGFloat = CGFloat.M_2_PI / 11.5
   @IBInspectable var firstHoleAngle: CGFloat = CGFloat.M_2_PI / 11.5 * 1.25
-  var lockAngle: CGFloat = CGFloat.M_2_PI / 11.5 * 0.25
   
   var number: ((Int) -> Int)! = { (index) in index > 0 ? 10 - index : 0 }
 }
@@ -63,8 +61,8 @@ extension NumpadView: CirclePath, RedrawableView {
       let hole = self.hole(index)
 
       textLayer.frame = CGRect(
-        x: hole.x + bounds.midX - bounds.midX - holesRadius,
-        y: hole.y + bounds.midY - bounds.midY - holesRadius,
+        x: hole.x - holesRadius,
+        y: hole.y - holesRadius,
         width: holesRadius * 2.0,
         height: holesRadius * 2.0
       )

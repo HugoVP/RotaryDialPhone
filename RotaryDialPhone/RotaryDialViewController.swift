@@ -27,7 +27,7 @@ class RotaryDialViewController: UIViewController {
   let baseRotationAnimationTime: CGFloat = 0.4
   
   var baseRotationAnimationAngle: CGFloat {
-    return 4 * rotaryDialView.holesSeparationAngle
+    return 4.0 * rotaryDialView.holesSeparationAngle
   }
 }
 
@@ -236,25 +236,23 @@ extension RotaryDialViewController {
   
   /* Set numpadView */
   func setNumpadView() {
-    numpadView.holesCount = rotaryDialView.holesCount
-    numpadView.holesRadius = rotaryDialView.holesRadius
-    numpadView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
-    numpadView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
-    numpadView.firstHoleAngle = rotaryDialView.firstHoleAngle
-    numpadView.lockAngle = rotaryDialView.lockAngle
-    numpadView.number = rotaryDialView.number
+    numpadView.holesCount = model.holesCount
+    numpadView.holesRadius = model.holesRadius
+    numpadView.distanceFromHolesToCenter = model.distanceFromHolesToCenter
+    numpadView.holesSeparationAngle = model.holesSeparationAngle
+    numpadView.firstHoleAngle = model.firstHoleAngle
+    numpadView.number = model.number
     numpadView.numberFontSize = model.numberFontSize
   }
   
   /* Set diskImageView */
   func setDiskView() {
-    diskView.holesCount = rotaryDialView.holesCount
-    diskView.holesRadius = rotaryDialView.holesRadius
-    diskView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
-    diskView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
-    diskView.firstHoleAngle = rotaryDialView.firstHoleAngle
-    diskView.lockAngle = rotaryDialView.lockAngle
-    diskView.number = rotaryDialView.number
+    diskView.holesCount = model.holesCount
+    diskView.holesRadius = model.holesRadius
+    diskView.distanceFromHolesToCenter = model.distanceFromHolesToCenter
+    diskView.holesSeparationAngle = model.holesSeparationAngle
+    diskView.firstHoleAngle = model.firstHoleAngle
+    diskView.number = model.number
     diskView.outterBound = model.outterDiskBound
     diskView.innerBound = model.innerDiskBound
   }
