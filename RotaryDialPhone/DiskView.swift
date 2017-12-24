@@ -35,7 +35,7 @@ class DiskView: UIView, RotaryDialViewProtocol {
   var number: ((Int) -> Int)! = { (index) in index }
 }
 
-extension DiskView: CirclePath {
+extension DiskView: CirclePath, RedrawableView {
   override func draw(_ rect: CGRect) {
     /* Set path */
     path = UIBezierPath()

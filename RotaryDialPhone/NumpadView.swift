@@ -27,7 +27,7 @@ class NumpadView: UIView, RotaryDialViewProtocol {
 }
 
 /* Draw Numpad */
-extension NumpadView: CirclePath {
+extension NumpadView: CirclePath, RedrawableView {
   override func draw(_ rect: CGRect) {
     /* Set path */
     path = UIBezierPath()

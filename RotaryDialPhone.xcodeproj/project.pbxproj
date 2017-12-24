@@ -23,6 +23,7 @@
 		9AAB76051FEA298500E5BDF3 /* NumpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB76041FEA298500E5BDF3 /* NumpadView.swift */; };
 		9AAB76071FEA299800E5BDF3 /* DiskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB76061FEA299800E5BDF3 /* DiskView.swift */; };
 		9AAB76091FEA305100E5BDF3 /* RotaryDialViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB76081FEA305100E5BDF3 /* RotaryDialViewProtocol.swift */; };
+		9ACF427A1FEF6BCB004954AB /* RedrawableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF42791FEF6BCB004954AB /* RedrawableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		9AAB76041FEA298500E5BDF3 /* NumpadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadView.swift; sourceTree = "<group>"; };
 		9AAB76061FEA299800E5BDF3 /* DiskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskView.swift; sourceTree = "<group>"; };
 		9AAB76081FEA305100E5BDF3 /* RotaryDialViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotaryDialViewProtocol.swift; sourceTree = "<group>"; };
+		9ACF42791FEF6BCB004954AB /* RedrawableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedrawableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				9A2651291F665C4F002CB5CE /* CirclePath.swift */,
+				9ACF42791FEF6BCB004954AB /* RedrawableView.swift */,
 				9AAB76081FEA305100E5BDF3 /* RotaryDialViewProtocol.swift */,
 			);
 			name = Protocols;
@@ -246,6 +249,7 @@
 				9A30E5B31F560CB500835FC7 /* ContactsViewController.swift in Sources */,
 				9AAB76091FEA305100E5BDF3 /* RotaryDialViewProtocol.swift in Sources */,
 				9A30E5B51F560CB500835FC7 /* MainViewController.swift in Sources */,
+				9ACF427A1FEF6BCB004954AB /* RedrawableView.swift in Sources */,
 				9A1C3A051FEAEB37008B2A15 /* RotaryDial.swift in Sources */,
 				9AAB76051FEA298500E5BDF3 /* NumpadView.swift in Sources */,
 			);

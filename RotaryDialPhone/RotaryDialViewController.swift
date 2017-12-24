@@ -14,6 +14,7 @@ class RotaryDialViewController: UIViewController {
   @IBOutlet weak var diskView: DiskView!
   @IBOutlet weak var lockView: LockView!
   
+  var model: RotaryDial!
   var models = [RotaryDial]()
   
   var phoneNumber = ""
@@ -31,10 +32,6 @@ class RotaryDialViewController: UIViewController {
 }
 
 extension RotaryDialViewController {
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -42,38 +39,10 @@ extension RotaryDialViewController {
     feedModelsArray()
     
     /* Select a model */
-    let model = models[0]
+    model = models[0]
     
     /* Set rotaryDialView */
-    rotaryDialView.holesCount = model.holesCount
-    rotaryDialView.holesRadius = model.holesRadius
-    rotaryDialView.distanceFromHolesToCenter = model.distanceFromHolesToCenter
-    rotaryDialView.holesSeparationAngle = model.holesSeparationAngle
-    rotaryDialView.firstHoleAngle = model.firstHoleAngle
-    rotaryDialView.lockAngle = model.lockAngle
-    rotaryDialView.number = model.number
-    
-    /* Set numpadView */
-    numpadView.holesCount = rotaryDialView.holesCount
-    numpadView.holesRadius = rotaryDialView.holesRadius
-    numpadView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
-    numpadView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
-    numpadView.firstHoleAngle = rotaryDialView.firstHoleAngle
-    numpadView.lockAngle = rotaryDialView.lockAngle
-    numpadView.number = rotaryDialView.number
-    numpadView.numberFontSize = model.numberFontSize
-    
-    
-    /* Set diskImageView */
-    diskView.holesCount = rotaryDialView.holesCount
-    diskView.holesRadius = rotaryDialView.holesRadius
-    diskView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
-    diskView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
-    diskView.firstHoleAngle = rotaryDialView.firstHoleAngle
-    diskView.lockAngle = rotaryDialView.lockAngle
-    diskView.number = rotaryDialView.number
-    diskView.outterBound = model.outterDiskBound
-    diskView.innerBound = model.innerDiskBound
+    setRotaryDialView()
   }
   
   @IBAction func rotateAction(_ sender: RotaryDialGestureRecognizer) {
@@ -111,6 +80,13 @@ extension RotaryDialViewController {
   
   @IBAction func resetBtnPresed(_ sender: UIButton) {
     phoneNumber = ""
+    
+    /* Temporal functionality */
+    /* Randomly chooses a model and redraws it */
+    model = models[Int(arc4random_uniform(UInt32(models.count)))]
+    setAllViews()
+    numpadView.redraw()
+    diskView.redraw()
   }
 }
 
@@ -238,6 +214,49 @@ extension RotaryDialViewController {
     )
     
     models.append(model3)
+  }
+  
+  /* Set Views */
+  func setAllViews() {
+    setRotaryDialView()
+    setNumpadView()
+    setDiskView()
+  }
+  
+  /* Set rotaryDialView */
+  func setRotaryDialView() {
+    rotaryDialView.holesCount = model.holesCount
+    rotaryDialView.holesRadius = model.holesRadius
+    rotaryDialView.distanceFromHolesToCenter = model.distanceFromHolesToCenter
+    rotaryDialView.holesSeparationAngle = model.holesSeparationAngle
+    rotaryDialView.firstHoleAngle = model.firstHoleAngle
+    rotaryDialView.lockAngle = model.lockAngle
+    rotaryDialView.number = model.number
+  }
+  
+  /* Set numpadView */
+  func setNumpadView() {
+    numpadView.holesCount = rotaryDialView.holesCount
+    numpadView.holesRadius = rotaryDialView.holesRadius
+    numpadView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
+    numpadView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
+    numpadView.firstHoleAngle = rotaryDialView.firstHoleAngle
+    numpadView.lockAngle = rotaryDialView.lockAngle
+    numpadView.number = rotaryDialView.number
+    numpadView.numberFontSize = model.numberFontSize
+  }
+  
+  /* Set diskImageView */
+  func setDiskView() {
+    diskView.holesCount = rotaryDialView.holesCount
+    diskView.holesRadius = rotaryDialView.holesRadius
+    diskView.distanceFromHolesToCenter = rotaryDialView.distanceFromHolesToCenter
+    diskView.holesSeparationAngle = rotaryDialView.holesSeparationAngle
+    diskView.firstHoleAngle = rotaryDialView.firstHoleAngle
+    diskView.lockAngle = rotaryDialView.lockAngle
+    diskView.number = rotaryDialView.number
+    diskView.outterBound = model.outterDiskBound
+    diskView.innerBound = model.innerDiskBound
   }
 }
 
