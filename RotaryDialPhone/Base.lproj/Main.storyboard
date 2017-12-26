@@ -137,6 +137,15 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
                                         <color key="value" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lockAngle">
+                                        <real key="value" value="0.6731984258"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="holesRadius">
+                                        <real key="value" value="22.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="distanceFromHolesToCenter">
+                                        <real key="value" value="112.5"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtR-az-b4a">
@@ -167,17 +176,6 @@
                             <constraint firstItem="FQt-40-gGm" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="8" id="twa-Bc-sUd"/>
                             <constraint firstAttribute="trailing" secondItem="FQt-40-gGm" secondAttribute="trailing" constant="8" id="wNy-Ld-zaz"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="iBB-eQ-tNP"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="0zv-Bg-FlQ"/>
-                                <exclude reference="Uuh-bl-3Yi"/>
-                                <exclude reference="tAg-xs-9kE"/>
-                                <exclude reference="65B-Te-lHA"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ktI-nR-pEk" appends="YES" id="DYT-pI-whA"/>
                         </connections>

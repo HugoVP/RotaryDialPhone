@@ -50,8 +50,6 @@ extension DiskView: CirclePath, RedrawableView {
       drawCircle(center: hole(index), radius: holesRadius)
     }
     
-    /* Drawing the disk holes */
-    
     let shapeLayer = CAShapeLayer()
     shapeLayer.fillColor = fillColor.cgColor
     shapeLayer.fillRule = kCAFillRuleEvenOdd

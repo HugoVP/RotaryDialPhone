@@ -41,8 +41,8 @@ extension RotaryDialViewController {
     /* Select a model */
     model = models[0]
     
-    /* Set rotaryDialView */
-    setRotaryDialView()
+    /* Set views */
+    setAllViews()
   }
   
   @IBAction func rotateAction(_ sender: RotaryDialGestureRecognizer) {
@@ -87,6 +87,7 @@ extension RotaryDialViewController {
     setAllViews()
     numpadView.redraw()
     diskView.redraw()
+    lockView.redraw()
   }
 }
 
@@ -221,6 +222,7 @@ extension RotaryDialViewController {
     setRotaryDialView()
     setNumpadView()
     setDiskView()
+    setLockView()
   }
   
   /* Set rotaryDialView */
@@ -255,6 +257,12 @@ extension RotaryDialViewController {
     diskView.number = model.number
     diskView.outterBound = model.outterDiskBound
     diskView.innerBound = model.innerDiskBound
+  }
+  
+  func setLockView() {
+    lockView.lockAngle = model.lockAngle
+    lockView.holesRadius = model.holesRadius
+    lockView.distanceFromHolesToCenter = model.distanceFromHolesToCenter
   }
 }
 

@@ -40,25 +40,30 @@ extension NumpadView: CirclePath, RedrawableView {
 
     /* Numbers */
     for index in 0 ..< holesCount {
-      let textLayer = CATextLayer()
-      textLayer.string = "\(number(index))"
-      textLayer.backgroundColor = UIColor.white.cgColor
-      textLayer.foregroundColor = UIColor.darkGray.cgColor
-      textLayer.font = UIFont(name: "Avenir Next", size: numberFontSize)
-      textLayer.fontSize = numberFontSize
-      textLayer.alignmentMode = kCAAlignmentCenter
       let hole = self.hole(index)
-
-      textLayer.frame = CGRect(
-        x: hole.x - holesRadius,
-        y: hole.y - holesRadius,
-        width: holesRadius * 2.0,
-        height: holesRadius * 2.0
-      )
-
-      textLayer.cornerRadius = textLayer.bounds.midX
-      textLayer.contentsScale = UIScreen.main.scale
-      layer.addSublayer(textLayer)
+      let number = "\(self.number(index))"
+      layer.addSublayer(getTextLayer(forHole: hole, withNumber: number))
     }
+  }
+  
+  func getTextLayer(forHole hole: CGPoint, withNumber number: String) -> CATextLayer {
+    let textLayer = CATextLayer()
+    textLayer.string = number
+    textLayer.backgroundColor = UIColor.white.cgColor
+    textLayer.foregroundColor = UIColor.darkGray.cgColor
+    textLayer.font = UIFont(name: "Avenir Next", size: numberFontSize)
+    textLayer.fontSize = numberFontSize
+    textLayer.alignmentMode = kCAAlignmentCenter
+    textLayer.frame = CGRect(
+      x: hole.x - holesRadius,
+      y: hole.y - holesRadius,
+      width: holesRadius * 2.0,
+      height: holesRadius * 2.0
+    )
+    
+    textLayer.cornerRadius = textLayer.bounds.midX
+    textLayer.contentsScale = UIScreen.main.scale
+    
+    return textLayer
   }
 }
