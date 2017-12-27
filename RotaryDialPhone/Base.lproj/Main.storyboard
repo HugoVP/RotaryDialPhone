@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gHW-MX-Sou">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gHW-MX-Sou">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,10 +16,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Menu View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Menu View Controller" customClass="MainViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Main View Controller" customClass="MainViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -55,7 +55,13 @@
                             <constraint firstItem="wOh-bh-vDW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="utv-Vv-TlV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Rotary Dial" id="sgi-CS-7gV"/>
+                    <navigationItem key="navigationItem" title="Rotary Dial" id="sgi-CS-7gV">
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="oeC-Pb-1Ly">
+                            <connections>
+                                <segue destination="BUc-JI-j7O" kind="show" id="9Ae-2o-XyS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,6 +145,25 @@
             </objects>
             <point key="canvasLocation" x="1168.125" y="36.971830985915496"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="ehk-pg-b4v">
+            <objects>
+                <viewController id="BUc-JI-j7O" userLabel="Settings View Controller" customClass="SettingsViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Smd-XV-J56"/>
+                        <viewControllerLayoutGuide type="bottom" id="bRQ-xR-qQX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WhV-ZF-ahj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="yDz-kP-0tL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kf-WP-zr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2036" y="168"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="MXN-Jv-yTs">
             <objects>
@@ -161,6 +186,10 @@
         <scene sceneID="QU5-H7-PAz">
             <objects>
                 <viewController id="lvp-5M-0lX" customClass="ContactsViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gtc-yQ-iG9"/>
+                        <viewControllerLayoutGuide type="bottom" id="bdZ-pr-0nu"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1AX-z9-pBi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,11 +224,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cl-Vb-UeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1168.125" y="400.35211267605632"/>
+            <point key="canvasLocation" x="1168" y="375"/>
         </scene>
     </scenes>
     <resources>
         <image name="disk" width="409" height="409"/>
+        <image name="ic_settings_white" width="24" height="24"/>
         <image name="numpad" width="409" height="409"/>
     </resources>
 </document>
