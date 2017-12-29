@@ -10,36 +10,31 @@ import UIKit
 import Contacts
 
 class MainViewController: UIViewController {
-    
-    var contactViewController: ContactsViewController? = nil
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self.contactViewController
-        if #available(iOS 9.1, *) {
-            searchController.obscuresBackgroundDuringPresentation = false
-        }
-        searchController.searchBar.placeholder = "Nombre del contacto"
-        searchController.searchBar.delegate = self.contactViewController
-        searchController.searchBar.showsCancelButton = false
-        
-        searchController.searchBar.sizeToFit()
-        if #available(iOS 11.0, *) {
-            navigationItem.searchController = searchController
-         } else {
-            navigationItem.titleView = searchController.searchBar
-        }
-        definesPresentationContext = true
+  var contactViewController: ContactsViewController? = nil
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    let searchController = UISearchController(searchResultsController: nil)
+    searchController.searchResultsUpdater = self.contactViewController
+    if #available(iOS 9.1, *) {
+      searchController.obscuresBackgroundDuringPresentation = false
     }
+    searchController.searchBar.placeholder = "Nombre del contacto"
+    searchController.searchBar.delegate = self.contactViewController
+    searchController.searchBar.showsCancelButton = false
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let contactViewController = segue.destination as? ContactsViewController {
-            self.contactViewController = contactViewController
-        }
+    searchController.searchBar.sizeToFit()
+    if #available(iOS 11.0, *) {
+      navigationItem.searchController = searchController
+    } else {
+      navigationItem.titleView = searchController.searchBar
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    definesPresentationContext = true
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let contactViewController = segue.destination as? ContactsViewController {
+      self.contactViewController = contactViewController
     }
+  }
 }
