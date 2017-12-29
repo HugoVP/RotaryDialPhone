@@ -14,6 +14,9 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UISearc
     @IBOutlet weak var numberContactLabel: UILabel!
     @IBOutlet weak var nameContactLabel: UILabel!
     
+    let searchDelay = DispatchTime(uptimeNanoseconds: 100)
+    var isSearching = false
+    
     let keys = [CNContactIdentifierKey as CNKeyDescriptor,
                 CNContactPhoneNumbersKey as CNKeyDescriptor,
                 CNContactFormatter.descriptorForRequiredKeys(for:CNContactFormatterStyle.fullName)]
@@ -29,40 +32,56 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UISearc
             // Nothing here
         }
     }
-
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
+        if searchText.count > 2, authorizationStatus == .authorized{
+            searchContact(input: searchText)
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
-        if let inputText = (searchController.searchBar.text), !inputText.isEmpty, authorizationStatus == .authorized {
+        if let inputText = (searchController.searchBar.text), !inputText.isEmpty, authorizationStatus == .authorized{
             searchContact(input: inputText)
         }
     }
     
     func searchContact(input: String) {
+        if isSearching { return }
+        self.isSearching = true
         self.nameContactLabel.alpha = 0;
         self.numberContactLabel.alpha = 0;
-        //requestForAccess { (accessGranted) in
-            //if accessGranted {
-                let predicate = CNContact.predicateForContacts(matchingName: input)
-                do {
-                    let contacts = try self.contactStore.unifiedContacts(matching: predicate, keysToFetch: self.keys)
-                    if(contacts.count == 0) {
-                        //DispatchQueue.main.async {
-                        self.nameContactLabel.text = "No contact found."
-                        self.numberContactLabel.text = ""
-                        //}
-                    } else {
-                        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
-                            self.nameContactLabel.alpha = 1;
-                            self.numberContactLabel.alpha = 1;
-                            self.nameContactLabel.text = self.formatter.string(from: contacts[0])!
-                            self.numberContactLabel.text = contacts[0].phoneNumbers.first!.value.stringValue
-                        }, completion: nil);
-                    }
-                } catch {
-                    print("Unable to fetch contacts")
+        let predicate = CNContact.predicateForContacts(matchingName: input)
+        DispatchQueue.global().asyncAfter(deadline: searchDelay) {
+            var contactName = ""
+            var contactNumber = ""
+            do {
+                let contacts = try self.contactStore.unifiedContacts(matching: predicate, keysToFetch: self.keys)
+                if(contacts.count == 0) {
+                    contactName = "No contacts found."
+                    contactNumber = ""
+                } else {
+                    contactName = self.formatter.string(from: contacts[0])!
+                    contactNumber = contacts[0].phoneNumbers.first!.value.stringValue
                 }
-            //}
-        //}
+            } catch {
+                print("Unable to fetch contacts")
+            }
+            self.isSearching = false
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
+                    self.nameContactLabel.alpha = 1;
+                    self.numberContactLabel.alpha = 1;
+                    self.nameContactLabel.text = contactName
+                    self.numberContactLabel.text = contactNumber
+                }, completion: nil);
+            }
+        }
     }
     
     func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {

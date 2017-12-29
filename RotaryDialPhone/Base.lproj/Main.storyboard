@@ -37,7 +37,7 @@
                                     <segue destination="InE-Tm-L8O" kind="embed" id="EL6-YD-uLA"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54L-bw-Ymi">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54L-bw-Ymi" userLabel="Contact Container View">
                                 <rect key="frame" x="0.0" y="392" width="320" height="176"/>
                                 <connections>
                                     <segue destination="lvp-5M-0lX" kind="embed" identifier="contactSegue" id="WWf-79-kKQ"/>
@@ -61,6 +61,9 @@
                                 <segue destination="l9h-jU-jaO" kind="show" id="nZ6-Cs-pXg"/>
                             </connections>
                         </barButtonItem>
+                      <connections>
+                        <outlet property="heightConstraint" destination="Mdn-WA-Z7F" id="2gc-6Y-iFy"/>
+                    </connections>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -207,7 +210,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LEc-Jv-Mrj" firstAttribute="leading" secondItem="LQJ-Vg-HfG" secondAttribute="leading" id="7Lz-ke-Fs1"/>
                             <constraint firstItem="LQJ-Vg-HfG" firstAttribute="leading" secondItem="1AX-z9-pBi" secondAttribute="leadingMargin" id="WnQ-Dl-4FZ"/>
