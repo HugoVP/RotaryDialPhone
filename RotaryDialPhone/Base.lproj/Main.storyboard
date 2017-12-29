@@ -37,7 +37,7 @@
                                     <segue destination="InE-Tm-L8O" kind="embed" id="EL6-YD-uLA"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54L-bw-Ymi">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54L-bw-Ymi" userLabel="Contact Container View">
                                 <rect key="frame" x="0.0" y="392" width="320" height="176"/>
                                 <connections>
                                     <segue destination="lvp-5M-0lX" kind="embed" identifier="contactSegue" id="WWf-79-kKQ"/>
@@ -56,16 +56,46 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Rotary Dial" id="sgi-CS-7gV">
+
                         <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="oeC-Pb-1Ly">
                             <connections>
                                 <segue destination="BUc-JI-j7O" kind="show" id="9Ae-2o-XyS"/>
                             </connections>
                         </barButtonItem>
+
+                        <barButtonItem key="leftBarButtonItem" image="ic_people_white" id="kKA-Nu-5Sc">
+                            <connections>
+                                <segue destination="l9h-jU-jaO" kind="show" id="nZ6-Cs-pXg"/>
+                            </connections>
+                        </barButtonItem>
+                      <connections>
+                        <outlet property="heightConstraint" destination="Mdn-WA-Z7F" id="2gc-6Y-iFy"/>
+                    </connections>
+
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="320.625" y="167.95774647887325"/>
+        </scene>
+        <!--Contacts-->
+        <scene sceneID="Q8m-gu-pMR">
+            <objects>
+                <viewController id="l9h-jU-jaO" customClass="SearchContactViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c8V-MN-Loz"/>
+                        <viewControllerLayoutGuide type="bottom" id="86e-tO-z2r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PZW-mF-9U8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contacts" id="qBw-jF-kaP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cYE-J7-bth" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="321" y="924"/>
         </scene>
         <!--Rotary Dial View Controller-->
         <scene sceneID="4Xq-aL-XG5">
@@ -187,8 +217,10 @@
             <objects>
                 <viewController id="lvp-5M-0lX" customClass="ContactsViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
+
                         <viewControllerLayoutGuide type="top" id="Gtc-yQ-iG9"/>
                         <viewControllerLayoutGuide type="bottom" id="bdZ-pr-0nu"/>
+
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1AX-z9-pBi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
@@ -207,7 +239,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LEc-Jv-Mrj" firstAttribute="leading" secondItem="LQJ-Vg-HfG" secondAttribute="leading" id="7Lz-ke-Fs1"/>
                             <constraint firstItem="LQJ-Vg-HfG" firstAttribute="leading" secondItem="1AX-z9-pBi" secondAttribute="leadingMargin" id="WnQ-Dl-4FZ"/>
@@ -229,7 +261,11 @@
     </scenes>
     <resources>
         <image name="disk" width="409" height="409"/>
+
         <image name="ic_settings_white" width="24" height="24"/>
+
+        <image name="ic_people_white" width="24" height="24"/>
+
         <image name="numpad" width="409" height="409"/>
     </resources>
 </document>
