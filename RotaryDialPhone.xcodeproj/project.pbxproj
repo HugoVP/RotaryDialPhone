@@ -15,6 +15,7 @@
 		9A30E5B51F560CB500835FC7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B21F560CB500835FC7 /* MainViewController.swift */; };
 		9A30E5B71F560CC200835FC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A30E5B61F560CC200835FC7 /* AppDelegate.swift */; };
 		9A41E98B1D628E2000D29475 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A41E9891D628E2000D29475 /* LaunchScreen.storyboard */; };
+		9A497CF21FF5E25500C33AFE /* SkinSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A497CF11FF5E25500C33AFE /* SkinSelectionViewController.swift */; };
 		9A7098F21FEE278A008D31D8 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7098F11FEE2789008D31D8 /* LockView.swift */; };
 		9A78AC5E1DF93C7D00247FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A78AC5C1DF93C7D00247FC9 /* Main.storyboard */; };
 		9A875F8D1F6CBFBE00FB6398 /* RotaryDialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A875F8C1F6CBFBE00FB6398 /* RotaryDialView.swift */; };
@@ -39,6 +40,7 @@
 		9A30E5B61F560CC200835FC7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A41E97D1D628E2000D29475 /* RotaryDialPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RotaryDialPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A41E98A1D628E2000D29475 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9A497CF11FF5E25500C33AFE /* SkinSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinSelectionViewController.swift; sourceTree = "<group>"; };
 		9A7098F11FEE2789008D31D8 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		9A78AC5D1DF93C7D00247FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A875F8C1F6CBFBE00FB6398 /* RotaryDialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialView.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */,
 				9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */,
 				9AAE37921FF3060900C8F476 /* SettingsViewController.swift */,
+				9A497CF11FF5E25500C33AFE /* SkinSelectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			files = (
 				9A8B90A31F6CFC4D00E753FE /* CGFloat+Ext.swift in Sources */,
 				9A26512A1F665C4F002CB5CE /* CirclePath.swift in Sources */,
+				9A497CF21FF5E25500C33AFE /* SkinSelectionViewController.swift in Sources */,
 				9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */,
 				9A7098F21FEE278A008D31D8 /* LockView.swift in Sources */,
 				9A8B90A01F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift in Sources */,

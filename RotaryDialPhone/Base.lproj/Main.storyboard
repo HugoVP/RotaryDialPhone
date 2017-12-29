@@ -213,13 +213,73 @@
                     <view key="view" contentMode="scaleToFill" id="WhV-ZF-ahj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pGa-KW-zeJ">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SkinSelectionTableViewCell" textLabel="LHU-il-9nX" imageView="hSQ-9V-JqR" style="IBUITableViewCellStyleDefault" id="I0Y-Xa-wWf">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I0Y-Xa-wWf" id="UQp-ps-YYy">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Skin selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LHU-il-9nX">
+                                                    <rect key="frame" x="54" y="0.0" width="231" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="ic_collections" id="hSQ-9V-JqR">
+                                                    <rect key="frame" x="15" y="9" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="kBM-z7-vO5" kind="show" id="C6K-ou-KHl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pGa-KW-zeJ" firstAttribute="top" secondItem="Smd-XV-J56" secondAttribute="bottom" id="9Z9-JR-wUJ"/>
+                            <constraint firstItem="bRQ-xR-qQX" firstAttribute="top" secondItem="pGa-KW-zeJ" secondAttribute="bottom" id="CcT-fc-ZBE"/>
+                            <constraint firstItem="pGa-KW-zeJ" firstAttribute="leading" secondItem="WhV-ZF-ahj" secondAttribute="leading" id="ChT-ns-zcS"/>
+                            <constraint firstAttribute="trailing" secondItem="pGa-KW-zeJ" secondAttribute="trailing" id="yDu-Ll-rhp"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="yDz-kP-0tL"/>
+                    <connections>
+                        <outlet property="tableView" destination="pGa-KW-zeJ" id="rkk-yL-Z8c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kf-WP-zr1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2036" y="168"/>
+        </scene>
+        <!--Select-->
+        <scene sceneID="09R-px-Zdi">
+            <objects>
+                <viewController id="kBM-z7-vO5" customClass="SkinSelectionViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OhY-dd-QoX"/>
+                        <viewControllerLayoutGuide type="bottom" id="cEo-mq-dQf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AaL-vv-AHs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select" id="0c1-MZ-0DP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KjN-Bu-C06" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2897" y="168"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MXN-Jv-yTs">
@@ -285,6 +345,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ic_collections" width="24" height="24"/>
         <image name="ic_settings_white" width="24" height="24"/>
     </resources>
 </document>
