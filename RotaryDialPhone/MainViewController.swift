@@ -10,11 +10,15 @@ import UIKit
 import Contacts
 
 class MainViewController: UIViewController {
-  
   var contactViewController: ContactsViewController? = nil
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    let searchController = UISearchController(searchResultsController: nil)
+    searchController.searchResultsUpdater = self.contactViewController
+    if #available(iOS 9.1, *) {
+      searchController.obscuresBackgroundDuringPresentation = false
     
 
     let searchController = UISearchController(searchResultsController: nil)
@@ -53,7 +57,16 @@ class MainViewController: UIViewController {
         self.prevHeight = self.heightConstraint.constant
         
     }
+    searchController.searchBar.placeholder = "Nombre del contacto"
+    searchController.searchBar.delegate = self.contactViewController
+    searchController.searchBar.showsCancelButton = false
     
+    searchController.searchBar.sizeToFit()
+    if #available(iOS 11.0, *) {
+      navigationItem.searchController = searchController
+    } else {
+      navigationItem.titleView = searchController.searchBar
+    }
     @objc func handleKeyboardNotification(notification: Notification) {
         if let userInfo = notification.userInfo {
             if let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
@@ -95,8 +108,10 @@ class MainViewController: UIViewController {
       self.contactViewController = contactViewController
     }
   }
+
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
+
 }
