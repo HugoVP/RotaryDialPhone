@@ -10,7 +10,19 @@ import UIKit
 import Contacts
 
 class MainViewController: UIViewController {
+  
+  var contactViewController: ContactsViewController? = nil
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
+
+    let searchController = UISearchController(searchResultsController: nil)
+    searchController.searchResultsUpdater = self.contactViewController
+    
+    if #available(iOS 9.1, *) {
+      searchController.obscuresBackgroundDuringPresentation = false
+
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     var contactViewController: ContactsViewController? = nil
@@ -63,13 +75,28 @@ class MainViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let contactViewController = segue.destination as? ContactsViewController {
-            self.contactViewController = contactViewController
-        }
-    }
+    searchController.searchBar.placeholder = "Nombre del contacto"
+    searchController.searchBar.delegate = self.contactViewController
+    searchController.searchBar.showsCancelButton = false
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    searchController.searchBar.sizeToFit()
+    
+//    if #available(iOS 11.0, *) {
+//      navigationItem.searchController = searchController
+//    } else {
+//      navigationItem.titleView = searchController.searchBar
+//    }
+    
+    definesPresentationContext = true
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if let contactViewController = segue.destination as? ContactsViewController {
+      self.contactViewController = contactViewController
     }
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+  }
 }

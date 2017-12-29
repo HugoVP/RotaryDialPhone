@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gHW-MX-Sou">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gHW-MX-Sou">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -55,14 +55,39 @@
                             <constraint firstItem="wOh-bh-vDW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="utv-Vv-TlV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Rotary Dial" id="sgi-CS-7gV"/>
-                    <connections>
+                    <navigationItem key="navigationItem" title="Rotary Dial" id="sgi-CS-7gV">
+                        <barButtonItem key="leftBarButtonItem" image="ic_people_white" id="kKA-Nu-5Sc">
+                            <connections>
+                                <segue destination="l9h-jU-jaO" kind="show" id="nZ6-Cs-pXg"/>
+                            </connections>
+                        </barButtonItem>
+                      <connections>
                         <outlet property="heightConstraint" destination="Mdn-WA-Z7F" id="2gc-6Y-iFy"/>
                     </connections>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="320.625" y="167.95774647887325"/>
+        </scene>
+        <!--Contacts-->
+        <scene sceneID="Q8m-gu-pMR">
+            <objects>
+                <viewController id="l9h-jU-jaO" customClass="SearchContactViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c8V-MN-Loz"/>
+                        <viewControllerLayoutGuide type="bottom" id="86e-tO-z2r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PZW-mF-9U8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contacts" id="qBw-jF-kaP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cYE-J7-bth" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="321" y="924"/>
         </scene>
         <!--Rotary Dial View Controller-->
         <scene sceneID="4Xq-aL-XG5">
@@ -165,8 +190,8 @@
             <objects>
                 <viewController id="lvp-5M-0lX" customClass="ContactsViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="s4o-po-O6s"/>
-                        <viewControllerLayoutGuide type="bottom" id="ENT-d1-zeE"/>
+                        <viewControllerLayoutGuide type="top" id="vbQ-IZ-dcb"/>
+                        <viewControllerLayoutGuide type="bottom" id="SqQ-wJ-x6k"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1AX-z9-pBi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
@@ -207,6 +232,7 @@
     </scenes>
     <resources>
         <image name="disk" width="409" height="409"/>
+        <image name="ic_people_white" width="24" height="24"/>
         <image name="numpad" width="409" height="409"/>
     </resources>
 </document>

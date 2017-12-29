@@ -18,6 +18,7 @@
 		9A875F8D1F6CBFBE00FB6398 /* RotaryDialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A875F8C1F6CBFBE00FB6398 /* RotaryDialView.swift */; };
 		9A8B90A01F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B909F1F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift */; };
 		9A8B90A31F6CFC4D00E753FE /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B90A21F6CFC4D00E753FE /* CGFloat+Ext.swift */; };
+		9A8CF53D1FF4B1EB0067CB9A /* SearchContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CF53C1FF4B1EB0067CB9A /* SearchContactsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9A875F8C1F6CBFBE00FB6398 /* RotaryDialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialView.swift; sourceTree = "<group>"; };
 		9A8B909F1F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialGestureRecognizer.swift; sourceTree = "<group>"; };
 		9A8B90A21F6CFC4D00E753FE /* CGFloat+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
+		9A8CF53C1FF4B1EB0067CB9A /* SearchContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContactsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				9A30E5B21F560CB500835FC7 /* MainViewController.swift */,
 				9A30E5B01F560CB500835FC7 /* ContactsViewController.swift */,
+				9A8CF53C1FF4B1EB0067CB9A /* SearchContactsViewController.swift */,
 				9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */,
 			);
 			name = Controller;
@@ -217,6 +220,7 @@
 				9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */,
 				9A8B90A01F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift in Sources */,
 				9A30E5B71F560CC200835FC7 /* AppDelegate.swift in Sources */,
+				9A8CF53D1FF4B1EB0067CB9A /* SearchContactsViewController.swift in Sources */,
 				9A875F8D1F6CBFBE00FB6398 /* RotaryDialView.swift in Sources */,
 				9A30E5B31F560CB500835FC7 /* ContactsViewController.swift in Sources */,
 				9A30E5B51F560CB500835FC7 /* MainViewController.swift in Sources */,
