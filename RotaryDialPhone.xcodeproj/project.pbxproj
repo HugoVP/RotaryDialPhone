@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F4A8D8F1FFE82BA00C67361 /* ContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4A8D8E1FFE82BA00C67361 /* ContactDelegate.swift */; };
 		9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */; };
 		9A26512A1F665C4F002CB5CE /* CirclePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2651291F665C4F002CB5CE /* CirclePath.swift */; };
 		9A30E5AF1F560CA600835FC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A30E5AE1F560CA600835FC7 /* Assets.xcassets */; };
@@ -18,11 +19,12 @@
 		9A875F8D1F6CBFBE00FB6398 /* RotaryDialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A875F8C1F6CBFBE00FB6398 /* RotaryDialView.swift */; };
 		9A8B90A01F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B909F1F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift */; };
 		9A8B90A31F6CFC4D00E753FE /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B90A21F6CFC4D00E753FE /* CGFloat+Ext.swift */; };
-		9AAE37931FF3060900C8F476 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE37921FF3060900C8F476 /* SettingsViewController.swift */; };
 		9A8CF53D1FF4B1EB0067CB9A /* SearchContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CF53C1FF4B1EB0067CB9A /* SearchContactsViewController.swift */; };
+		9AAE37931FF3060900C8F476 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE37921FF3060900C8F476 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F4A8D8E1FFE82BA00C67361 /* ContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDelegate.swift; sourceTree = "<group>"; };
 		9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialViewController.swift; sourceTree = "<group>"; };
 		9A2651291F665C4F002CB5CE /* CirclePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePath.swift; sourceTree = "<group>"; };
 		9A30E5AC1F560C9C00835FC7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -36,8 +38,8 @@
 		9A875F8C1F6CBFBE00FB6398 /* RotaryDialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialView.swift; sourceTree = "<group>"; };
 		9A8B909F1F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialGestureRecognizer.swift; sourceTree = "<group>"; };
 		9A8B90A21F6CFC4D00E753FE /* CGFloat+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
-		9AAE37921FF3060900C8F476 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9A8CF53C1FF4B1EB0067CB9A /* SearchContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContactsViewController.swift; sourceTree = "<group>"; };
+		9AAE37921FF3060900C8F476 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				9A2651291F665C4F002CB5CE /* CirclePath.swift */,
+				2F4A8D8E1FFE82BA00C67361 /* ContactDelegate.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			files = (
 				9A8B90A31F6CFC4D00E753FE /* CGFloat+Ext.swift in Sources */,
 				9A26512A1F665C4F002CB5CE /* CirclePath.swift in Sources */,
+				2F4A8D8F1FFE82BA00C67361 /* ContactDelegate.swift in Sources */,
 				9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */,
 				9A8B90A01F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift in Sources */,
 				9A30E5B71F560CC200835FC7 /* AppDelegate.swift in Sources */,
@@ -373,7 +377,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tech.paleo.RotaryDialPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -392,7 +396,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tech.paleo.RotaryDialPhone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

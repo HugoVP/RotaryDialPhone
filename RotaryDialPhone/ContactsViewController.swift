@@ -9,7 +9,8 @@
 import UIKit
 import Contacts
 
-class ContactsViewController: UIViewController {
+class ContactsViewController: UIViewController, ContactDelegate {
+    
     
     @IBOutlet weak var numberContactLabel: UILabel!
     @IBOutlet weak var nameContactLabel: UILabel!
@@ -19,6 +20,11 @@ class ContactsViewController: UIViewController {
         requestForAccess { (accessGranted) in
             // Nothing here just ask for contacts acces
         }
+    }
+    
+    func onReceive(contactName: String?, contactPhoneNumber: String?) {
+        nameContactLabel.text = contactName
+        numberContactLabel.text = contactPhoneNumber
     }
     
     func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {

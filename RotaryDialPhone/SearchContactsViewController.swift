@@ -12,6 +12,7 @@ class SearchContactViewController: UIViewController, UITableViewDataSource, UITa
     
     @IBOutlet weak var contactTableView: UITableView!
     
+    var deletegate: ContactDelegate?
     var isSearching = false
     var contactsList = [CNContact]();
     
@@ -47,13 +48,14 @@ class SearchContactViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellId, for: indexPath)
-        cell.textLabel?.text = self.contactFormatter.string(from: self.contactsList[indexPath.row])!
+        cell.textLabel?.text = self.contactFormatter.string(from: self.contactsList[indexPath.row])
         cell.detailTextLabel?.text = self.contactsList[indexPath.row].phoneNumbers.first?.value.stringValue
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(self.contactsList[indexPath.row].givenName)
+        deletegate?.onReceive(contactName: self.contactFormatter.string(from: self.contactsList[indexPath.row]), contactPhoneNumber: self.contactsList[indexPath.row].phoneNumbers.first?.value.stringValue)
+        navigationController?.popViewController(animated: true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
