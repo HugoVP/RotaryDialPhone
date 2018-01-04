@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gHW-MX-Sou">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gHW-MX-Sou">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -56,22 +56,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Rotary Dial" id="sgi-CS-7gV">
-
-                        <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="oeC-Pb-1Ly">
-                            <connections>
-                                <segue destination="BUc-JI-j7O" kind="show" id="9Ae-2o-XyS"/>
-                            </connections>
-                        </barButtonItem>
-
                         <barButtonItem key="leftBarButtonItem" image="ic_people_white" id="kKA-Nu-5Sc">
                             <connections>
                                 <segue destination="l9h-jU-jaO" kind="show" id="nZ6-Cs-pXg"/>
                             </connections>
                         </barButtonItem>
-                      <connections>
-                        <outlet property="heightConstraint" destination="Mdn-WA-Z7F" id="2gc-6Y-iFy"/>
-                    </connections>
-
+                        <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="oeC-Pb-1Ly">
+                            <connections>
+                                <segue destination="BUc-JI-j7O" kind="show" id="9Ae-2o-XyS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -89,13 +83,54 @@
                     <view key="view" contentMode="scaleToFill" id="PZW-mF-9U8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b2m-kv-1FR">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="Ehj-yp-bqv" detailTextLabel="922-nU-dQy" style="IBUITableViewCellStyleSubtitle" id="zf0-5t-xNI">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zf0-5t-xNI" id="Ckn-zZ-cuR">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ehj-yp-bqv">
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="922-nU-dQy">
+                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="b2m-kv-1FR" secondAttribute="trailing" id="NyG-3w-TZ4"/>
+                            <constraint firstItem="b2m-kv-1FR" firstAttribute="leading" secondItem="PZW-mF-9U8" secondAttribute="leading" id="T1n-AA-m3W"/>
+                            <constraint firstItem="b2m-kv-1FR" firstAttribute="top" secondItem="c8V-MN-Loz" secondAttribute="bottom" id="fR7-1K-un2"/>
+                            <constraint firstItem="86e-tO-z2r" firstAttribute="top" secondItem="b2m-kv-1FR" secondAttribute="bottom" id="vOB-dz-ZCO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contacts" id="qBw-jF-kaP"/>
+                    <connections>
+                        <outlet property="contactTableView" destination="b2m-kv-1FR" id="d2G-zH-YKF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYE-J7-bth" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="321" y="924"/>
+            <point key="canvasLocation" x="320.625" y="923.23943661971828"/>
         </scene>
         <!--Rotary Dial View Controller-->
         <scene sceneID="4Xq-aL-XG5">
@@ -173,7 +208,7 @@
                     </connections>
                 </gestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1168.125" y="36.971830985915496"/>
+            <point key="canvasLocation" x="1166" y="-102"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="ehk-pg-b4v">
@@ -217,10 +252,8 @@
             <objects>
                 <viewController id="lvp-5M-0lX" customClass="ContactsViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-
                         <viewControllerLayoutGuide type="top" id="Gtc-yQ-iG9"/>
                         <viewControllerLayoutGuide type="bottom" id="bdZ-pr-0nu"/>
-
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1AX-z9-pBi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
@@ -250,8 +283,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="nameContactLabel" destination="LQJ-Vg-HfG" id="Du1-MA-iIH"/>
-                        <outlet property="numberContactLabel" destination="LEc-Jv-Mrj" id="pZ7-Tg-eZh"/>
+                        <outlet property="nameContactLabel" destination="LEc-Jv-Mrj" id="XTn-za-s1A"/>
+                        <outlet property="numberContactLabel" destination="LQJ-Vg-HfG" id="92Q-Hz-zTs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cl-Vb-UeW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,11 +294,8 @@
     </scenes>
     <resources>
         <image name="disk" width="409" height="409"/>
-
-        <image name="ic_settings_white" width="24" height="24"/>
-
         <image name="ic_people_white" width="24" height="24"/>
-
+        <image name="ic_settings_white" width="24" height="24"/>
         <image name="numpad" width="409" height="409"/>
     </resources>
 </document>

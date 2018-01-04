@@ -10,12 +10,12 @@ import UIKit
 import Contacts
 
 class MainViewController: UIViewController {
-  var contactViewController: ContactsViewController? = nil
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    let searchController = UISearchController(searchResultsController: nil)
+    /*let searchController = UISearchController(searchResultsController: nil)
     searchController.searchResultsUpdater = self.contactViewController
     if #available(iOS 9.1, *) {
       searchController.obscuresBackgroundDuringPresentation = false
@@ -25,21 +25,17 @@ class MainViewController: UIViewController {
     searchController.searchResultsUpdater = self.contactViewController
     
     if #available(iOS 9.1, *) {
-      searchController.obscuresBackgroundDuringPresentation = false
+      searchController.obscuresBackgroundDuringPresentation = false*/
 
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+}
     
-    var contactViewController: ContactsViewController? = nil
-    let searchController = UISearchController(searchResultsController: nil)
-    let searchBar = UISearchBar()
-    var prevHeight = CGFloat()
     
-    override func viewDidLoad() {
+    /*override func viewDidLoad() {
         super.viewDidLoad()
         self.searchBar.delegate = self.contactViewController
         self.searchBar.placeholder = "Nombre del contacto"
         self.searchBar.sizeToFit()
-        /*searchController.searchResultsUpdater = self.contactViewController
+        searchController.searchResultsUpdater = self.contactViewController
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Nombre del contacto"
         searchController.searchBar.delegate = self.contactViewController
@@ -48,7 +44,7 @@ class MainViewController: UIViewController {
             navigationItem.searchController = searchController
          } else {
             navigationItem.titleView = searchController.searchBar
-        }*/
+        }
         navigationItem.titleView = self.searchBar
         definesPresentationContext = true
 
@@ -81,37 +77,10 @@ class MainViewController: UIViewController {
             }
         }
     }
+    }*/
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //self.searchController.searchBar.endEditing(true)
-        self.searchBar.endEditing(true)
-        self.view.endEditing(true)
-    }
-    
-    searchController.searchBar.placeholder = "Nombre del contacto"
-    searchController.searchBar.delegate = self.contactViewController
-    searchController.searchBar.showsCancelButton = false
-    
-    searchController.searchBar.sizeToFit()
-    
-//    if #available(iOS 11.0, *) {
-//      navigationItem.searchController = searchController
-//    } else {
-//      navigationItem.titleView = searchController.searchBar
-//    }
-    
-    definesPresentationContext = true
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let contactViewController = segue.destination as? ContactsViewController {
-      self.contactViewController = contactViewController
-    }
-  }
-
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
-
 }
