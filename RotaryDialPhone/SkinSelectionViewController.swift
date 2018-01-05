@@ -7,24 +7,57 @@
 
 import UIKit
 
-let reuseIdentifier = "SkinCollectionViewCell"
-let skinCellSize = (UIScreen.main.bounds.width - 40.0) / 2.0 - 1.0
-let skinNameLabelSize: CGFloat = 21.0
+fileprivate let reuseIdentifier = "SkinCollectionViewCell"
+fileprivate let itemsPerRow: CGFloat = 2.0
+fileprivate let sectionInsets = UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0)
+fileprivate let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+fileprivate let availableWidth = UIScreen.main.bounds.width - paddingSpace
+fileprivate let skinCellSize = availableWidth / itemsPerRow
+fileprivate let skinNameLabelSize: CGFloat = 21.0
 
 class SkinSelectionViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
+  var selectedItem = 9
   
   override func viewDidLoad() {
     super.viewDidLoad()
     collectionView.delegate = self
     collectionView.dataSource = self
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    let indexPath = IndexPath(row: selectedItem, section: 0)
+    collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+    
+    guard let cell = collectionView.cellForItem(at: indexPath) as? SkinCollectionViewCell else {
+      return
+    }
+    
+    cell.imageView.layer.borderWidth = 1.0
+    cell.alpha = 0.85
+  }
 }
 
 extension SkinSelectionViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print(indexPath.row)
+    print("selected: \(indexPath.row)")
     
+    guard let cell = collectionView.cellForItem(at: indexPath) as? SkinCollectionViewCell else {
+      return
+    }
+    
+    cell.imageView.layer.borderWidth = 1.0
+    cell.alpha = 0.85
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+    guard let cell = collectionView.cellForItem(at: indexPath) as? SkinCollectionViewCell else {
+      return
+    }
+    
+    cell.imageView.layer.borderWidth = 0.0
+    cell.alpha = 1.0
   }
 }
 
@@ -49,6 +82,10 @@ extension SkinSelectionViewController: UICollectionViewDataSource {
     
     cell.configure(title: "skin_1", imageName: "skin_1")
     
+//    if indexPath.row == selectedItem {
+//      collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+//    }
+    
     return cell
   }
 }
@@ -59,6 +96,14 @@ extension SkinSelectionViewController: UICollectionViewDelegateFlowLayout {
       width: skinCellSize,
       height: skinCellSize + skinNameLabelSize
     )
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return sectionInsets
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return sectionInsets.left
   }
 }
 

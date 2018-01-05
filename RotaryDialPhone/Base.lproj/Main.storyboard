@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gHW-MX-Sou">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gHW-MX-Sou">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -20,10 +21,6 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" userLabel="Main View Controller" customClass="MainViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,14 +43,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="wOh-bh-vDW" secondAttribute="trailing" id="8Ua-J7-EnS"/>
+                            <constraint firstItem="ni7-qt-scd" firstAttribute="trailing" secondItem="wOh-bh-vDW" secondAttribute="trailing" id="8Ua-J7-EnS"/>
                             <constraint firstItem="54L-bw-Ymi" firstAttribute="top" secondItem="wOh-bh-vDW" secondAttribute="bottom" constant="8" id="Mdn-WA-Z7F"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="54L-bw-Ymi" secondAttribute="bottom" id="OT8-Sr-EQf"/>
-                            <constraint firstAttribute="trailing" secondItem="54L-bw-Ymi" secondAttribute="trailing" id="VnE-h8-qVD"/>
-                            <constraint firstItem="54L-bw-Ymi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ec9-ty-tyb"/>
-                            <constraint firstItem="wOh-bh-vDW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="g5y-90-ht5"/>
-                            <constraint firstItem="wOh-bh-vDW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="utv-Vv-TlV"/>
+                            <constraint firstItem="ni7-qt-scd" firstAttribute="bottom" secondItem="54L-bw-Ymi" secondAttribute="bottom" id="OT8-Sr-EQf"/>
+                            <constraint firstItem="ni7-qt-scd" firstAttribute="trailing" secondItem="54L-bw-Ymi" secondAttribute="trailing" id="VnE-h8-qVD"/>
+                            <constraint firstItem="54L-bw-Ymi" firstAttribute="leading" secondItem="ni7-qt-scd" secondAttribute="leading" id="ec9-ty-tyb"/>
+                            <constraint firstItem="wOh-bh-vDW" firstAttribute="top" secondItem="ni7-qt-scd" secondAttribute="top" id="g5y-90-ht5"/>
+                            <constraint firstItem="wOh-bh-vDW" firstAttribute="leading" secondItem="ni7-qt-scd" secondAttribute="leading" id="utv-Vv-TlV"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="ni7-qt-scd"/>
                     </view>
                     <navigationItem key="navigationItem" title="Rotary Dial" id="sgi-CS-7gV">
                         <barButtonItem key="rightBarButtonItem" image="ic_settings_white" id="oeC-Pb-1Ly">
@@ -71,10 +69,6 @@
         <scene sceneID="4Xq-aL-XG5">
             <objects>
                 <viewController id="InE-Tm-L8O" customClass="RotaryDialViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fCb-Bk-bgU"/>
-                        <viewControllerLayoutGuide type="bottom" id="r7c-Wi-chy"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IIa-uZ-Wqx" customClass="RotaryDialView" customModule="RotaryDialPhone" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,21 +161,22 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="iBB-eQ-tNP" secondAttribute="trailing" constant="8" id="0zv-Bg-FlQ"/>
-                            <constraint firstItem="73M-gk-b3q" firstAttribute="leading" secondItem="IIa-uZ-Wqx" secondAttribute="leading" constant="8" id="31n-OV-Ky9"/>
-                            <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="iBB-eQ-tNP" secondAttribute="bottom" constant="8" id="65B-Te-lHA"/>
-                            <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="FQt-40-gGm" secondAttribute="bottom" constant="8" id="GwR-Pr-js1"/>
-                            <constraint firstItem="qtR-az-b4a" firstAttribute="centerX" secondItem="IIa-uZ-Wqx" secondAttribute="centerX" id="Mlt-wg-jHy"/>
-                            <constraint firstItem="73M-gk-b3q" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="8" id="MxW-ij-5SM"/>
-                            <constraint firstAttribute="trailing" secondItem="73M-gk-b3q" secondAttribute="trailing" constant="8" id="TEP-4D-5Of"/>
-                            <constraint firstItem="iBB-eQ-tNP" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="8" id="Uuh-bl-3Yi"/>
-                            <constraint firstItem="FQt-40-gGm" firstAttribute="leading" secondItem="IIa-uZ-Wqx" secondAttribute="leading" constant="8" id="hk6-ml-PZA"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="iBB-eQ-tNP" secondAttribute="trailing" constant="8" id="0zv-Bg-FlQ"/>
+                            <constraint firstItem="73M-gk-b3q" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" constant="8" id="31n-OV-Ky9"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="iBB-eQ-tNP" secondAttribute="bottom" constant="8" id="65B-Te-lHA"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="FQt-40-gGm" secondAttribute="bottom" constant="8" id="GwR-Pr-js1"/>
+                            <constraint firstItem="qtR-az-b4a" firstAttribute="centerX" secondItem="z8b-y2-1oH" secondAttribute="centerX" id="Mlt-wg-jHy"/>
+                            <constraint firstItem="73M-gk-b3q" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" constant="8" id="MxW-ij-5SM"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="73M-gk-b3q" secondAttribute="trailing" constant="8" id="TEP-4D-5Of"/>
+                            <constraint firstItem="iBB-eQ-tNP" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" constant="8" id="Uuh-bl-3Yi"/>
+                            <constraint firstItem="FQt-40-gGm" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" constant="8" id="hk6-ml-PZA"/>
                             <constraint firstItem="qtR-az-b4a" firstAttribute="centerY" secondItem="IIa-uZ-Wqx" secondAttribute="centerY" id="j12-B8-m60"/>
-                            <constraint firstItem="r7c-Wi-chy" firstAttribute="top" secondItem="73M-gk-b3q" secondAttribute="bottom" constant="8" id="njr-IY-hQH"/>
-                            <constraint firstItem="iBB-eQ-tNP" firstAttribute="leading" secondItem="IIa-uZ-Wqx" secondAttribute="leading" constant="8" id="tAg-xs-9kE"/>
-                            <constraint firstItem="FQt-40-gGm" firstAttribute="top" secondItem="fCb-Bk-bgU" secondAttribute="bottom" constant="8" id="twa-Bc-sUd"/>
-                            <constraint firstAttribute="trailing" secondItem="FQt-40-gGm" secondAttribute="trailing" constant="8" id="wNy-Ld-zaz"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="73M-gk-b3q" secondAttribute="bottom" constant="8" id="njr-IY-hQH"/>
+                            <constraint firstItem="iBB-eQ-tNP" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" constant="8" id="tAg-xs-9kE"/>
+                            <constraint firstItem="FQt-40-gGm" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" constant="8" id="twa-Bc-sUd"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="FQt-40-gGm" secondAttribute="trailing" constant="8" id="wNy-Ld-zaz"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="z8b-y2-1oH"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ktI-nR-pEk" appends="YES" id="DYT-pI-whA"/>
                         </connections>
@@ -206,10 +201,6 @@
         <scene sceneID="ehk-pg-b4v">
             <objects>
                 <viewController id="BUc-JI-j7O" userLabel="Settings View Controller" customClass="SettingsViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Smd-XV-J56"/>
-                        <viewControllerLayoutGuide type="bottom" id="bRQ-xR-qQX"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WhV-ZF-ahj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,11 +245,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="pGa-KW-zeJ" firstAttribute="top" secondItem="Smd-XV-J56" secondAttribute="bottom" id="9Z9-JR-wUJ"/>
-                            <constraint firstItem="bRQ-xR-qQX" firstAttribute="top" secondItem="pGa-KW-zeJ" secondAttribute="bottom" id="CcT-fc-ZBE"/>
-                            <constraint firstItem="pGa-KW-zeJ" firstAttribute="leading" secondItem="WhV-ZF-ahj" secondAttribute="leading" id="ChT-ns-zcS"/>
-                            <constraint firstAttribute="trailing" secondItem="pGa-KW-zeJ" secondAttribute="trailing" id="yDu-Ll-rhp"/>
+                            <constraint firstItem="pGa-KW-zeJ" firstAttribute="top" secondItem="UXS-Au-wKN" secondAttribute="top" id="9Z9-JR-wUJ"/>
+                            <constraint firstItem="UXS-Au-wKN" firstAttribute="bottom" secondItem="pGa-KW-zeJ" secondAttribute="bottom" id="CcT-fc-ZBE"/>
+                            <constraint firstItem="pGa-KW-zeJ" firstAttribute="leading" secondItem="UXS-Au-wKN" secondAttribute="leading" id="ChT-ns-zcS"/>
+                            <constraint firstItem="UXS-Au-wKN" firstAttribute="trailing" secondItem="pGa-KW-zeJ" secondAttribute="trailing" id="yDu-Ll-rhp"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="UXS-Au-wKN"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="yDz-kP-0tL"/>
                     <connections>
@@ -269,14 +261,10 @@
             </objects>
             <point key="canvasLocation" x="2036" y="168"/>
         </scene>
-        <!--Select-->
+        <!--Skin Select View Controller-->
         <scene sceneID="09R-px-Zdi">
             <objects>
-                <viewController id="kBM-z7-vO5" customClass="SkinSelectionViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OhY-dd-QoX"/>
-                        <viewControllerLayoutGuide type="bottom" id="cEo-mq-dQf"/>
-                    </layoutGuides>
+                <viewController id="kBM-z7-vO5" userLabel="Skin Select View Controller" customClass="SkinSelectionViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AaL-vv-AHs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -326,16 +314,52 @@
                                             <outlet property="nameLabel" destination="INB-nQ-Tze" id="WwY-Lt-xlc"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SkinCollectionViewCell2" id="KnD-cD-g46" customClass="SkinCollectionViewCell" customModule="RotaryDialPhone" customModuleProvider="target">
+                                        <rect key="frame" x="165" y="16" width="139" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="139" height="160"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skin_1" translatesAutoresizingMaskIntoConstraints="NO" id="yYX-jv-5dH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="139" height="139"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin No. 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWs-Fe-IWe">
+                                                    <rect key="frame" x="0.0" y="139" width="139" height="21"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hWs-Fe-IWe" secondAttribute="trailing" id="AAQ-Wv-aEk"/>
+                                            <constraint firstItem="hWs-Fe-IWe" firstAttribute="leading" secondItem="yYX-jv-5dH" secondAttribute="leading" id="QcW-Dd-YYh"/>
+                                            <constraint firstAttribute="bottom" secondItem="hWs-Fe-IWe" secondAttribute="bottom" id="RAD-VW-buQ"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="yYX-jv-5dH" secondAttribute="bottom" constant="13" id="Sav-5X-X09"/>
+                                            <constraint firstItem="yYX-jv-5dH" firstAttribute="top" secondItem="KnD-cD-g46" secondAttribute="top" id="VeX-rl-D77"/>
+                                            <constraint firstItem="hWs-Fe-IWe" firstAttribute="trailing" secondItem="yYX-jv-5dH" secondAttribute="trailing" id="m0i-NX-Yb7"/>
+                                            <constraint firstItem="hWs-Fe-IWe" firstAttribute="leading" secondItem="KnD-cD-g46" secondAttribute="leading" id="sNO-Ve-8gv"/>
+                                        </constraints>
+                                        <size key="customSize" width="139" height="160"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="yYX-jv-5dH" id="ul8-YS-8Jf"/>
+                                            <outlet property="nameLabel" destination="hWs-Fe-IWe" id="6Ee-qf-scP"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="XOd-e8-E5T" secondAttribute="trailing" id="9bK-2f-kBL"/>
-                            <constraint firstItem="XOd-e8-E5T" firstAttribute="top" secondItem="OhY-dd-QoX" secondAttribute="bottom" id="BRZ-OZ-MB5"/>
-                            <constraint firstItem="cEo-mq-dQf" firstAttribute="top" secondItem="XOd-e8-E5T" secondAttribute="bottom" id="Fax-tg-0Xa"/>
-                            <constraint firstItem="XOd-e8-E5T" firstAttribute="leading" secondItem="AaL-vv-AHs" secondAttribute="leading" id="HZC-L5-DOi"/>
+                            <constraint firstItem="MAO-Xs-h8t" firstAttribute="trailing" secondItem="XOd-e8-E5T" secondAttribute="trailing" id="9bK-2f-kBL"/>
+                            <constraint firstItem="XOd-e8-E5T" firstAttribute="top" secondItem="MAO-Xs-h8t" secondAttribute="top" id="BRZ-OZ-MB5"/>
+                            <constraint firstItem="MAO-Xs-h8t" firstAttribute="bottom" secondItem="XOd-e8-E5T" secondAttribute="bottom" id="Fax-tg-0Xa"/>
+                            <constraint firstItem="XOd-e8-E5T" firstAttribute="leading" secondItem="MAO-Xs-h8t" secondAttribute="leading" id="HZC-L5-DOi"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="MAO-Xs-h8t"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select" id="0c1-MZ-0DP"/>
                     <connections>
@@ -368,10 +392,6 @@
         <scene sceneID="QU5-H7-PAz">
             <objects>
                 <viewController id="lvp-5M-0lX" customClass="ContactsViewController" customModule="RotaryDialPhone" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wKB-aj-BTD"/>
-                        <viewControllerLayoutGuide type="bottom" id="KOp-jb-PlK"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1AX-z9-pBi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -398,6 +418,7 @@
                             <constraint firstItem="LQJ-Vg-HfG" firstAttribute="trailing" secondItem="1AX-z9-pBi" secondAttribute="trailingMargin" id="v67-y8-hqi"/>
                             <constraint firstItem="LEc-Jv-Mrj" firstAttribute="top" secondItem="LQJ-Vg-HfG" secondAttribute="bottom" constant="8" id="wGc-CP-NSv"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="t38-cm-1jh"/>
                     </view>
                     <connections>
                         <outlet property="nameContactLabel" destination="LQJ-Vg-HfG" id="Du1-MA-iIH"/>
