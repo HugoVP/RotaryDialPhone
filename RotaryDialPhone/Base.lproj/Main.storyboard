@@ -314,41 +314,6 @@
                                             <outlet property="nameLabel" destination="INB-nQ-Tze" id="WwY-Lt-xlc"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SkinCollectionViewCell2" id="KnD-cD-g46" customClass="SkinCollectionViewCell" customModule="RotaryDialPhone" customModuleProvider="target">
-                                        <rect key="frame" x="165" y="16" width="139" height="160"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="139" height="160"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skin_1" translatesAutoresizingMaskIntoConstraints="NO" id="yYX-jv-5dH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="139" height="139"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin No. 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWs-Fe-IWe">
-                                                    <rect key="frame" x="0.0" y="139" width="139" height="21"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="hWs-Fe-IWe" secondAttribute="trailing" id="AAQ-Wv-aEk"/>
-                                            <constraint firstItem="hWs-Fe-IWe" firstAttribute="leading" secondItem="yYX-jv-5dH" secondAttribute="leading" id="QcW-Dd-YYh"/>
-                                            <constraint firstAttribute="bottom" secondItem="hWs-Fe-IWe" secondAttribute="bottom" id="RAD-VW-buQ"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="yYX-jv-5dH" secondAttribute="bottom" constant="13" id="Sav-5X-X09"/>
-                                            <constraint firstItem="yYX-jv-5dH" firstAttribute="top" secondItem="KnD-cD-g46" secondAttribute="top" id="VeX-rl-D77"/>
-                                            <constraint firstItem="hWs-Fe-IWe" firstAttribute="trailing" secondItem="yYX-jv-5dH" secondAttribute="trailing" id="m0i-NX-Yb7"/>
-                                            <constraint firstItem="hWs-Fe-IWe" firstAttribute="leading" secondItem="KnD-cD-g46" secondAttribute="leading" id="sNO-Ve-8gv"/>
-                                        </constraints>
-                                        <size key="customSize" width="139" height="160"/>
-                                        <connections>
-                                            <outlet property="imageView" destination="yYX-jv-5dH" id="ul8-YS-8Jf"/>
-                                            <outlet property="nameLabel" destination="hWs-Fe-IWe" id="6Ee-qf-scP"/>
-                                        </connections>
-                                    </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>

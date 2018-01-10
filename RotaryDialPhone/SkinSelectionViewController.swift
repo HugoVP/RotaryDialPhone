@@ -30,8 +30,10 @@ class SkinSelectionViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     collectionView.delegate = self
     collectionView.dataSource = self
+    
     let indexPath = IndexPath(row: selectedItem, section: 0)
     collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
   }
@@ -62,7 +64,7 @@ extension SkinSelectionViewController: UICollectionViewDataSource {
       return UICollectionViewCell()
     }
     
-    cell.configure(title: "skin_1", imageName: "skin_\(indexPath.row)")
+    cell.configure(title: "skin_\(indexPath.row < 3 ? indexPath.row : 0)", imageName: "skin_\(indexPath.row)")
     
     return cell
   }

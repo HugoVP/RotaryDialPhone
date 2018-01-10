@@ -8,6 +8,7 @@
 
 import UIKit
 
+/* Attributes */
 class RotaryDialViewController: UIViewController {
   @IBOutlet weak var rotaryDialView: RotaryDialView!
   @IBOutlet weak var numpadView: NumpadView!
@@ -15,7 +16,6 @@ class RotaryDialViewController: UIViewController {
   @IBOutlet weak var lockView: LockView!
   
   var model: RotaryDial!
-  var models = [RotaryDial]()
   
   var phoneNumber = ""
   
@@ -33,21 +33,27 @@ class RotaryDialViewController: UIViewController {
   var selectedItem: Int {
     return UserDefaults.standard.integer(forKey: "selected-item")
   }
+  
+  var rotaryDialsDataService = RotaryDialsDataService.instance
 }
 
+/* UIViewController Methods */
 extension RotaryDialViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    /* Feed Models Array */
-    feedModelsArray()
+    /* Setting rotary dials data service's delegate */
+    rotaryDialsDataService.delegate = self
+    
+    /* Load models */
+    rotaryDialsDataService.loadRotaryDialsData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
     /* Select a model */
-    model = models[selectedItem < models.count ? selectedItem : 0 ]
+    model = rotaryDialsDataService.items[selectedItem < rotaryDialsDataService.items.count ? selectedItem : 0]
     
     /* Set views */
     setAllViews()
@@ -56,7 +62,10 @@ extension RotaryDialViewController {
     diskView.redraw()
     lockView.redraw()
   }
-  
+}
+
+/* @IBAction methods */
+extension RotaryDialViewController {
   @IBAction func rotateAction(_ sender: RotaryDialGestureRecognizer) {
     switch sender.state {
     case .began:
@@ -95,6 +104,7 @@ extension RotaryDialViewController {
   }
 }
 
+/* Custom methods */
 extension RotaryDialViewController {
   func reverseRotationAnimation (with angle: CGFloat, rotateDialGestureEnded ended: Bool = false) {
     let midRotation = angle / 2.0
@@ -169,58 +179,6 @@ extension RotaryDialViewController {
     }
   }
   
-  func feedModelsArray() {
-    let constant = UIScreen.main.bounds.width / 320.0
-
-    /* Set Model 1 */
-    let model1 = RotaryDial(
-      holesCount: 10,
-      holesRadius: 45.0 / 2 * constant,
-      distanceFromHolesToCenter: 112.5 * constant,
-      holesSeparationAngle: CGFloat.M_2_PI / 14.0,
-      firstHoleAngle: CGFloat.M_2_PI / 14.0 * 2.5,
-      lockAngle: CGFloat.M_2_PI / 14.0 * 1.5,
-      number: { (index) in index > 0 ? 10 - index : 0 },
-      numberFontSize: 30 + 7 * constant,
-      outterDiskBound: 8,
-      innerDiskBound: 8
-    )
-    
-    models.append(model1)
-    
-    /* Set Model 2 */
-    let model2 = RotaryDial(
-      holesCount: 10,
-      holesRadius: 58.0 / 2 * constant,
-      distanceFromHolesToCenter: 115.0 * constant,
-      holesSeparationAngle: CGFloat.M_2_PI / 11.5,
-      firstHoleAngle: CGFloat.M_2_PI / 11.5 * 1.25,
-      lockAngle: CGFloat.M_2_PI / 11.5 * 0.25,
-      number: { (index) in index > 0 ? 10 - index : 0 },
-      numberFontSize: 37 + 7 * constant,
-      outterDiskBound: 8,
-      innerDiskBound: 8
-    )
-    
-    models.append(model2)
-    
-    /* Set Model 3 */
-    let model3 = RotaryDial(
-      holesCount: 10,
-      holesRadius: 50.0 / 2 * constant,
-      distanceFromHolesToCenter: 115.0 * constant,
-      holesSeparationAngle: CGFloat.M_2_PI / 12,
-      firstHoleAngle: CGFloat.M_2_PI / 12 * 1.5,
-      lockAngle: CGFloat.M_2_PI / 12 * 1.0,
-      number: { (index) in index },
-      numberFontSize: 32 + 7 * constant,
-      outterDiskBound: 6,
-      innerDiskBound: 12
-    )
-    
-    models.append(model3)
-  }
-  
   /* Set Views */
   func setAllViews() {
     setRotaryDialView()
@@ -267,6 +225,12 @@ extension RotaryDialViewController {
     lockView.lockAngle = model.lockAngle
     lockView.holesRadius = model.holesRadius
     lockView.distanceFromHolesToCenter = model.distanceFromHolesToCenter
+  }
+}
+
+extension RotaryDialViewController: RotaryDialsDataServiceDelegate {
+  func rotaryDialsDataLoaded() {
+    print("data loaded")
   }
 }
 
