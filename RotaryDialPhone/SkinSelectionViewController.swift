@@ -17,47 +17,29 @@ fileprivate let skinNameLabelSize: CGFloat = 21.0
 
 class SkinSelectionViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
-  var selectedItem = 9
+  
+  var selectedItem: Int {
+    get {
+      return UserDefaults.standard.integer(forKey: "selected-item")
+    }
+    
+    set {
+      UserDefaults.standard.set(newValue, forKey: "selected-item")
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     collectionView.delegate = self
     collectionView.dataSource = self
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
     let indexPath = IndexPath(row: selectedItem, section: 0)
-    collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-    
-    guard let cell = collectionView.cellForItem(at: indexPath) as? SkinCollectionViewCell else {
-      return
-    }
-    
-    cell.imageView.layer.borderWidth = 1.0
-    cell.alpha = 0.85
+    collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
   }
 }
 
 extension SkinSelectionViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print("selected: \(indexPath.row)")
-    
-    guard let cell = collectionView.cellForItem(at: indexPath) as? SkinCollectionViewCell else {
-      return
-    }
-    
-    cell.imageView.layer.borderWidth = 1.0
-    cell.alpha = 0.85
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    guard let cell = collectionView.cellForItem(at: indexPath) as? SkinCollectionViewCell else {
-      return
-    }
-    
-    cell.imageView.layer.borderWidth = 0.0
-    cell.alpha = 1.0
+    selectedItem = indexPath.row
   }
 }
 
@@ -80,11 +62,7 @@ extension SkinSelectionViewController: UICollectionViewDataSource {
       return UICollectionViewCell()
     }
     
-    cell.configure(title: "skin_1", imageName: "skin_1")
-    
-//    if indexPath.row == selectedItem {
-//      collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
-//    }
+    cell.configure(title: "skin_1", imageName: "skin_\(indexPath.row)")
     
     return cell
   }

@@ -29,6 +29,10 @@ class RotaryDialViewController: UIViewController {
   var baseRotationAnimationAngle: CGFloat {
     return 4.0 * rotaryDialView.holesSeparationAngle
   }
+  
+  var selectedItem: Int {
+    return UserDefaults.standard.integer(forKey: "selected-item")
+  }
 }
 
 extension RotaryDialViewController {
@@ -37,12 +41,20 @@ extension RotaryDialViewController {
     
     /* Feed Models Array */
     feedModelsArray()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     
     /* Select a model */
-    model = models[0]
+    model = models[selectedItem < models.count ? selectedItem : 0 ]
     
     /* Set views */
     setAllViews()
+    
+    numpadView.redraw()
+    diskView.redraw()
+    lockView.redraw()
   }
   
   @IBAction func rotateAction(_ sender: RotaryDialGestureRecognizer) {
@@ -80,14 +92,6 @@ extension RotaryDialViewController {
   
   @IBAction func resetBtnPresed(_ sender: UIButton) {
     phoneNumber = ""
-    
-    /* Temporal functionality */
-    /* Randomly chooses a model and redraws it */
-    model = models[Int(arc4random_uniform(UInt32(models.count)))]
-    setAllViews()
-    numpadView.redraw()
-    diskView.redraw()
-    lockView.redraw()
   }
 }
 

@@ -13,8 +13,15 @@ class SkinCollectionViewCell: UICollectionViewCell {
   
   override var isSelected: Bool {
     didSet {
-//      imageView.layer.borderWidth = isSelected ? 1.0 : 0.0
-//      alpha = isSelected ? 0.85 : 1.0
+      if isSelected {
+        imageView.layer.borderWidth = 1.0
+        alpha = 0.85
+      }
+
+      else {
+        imageView.layer.borderWidth = 0.0
+        alpha = 1.0
+      }
     }
   }
   
