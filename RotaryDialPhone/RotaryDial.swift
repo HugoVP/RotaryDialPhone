@@ -8,6 +8,8 @@
 import UIKit
 
 struct RotaryDial {
+  private var _name: String!
+  private var _imageName: String!
   private var _holesCount: Int!
   private var _holesRadius: CGFloat!
   private var _distanceFromHolesToCenter: CGFloat!
@@ -21,6 +23,14 @@ struct RotaryDial {
   private var _numberFontSize: CGFloat!
   private var _outterDiskBound: CGFloat!
   private var _innerDiskBound: CGFloat!
+  
+  var name: String {
+    return _name
+  }
+  
+  var imageName: String {
+    return _imageName
+  }
   
   var holesCount: Int {
     return _holesCount
@@ -63,6 +73,8 @@ struct RotaryDial {
   }
   
   init(
+    name: String,
+    imageName: String,
     holesCount: Int,
     holesRadius: CGFloat,
     distanceFromHolesToCenter: CGFloat,
@@ -74,6 +86,8 @@ struct RotaryDial {
     outterDiskBound: CGFloat,
     innerDiskBound: CGFloat
   ) {
+    _name = name
+    _imageName = imageName
     _holesCount = holesCount
     _holesRadius = holesRadius
     _distanceFromHolesToCenter = distanceFromHolesToCenter

@@ -32,7 +32,7 @@ class SkinCollectionViewCell: UICollectionViewCell {
   }
   
   func configure(title: String, imageName: String) {
-    imageView.image = UIImage(named: title)
-    nameLabel.text = imageName
+    nameLabel.text = title
+    imageView.image = UIImage(named: imageName)
   }
 }

@@ -43,17 +43,17 @@ extension RotaryDialViewController {
     super.viewDidLoad()
     
     /* Setting rotary dials data service's delegate */
-    rotaryDialsDataService.delegate = self
+    // rotaryDialsDataService.delegate = self
     
     /* Load models */
-    rotaryDialsDataService.loadRotaryDialsData()
+    // rotaryDialsDataService.loadRotaryDialsData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
     /* Select a model */
-    model = rotaryDialsDataService.items[selectedItem < rotaryDialsDataService.items.count ? selectedItem : 0]
+    model = rotaryDialsDataService.items[selectedItem]
     
     /* Set views */
     setAllViews()
@@ -228,9 +228,9 @@ extension RotaryDialViewController {
   }
 }
 
-extension RotaryDialViewController: RotaryDialsDataServiceDelegate {
-  func rotaryDialsDataLoaded() {
-    print("data loaded")
-  }
-}
+//extension RotaryDialViewController: RotaryDialsDataServiceDelegate {
+//  func rotaryDialsDataLoaded() {
+//    print("data loaded")
+//  }
+//}
 

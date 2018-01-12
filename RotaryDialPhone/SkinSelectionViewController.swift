@@ -15,6 +15,7 @@ fileprivate let availableWidth = UIScreen.main.bounds.width - paddingSpace
 fileprivate let skinCellSize = availableWidth / itemsPerRow
 fileprivate let skinNameLabelSize: CGFloat = 21.0
 
+/* Attributes */
 class SkinSelectionViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
   
@@ -28,8 +29,19 @@ class SkinSelectionViewController: UIViewController {
     }
   }
   
+  var rotaryDialsDataService = RotaryDialsDataService.instance
+}
+
+/* UIViewController methods */
+extension SkinSelectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    /* Setting rotary dials data service's delegate */
+    // rotaryDialsDataService.delegate = self
+    
+    /* Load models */
+    // rotaryDialsDataService.loadRotaryDialsData()
     
     collectionView.delegate = self
     collectionView.dataSource = self
@@ -39,19 +51,22 @@ class SkinSelectionViewController: UIViewController {
   }
 }
 
+/* UICollectionViewDelegate methods */
 extension SkinSelectionViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     selectedItem = indexPath.row
   }
 }
 
+/* UICollectionViewDataSource methods */
 extension SkinSelectionViewController: UICollectionViewDataSource {
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     return 1
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 10
+    print("items.count: \(rotaryDialsDataService.items.count)")
+    return rotaryDialsDataService.items.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -64,12 +79,14 @@ extension SkinSelectionViewController: UICollectionViewDataSource {
       return UICollectionViewCell()
     }
     
-    cell.configure(title: "skin_\(indexPath.row < 3 ? indexPath.row : 0)", imageName: "skin_\(indexPath.row)")
+    let rotaryDial = rotaryDialsDataService.items[indexPath.row]
+    cell.configure(title: rotaryDial.name, imageName: rotaryDial.imageName)
     
     return cell
   }
 }
 
+/* UICollectionViewDelegateFlowLayout methods */
 extension SkinSelectionViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return CGSize(
@@ -86,4 +103,12 @@ extension SkinSelectionViewController: UICollectionViewDelegateFlowLayout {
     return sectionInsets.left
   }
 }
+
+/* RotaryDialsDataServiceDelegate methods */
+//extension SkinSelectionViewController: RotaryDialsDataServiceDelegate {
+//  func rotaryDialsDataLoaded() {
+//    print("rotary dials data loaded")
+//    collectionView.reloadData()
+//  }
+//}
 

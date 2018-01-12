@@ -21,6 +21,8 @@ class RotaryDialsDataService {
     
     /* Set Model 1 */
     let model1 = RotaryDial(
+      name: "Skin. No. 1",
+      imageName: "skin_0",
       holesCount: 10,
       holesRadius: 45.0 / 2 * constant,
       distanceFromHolesToCenter: 112.5 * constant,
@@ -37,6 +39,8 @@ class RotaryDialsDataService {
     
     /* Set Model 2 */
     let model2 = RotaryDial(
+      name: "Skin. No. 2",
+      imageName: "skin_1",
       holesCount: 10,
       holesRadius: 58.0 / 2 * constant,
       distanceFromHolesToCenter: 115.0 * constant,
@@ -53,6 +57,8 @@ class RotaryDialsDataService {
     
     /* Set Model 3 */
     let model3 = RotaryDial(
+      name: "Skin. No. 3",
+      imageName: "skin_2",
       holesCount: 10,
       holesRadius: 50.0 / 2 * constant,
       distanceFromHolesToCenter: 115.0 * constant,
