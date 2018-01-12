@@ -9,60 +9,23 @@
 import UIKit
 import Contacts
 
-class ContactsViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
-    
+class ContactsViewController: UIViewController, ContactDelegate {
+        
     @IBOutlet weak var numberContactLabel: UILabel!
     @IBOutlet weak var nameContactLabel: UILabel!
     
-    let keys = [CNContactIdentifierKey as CNKeyDescriptor,
-                CNContactPhoneNumbersKey as CNKeyDescriptor,
-                CNContactFormatter.descriptorForRequiredKeys(for:CNContactFormatterStyle.fullName)]
-    let formatter = CNContactFormatter()
-    let contactStore = CNContactStore()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.formatter.style = .fullName
         self.numberContactLabel.text = ""
         self.nameContactLabel.text = ""
         requestForAccess { (accessGranted) in
-            // Nothing here
-        }
-    }
-
-    func updateSearchResults(for searchController: UISearchController) {
-        let authorizationStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
-        if let inputText = (searchController.searchBar.text), !inputText.isEmpty, authorizationStatus == .authorized {
-            searchContact(input: inputText)
+            // Nothing here just ask for contacts acces
         }
     }
     
-    func searchContact(input: String) {
-        self.nameContactLabel.alpha = 0;
-        self.numberContactLabel.alpha = 0;
-        //requestForAccess { (accessGranted) in
-            //if accessGranted {
-                let predicate = CNContact.predicateForContacts(matchingName: input)
-                do {
-                    let contacts = try self.contactStore.unifiedContacts(matching: predicate, keysToFetch: self.keys)
-                    if(contacts.count == 0) {
-                        //DispatchQueue.main.async {
-                        self.nameContactLabel.text = "No contact found."
-                        self.numberContactLabel.text = ""
-                        //}
-                    } else {
-                        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn, animations: {
-                            self.nameContactLabel.alpha = 1;
-                            self.numberContactLabel.alpha = 1;
-                            self.nameContactLabel.text = self.formatter.string(from: contacts[0])!
-                            self.numberContactLabel.text = contacts[0].phoneNumbers.first!.value.stringValue
-                        }, completion: nil);
-                    }
-                } catch {
-                    print("Unable to fetch contacts")
-                }
-            //}
-        //}
+    func onReceive(contactName: String?, contactPhoneNumber: String?) {
+        self.nameContactLabel.text = contactName
+        self.numberContactLabel.text = contactPhoneNumber
     }
     
     func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
@@ -75,6 +38,7 @@ class ContactsViewController: UIViewController, UISearchResultsUpdating, UISearc
                 if(access){
                     completionHandler(access)
                 } else if(authorizationStatus == CNAuthorizationStatus.denied) {
+                    // It is not necessary for now
                     /*DispatchQueue.main.async {
                         let message = "accessError!.localizedDescription)\n\nPlease allow the app to access your contacts through the Settings."
                         self.showMessage(msg: message)
