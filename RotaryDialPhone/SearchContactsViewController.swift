@@ -27,14 +27,23 @@ class SearchContactViewController: UIViewController, UITableViewDataSource, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.definesPresentationContext = true
         self.contactFormatter.style = .fullName
+        
+        self.searchController.searchBar.placeholder = "Nombre del contacto"
+        self.searchController.searchBar.delegate = self
         
         self.contactTableView.delegate = self
         self.contactTableView.dataSource = self
         
-        self.searchController.searchBar.placeholder = "Nombre del contacto"
-        self.searchController.searchBar.delegate = self
-        self.contactTableView.tableHeaderView = self.searchController.searchBar
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = false
+        } else {
+            contactTableView.tableHeaderView = searchController.searchBar
+            
+        }
+        
         if #available(iOS 9.1, *) {
             self.searchController.obscuresBackgroundDuringPresentation = false
         }

@@ -117,10 +117,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="b2m-kv-1FR" secondAttribute="trailing" id="NyG-3w-TZ4"/>
-                            <constraint firstItem="b2m-kv-1FR" firstAttribute="leading" secondItem="PZW-mF-9U8" secondAttribute="leading" id="T1n-AA-m3W"/>
-                            <constraint firstItem="b2m-kv-1FR" firstAttribute="top" secondItem="c8V-MN-Loz" secondAttribute="bottom" id="fR7-1K-un2"/>
-                            <constraint firstItem="86e-tO-z2r" firstAttribute="top" secondItem="b2m-kv-1FR" secondAttribute="bottom" id="vOB-dz-ZCO"/>
+                            <constraint firstItem="b2m-kv-1FR" firstAttribute="leading" secondItem="PZW-mF-9U8" secondAttribute="leading" id="CH0-oc-p8U"/>
+                            <constraint firstItem="b2m-kv-1FR" firstAttribute="top" secondItem="c8V-MN-Loz" secondAttribute="bottom" id="Kk7-mf-qsI"/>
+                            <constraint firstAttribute="trailing" secondItem="b2m-kv-1FR" secondAttribute="trailing" id="nLU-di-9Po"/>
+                            <constraint firstItem="86e-tO-z2r" firstAttribute="top" secondItem="b2m-kv-1FR" secondAttribute="bottom" id="z93-e4-qQs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contacts" id="qBw-jF-kaP"/>

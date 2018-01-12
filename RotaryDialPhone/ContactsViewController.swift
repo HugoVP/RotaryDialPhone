@@ -10,21 +10,22 @@ import UIKit
 import Contacts
 
 class ContactsViewController: UIViewController, ContactDelegate {
-    
-    
+        
     @IBOutlet weak var numberContactLabel: UILabel!
     @IBOutlet weak var nameContactLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.numberContactLabel.text = ""
+        self.nameContactLabel.text = ""
         requestForAccess { (accessGranted) in
             // Nothing here just ask for contacts acces
         }
     }
     
     func onReceive(contactName: String?, contactPhoneNumber: String?) {
-        nameContactLabel.text = contactName
-        numberContactLabel.text = contactPhoneNumber
+        self.nameContactLabel.text = contactName
+        self.numberContactLabel.text = contactPhoneNumber
     }
     
     func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
