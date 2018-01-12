@@ -11,31 +11,17 @@ import Contacts
 
 class MainViewController: UIViewController {
     
-    var contactViewController: ContactsViewController? = nil
+    var contactViewController: ContactsViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self.contactViewController
-        if #available(iOS 9.1, *) {
-            searchController.obscuresBackgroundDuringPresentation = false
-        }
-        searchController.searchBar.placeholder = "Nombre del contacto"
-        searchController.searchBar.delegate = self.contactViewController
-        searchController.searchBar.showsCancelButton = false
-        
-        searchController.searchBar.sizeToFit()
-        if #available(iOS 11.0, *) {
-            navigationItem.searchController = searchController
-         } else {
-            navigationItem.titleView = searchController.searchBar
-        }
-        definesPresentationContext = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let contactViewController = segue.destination as? ContactsViewController {
             self.contactViewController = contactViewController
+        } else if let destination = segue.destination as? SearchContactViewController {
+            destination.deletegate = self.contactViewController
         }
     }
     
