@@ -14,9 +14,13 @@ protocol RotaryDialsDataServiceDelegate: class {
 class RotaryDialsDataService {
   static let instance = RotaryDialsDataService()
   weak var delegate: RotaryDialsDataServiceDelegate?
-  var items = [RotaryDial]()
+  private var _items = [RotaryDial]()
   
-  func loadRotaryDialsData() {
+  var items: [RotaryDial] {
+    return _items
+  }
+  
+  func loadData() {
     let constant = UIScreen.main.bounds.width / 320.0
     
     /* Set Model 1 */
@@ -35,7 +39,7 @@ class RotaryDialsDataService {
       innerDiskBound: 8
     )
     
-    items.append(model1)
+    _items.append(model1)
     
     /* Set Model 2 */
     let model2 = RotaryDial(
@@ -53,7 +57,7 @@ class RotaryDialsDataService {
       innerDiskBound: 8
     )
     
-    items.append(model2)
+    _items.append(model2)
     
     /* Set Model 3 */
     let model3 = RotaryDial(
@@ -71,7 +75,7 @@ class RotaryDialsDataService {
       innerDiskBound: 12
     )
     
-    items.append(model3)
+    _items.append(model3)
     
     if let delegate = delegate {
       delegate.rotaryDialsDataLoaded()

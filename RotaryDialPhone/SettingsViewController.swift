@@ -14,6 +14,10 @@ class SettingsViewController: UIViewController {
     return UserDefaults.standard.integer(forKey: "selected-item")
   }
   
+  var selectedRegion: Int {
+    return UserDefaults.standard.integer(forKey: "selected-region")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
@@ -37,16 +41,24 @@ extension SettingsViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell: UITableViewCell!
     
-    if indexPath.row == 0 {
+    switch indexPath.row {
+    case 0:
       cell = tableView.dequeueReusableCell(withIdentifier: "SkinSelectionTableViewCell", for: indexPath)
-      cell.detailTextLabel?.text = "\(selectedItem)"
-    }
-    
-    else if indexPath.row == 1 {
+      
+      if let detailTextLabel = cell.detailTextLabel {
+        let rotaryDialName = RotaryDialsDataService.instance.items[selectedItem].name
+        detailTextLabel.text = rotaryDialName
+      }
+      
+    case 1:
       cell = tableView.dequeueReusableCell(withIdentifier: "RegionSelectionTableViewCell", for: indexPath)
-    }
-    
-    else {
+      
+      if let detailTextLabel = cell.detailTextLabel {
+        let regionTitle = RegionsDataService.instance.items[selectedRegion].title
+        detailTextLabel.text = regionTitle
+      }
+      
+    default:
       cell = UITableViewCell()
     }
     

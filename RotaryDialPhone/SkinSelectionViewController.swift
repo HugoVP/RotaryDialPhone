@@ -37,17 +37,11 @@ extension SkinSelectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    /* Setting rotary dials data service's delegate */
-    // rotaryDialsDataService.delegate = self
-    
-    /* Load models */
-    // rotaryDialsDataService.loadRotaryDialsData()
-    
     collectionView.delegate = self
     collectionView.dataSource = self
     
     let indexPath = IndexPath(row: selectedItem, section: 0)
-    collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
+    collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [.centeredVertically])
   }
 }
 

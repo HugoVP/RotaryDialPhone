@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   var rotaryDialsDataService = RotaryDialsDataService.instance
+  var regionsDataService = RegionsDataService.instance
   
   private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
@@ -25,7 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     rotaryDialsDataService.delegate = self
     
     /* Load models */
-    rotaryDialsDataService.loadRotaryDialsData()
+    rotaryDialsDataService.loadData()
+    
+    /* Setting regions data service's delegate */
+    regionsDataService.delegate = self
+    
+    /* Load regions data */
+    regionsDataService.loadData()
     
     return true
   }
@@ -55,7 +62,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: RotaryDialsDataServiceDelegate {
   func rotaryDialsDataLoaded() {
-    print("data loaded")
+    print("Rotary Dials data loaded")
+  }
+}
+
+extension AppDelegate: RegionsDataServiceDelegate {
+  func regionsDataLoaded() {
+    print("Regions data loaded")
   }
 }
 
