@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A1C3A051FEAEB37008B2A15 /* RotaryDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1C3A041FEAEB37008B2A15 /* RotaryDial.swift */; };
 		2F4A8D8F1FFE82BA00C67361 /* ContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4A8D8E1FFE82BA00C67361 /* ContactDelegate.swift */; };
+		9A1C3A051FEAEB37008B2A15 /* RotaryDial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1C3A041FEAEB37008B2A15 /* RotaryDial.swift */; };
 		9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */; };
 		9A206EBB1FF8105500DBC662 /* SkinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A206EBA1FF8105500DBC662 /* SkinCollectionViewCell.swift */; };
 		9A26512A1F665C4F002CB5CE /* CirclePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2651291F665C4F002CB5CE /* CirclePath.swift */; };
@@ -24,18 +24,19 @@
 		9A875F8D1F6CBFBE00FB6398 /* RotaryDialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A875F8C1F6CBFBE00FB6398 /* RotaryDialView.swift */; };
 		9A8B90A01F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B909F1F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift */; };
 		9A8B90A31F6CFC4D00E753FE /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B90A21F6CFC4D00E753FE /* CGFloat+Ext.swift */; };
+		9A8CF53D1FF4B1EB0067CB9A /* SearchContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CF53C1FF4B1EB0067CB9A /* SearchContactsViewController.swift */; };
+		9AAA41D0200F132B003EFF4B /* RegionSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAA41CF200F132B003EFF4B /* RegionSelectionViewController.swift */; };
 		9AAB76051FEA298500E5BDF3 /* NumpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB76041FEA298500E5BDF3 /* NumpadView.swift */; };
 		9AAB76071FEA299800E5BDF3 /* DiskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB76061FEA299800E5BDF3 /* DiskView.swift */; };
 		9AAB76091FEA305100E5BDF3 /* RotaryDialViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAB76081FEA305100E5BDF3 /* RotaryDialViewProtocol.swift */; };
-		9A8CF53D1FF4B1EB0067CB9A /* SearchContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8CF53C1FF4B1EB0067CB9A /* SearchContactsViewController.swift */; };
 		9AAE37931FF3060900C8F476 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AAE37921FF3060900C8F476 /* SettingsViewController.swift */; };
 		9ACF427A1FEF6BCB004954AB /* RedrawableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF42791FEF6BCB004954AB /* RedrawableView.swift */; };
 		9ACF427C1FEF7D00004954AB /* RotaryDialElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACF427B1FEF7D00004954AB /* RotaryDialElementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9A1C3A041FEAEB37008B2A15 /* RotaryDial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotaryDial.swift; sourceTree = "<group>"; };
 		2F4A8D8E1FFE82BA00C67361 /* ContactDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDelegate.swift; sourceTree = "<group>"; };
+		9A1C3A041FEAEB37008B2A15 /* RotaryDial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotaryDial.swift; sourceTree = "<group>"; };
 		9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialViewController.swift; sourceTree = "<group>"; };
 		9A206EBA1FF8105500DBC662 /* SkinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCollectionViewCell.swift; sourceTree = "<group>"; };
 		9A2651291F665C4F002CB5CE /* CirclePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePath.swift; sourceTree = "<group>"; };
@@ -53,13 +54,14 @@
 		9A875F8C1F6CBFBE00FB6398 /* RotaryDialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialView.swift; sourceTree = "<group>"; };
 		9A8B909F1F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotaryDialGestureRecognizer.swift; sourceTree = "<group>"; };
 		9A8B90A21F6CFC4D00E753FE /* CGFloat+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
+		9A8CF53C1FF4B1EB0067CB9A /* SearchContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContactsViewController.swift; sourceTree = "<group>"; };
+		9AAA41CF200F132B003EFF4B /* RegionSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionSelectionViewController.swift; sourceTree = "<group>"; };
 		9AAB76041FEA298500E5BDF3 /* NumpadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumpadView.swift; sourceTree = "<group>"; };
 		9AAB76061FEA299800E5BDF3 /* DiskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskView.swift; sourceTree = "<group>"; };
 		9AAB76081FEA305100E5BDF3 /* RotaryDialViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotaryDialViewProtocol.swift; sourceTree = "<group>"; };
 		9AAE37921FF3060900C8F476 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9ACF42791FEF6BCB004954AB /* RedrawableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedrawableView.swift; sourceTree = "<group>"; };
 		9ACF427B1FEF7D00004954AB /* RotaryDialElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotaryDialElementView.swift; sourceTree = "<group>"; };
-		9A8CF53C1FF4B1EB0067CB9A /* SearchContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchContactsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				9A1CA97D1F5631E80008FE6F /* RotaryDialViewController.swift */,
 				9AAE37921FF3060900C8F476 /* SettingsViewController.swift */,
 				9A497CF11FF5E25500C33AFE /* SkinSelectionViewController.swift */,
+				9AAA41CF200F132B003EFF4B /* RegionSelectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				9A497CF21FF5E25500C33AFE /* SkinSelectionViewController.swift in Sources */,
 				2F4A8D8F1FFE82BA00C67361 /* ContactDelegate.swift in Sources */,
 				9A1CA97E1F5631E80008FE6F /* RotaryDialViewController.swift in Sources */,
+				9AAA41D0200F132B003EFF4B /* RegionSelectionViewController.swift in Sources */,
 				9A7098F21FEE278A008D31D8 /* LockView.swift in Sources */,
 				9A8B90A01F6CF7EE00E753FE /* RotaryDialGestureRecognizer.swift in Sources */,
 				9A30A7CA20067BF100B083BE /* RotaryDialsDataService.swift in Sources */,

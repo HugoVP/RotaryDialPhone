@@ -41,12 +41,6 @@ class RotaryDialViewController: UIViewController {
 extension RotaryDialViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    /* Setting rotary dials data service's delegate */
-    // rotaryDialsDataService.delegate = self
-    
-    /* Load models */
-    // rotaryDialsDataService.loadRotaryDialsData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -227,10 +221,3 @@ extension RotaryDialViewController {
     lockView.distanceFromHolesToCenter = model.distanceFromHolesToCenter
   }
 }
-
-//extension RotaryDialViewController: RotaryDialsDataServiceDelegate {
-//  func rotaryDialsDataLoaded() {
-//    print("data loaded")
-//  }
-//}
-

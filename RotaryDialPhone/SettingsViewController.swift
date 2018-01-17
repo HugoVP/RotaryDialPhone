@@ -31,13 +31,24 @@ extension SettingsViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return 2
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "SkinSelectionTableViewCell", for: indexPath)
+    let cell: UITableViewCell!
     
-    cell.detailTextLabel?.text = "\(selectedItem)"
+    if indexPath.row == 0 {
+      cell = tableView.dequeueReusableCell(withIdentifier: "SkinSelectionTableViewCell", for: indexPath)
+      cell.detailTextLabel?.text = "\(selectedItem)"
+    }
+    
+    else if indexPath.row == 1 {
+      cell = tableView.dequeueReusableCell(withIdentifier: "RegionSelectionTableViewCell", for: indexPath)
+    }
+    
+    else {
+      cell = UITableViewCell()
+    }
     
     return cell
   }

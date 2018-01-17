@@ -103,12 +103,3 @@ extension SkinSelectionViewController: UICollectionViewDelegateFlowLayout {
     return sectionInsets.left
   }
 }
-
-/* RotaryDialsDataServiceDelegate methods */
-//extension SkinSelectionViewController: RotaryDialsDataServiceDelegate {
-//  func rotaryDialsDataLoaded() {
-//    print("rotary dials data loaded")
-//    collectionView.reloadData()
-//  }
-//}
-
