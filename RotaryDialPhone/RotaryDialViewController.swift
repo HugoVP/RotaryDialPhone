@@ -127,7 +127,11 @@ extension RotaryDialViewController {
           },
           completion: { (finished) in
             if (ended) {
-              self.checkPhoneNumberFormat()
+              /* Tempt to perform makePhoneCall method */
+              /* Can be cancelled by the beginning of the gesture recognizer */
+              if #available(iOS 10.0, *) {
+                self.perform(#selector(self.makePhoneCall), with: nil, afterDelay: self.delayBeforeTheCall)
+              }
             }
           }
         )
@@ -146,37 +150,6 @@ extension RotaryDialViewController {
     }
     
     UIApplication.shared.open(phoneNumberURL, options: [:], completionHandler: nil)
-  }
-  
-  func checkPhoneNumberFormat() {
-    switch self.phoneNumber.count {
-    case 3: /* Service phones */
-      fallthrough
-      
-    case 7...8: /* XXX XXXX | XXXX XXXX */
-      // print("call to landline")
-      fallthrough
-      
-    case 10: /* XXX XXX XXXX | XX XXXX XXXX */
-      // print("call to mobile")
-      fallthrough
-      
-    case 12: /* 01 (XXX XXX | XX XXXX) XXXX  */
-      // print("call to landline (long distance)")
-      fallthrough
-      
-    case 13: /* (044 | 045) (XXX XXX | XX XXXX) XXXX */
-      // print("call to mobile (from landline)")
-      
-      if #available(iOS 10.0, *) {
-        /* Tempt to perform makePhoneCall method */
-        /* Can be cancelled by the beginning of the gesture recognizer */
-        self.perform(#selector(self.makePhoneCall), with: nil, afterDelay: self.delayBeforeTheCall)
-      }
-      
-    default:
-      break
-    }
   }
   
   /* Set Views */
@@ -227,10 +200,3 @@ extension RotaryDialViewController {
     lockView.distanceFromHolesToCenter = model.distanceFromHolesToCenter
   }
 }
-
-//extension RotaryDialViewController: RotaryDialsDataServiceDelegate {
-//  func rotaryDialsDataLoaded() {
-//    print("data loaded")
-//  }
-//}
-

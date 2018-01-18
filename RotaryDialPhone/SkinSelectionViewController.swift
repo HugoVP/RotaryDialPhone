@@ -37,12 +37,6 @@ extension SkinSelectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    /* Setting rotary dials data service's delegate */
-    // rotaryDialsDataService.delegate = self
-    
-    /* Load models */
-    // rotaryDialsDataService.loadRotaryDialsData()
-    
     collectionView.delegate = self
     collectionView.dataSource = self
     
@@ -103,12 +97,3 @@ extension SkinSelectionViewController: UICollectionViewDelegateFlowLayout {
     return sectionInsets.left
   }
 }
-
-/* RotaryDialsDataServiceDelegate methods */
-//extension SkinSelectionViewController: RotaryDialsDataServiceDelegate {
-//  func rotaryDialsDataLoaded() {
-//    print("rotary dials data loaded")
-//    collectionView.reloadData()
-//  }
-//}
-

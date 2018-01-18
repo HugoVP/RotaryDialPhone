@@ -7,6 +7,7 @@
 
 import UIKit
 
+/* Attributes */
 class SettingsViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
@@ -14,6 +15,11 @@ class SettingsViewController: UIViewController {
     return UserDefaults.standard.integer(forKey: "selected-item")
   }
   
+  var rotaryDialsDataService = RotaryDialsDataService.instance
+}
+
+/* Methods (UIViewController) */
+extension SettingsViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
@@ -25,6 +31,7 @@ class SettingsViewController: UIViewController {
   }
 }
 
+/* Methods (UITableViewDataSource) */
 extension SettingsViewController: UITableViewDataSource {
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -35,9 +42,19 @@ extension SettingsViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "SkinSelectionTableViewCell", for: indexPath)
-    
-    cell.detailTextLabel?.text = "\(selectedItem)"
+    let cell: UITableViewCell!
+      
+    switch indexPath.row {
+    case 0:
+      cell = tableView.dequeueReusableCell(withIdentifier: "SkinSelectionTableViewCell", for: indexPath)
+      
+      if let detailTextLabel = cell.detailTextLabel {
+        let rotaryDialName = rotaryDialsDataService.items[selectedItem].name
+        detailTextLabel.text = rotaryDialName
+      }
+    default:
+      cell = UITableViewCell()
+    }
     
     return cell
   }

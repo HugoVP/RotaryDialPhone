@@ -14,18 +14,6 @@ class LockView: RotaryDialElementView {
 
 extension LockView: RedrawableView {
   override func draw(_ rect: CGRect) {
-//    let lockWidth: CGFloat = bounds.midX / 2.0
-//    let lockHeight: CGFloat = 10.0
-//
-//    let path = UIBezierPath(
-//      rect: CGRect(
-//        x: bounds.maxX - lockWidth,
-//        y: bounds.midY - lockHeight / 2.0,
-//        width: lockWidth,
-//        height: lockHeight
-//      )
-//    )
-    
     let hole = CGPoint(
       x: distanceFromHolesToCenter * cos(lockAngle) + rect.midX,
       y: distanceFromHolesToCenter * sin(lockAngle) + rect.midY

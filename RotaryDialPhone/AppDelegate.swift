@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     rotaryDialsDataService.delegate = self
     
     /* Load models */
-    rotaryDialsDataService.loadRotaryDialsData()
+    rotaryDialsDataService.loadData()
     
     return true
   }
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: RotaryDialsDataServiceDelegate {
   func rotaryDialsDataLoaded() {
-    print("data loaded")
+    print("Rotary Dials data loaded")
   }
 }
 
