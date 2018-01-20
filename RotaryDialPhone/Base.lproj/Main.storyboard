@@ -41,7 +41,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.60392156862745094" green="0.75294117647058822" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ni7-qt-scd" firstAttribute="trailing" secondItem="wOh-bh-vDW" secondAttribute="trailing" id="8Ua-J7-EnS"/>
                             <constraint firstItem="54L-bw-Ymi" firstAttribute="top" secondItem="wOh-bh-vDW" secondAttribute="bottom" constant="8" id="Mdn-WA-Z7F"/>
@@ -86,7 +86,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="Ehj-yp-bqv" detailTextLabel="922-nU-dQy" style="IBUITableViewCellStyleSubtitle" id="zf0-5t-xNI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="Ehj-yp-bqv" detailTextLabel="922-nU-dQy" style="IBUITableViewCellStyleSubtitle" id="zf0-5t-xNI">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zf0-5t-xNI" id="Ckn-zZ-cuR">
@@ -144,19 +144,19 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="distanceFromHolesToCenter">
-                                        <real key="value" value="112.5"/>
+                                        <real key="value" value="107.5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="holesSeparationAngle">
-                                        <real key="value" value="0.44879895050000002"/>
+                                        <real key="value" value="0.52359877560000001"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="firstHoleAngle">
-                                        <real key="value" value="1.1219973763"/>
+                                        <real key="value" value="0.52359877560000001"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="holesCount">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="holesRadius">
-                                        <real key="value" value="22.5"/>
+                                        <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
                                         <color key="value" red="0.56862745098039214" green="0.48627450980392156" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -174,16 +174,16 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="holesRadius">
-                                        <real key="value" value="22.5"/>
+                                        <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="distanceFromHolesToCenter">
-                                        <real key="value" value="112.5"/>
+                                        <real key="value" value="107.5"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="holesSeparationAngle">
-                                        <real key="value" value="0.44879895050000002"/>
+                                        <real key="value" value="0.52359877560000001"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="firstHoleAngle">
-                                        <real key="value" value="1.1219973763"/>
+                                        <real key="value" value="0.52359877560000001"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="outterBound">
                                         <real key="value" value="8"/>
@@ -204,16 +204,26 @@
                                         <color key="value" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="lockAngle">
-                                        <real key="value" value="0.6731984258"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="holesRadius">
-                                        <real key="value" value="22.5"/>
+                                        <real key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="distanceFromHolesToCenter">
-                                        <real key="value" value="112.5"/>
+                                        <real key="value" value="107.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="numpad_0" translatesAutoresizingMaskIntoConstraints="NO" id="fjk-6l-XLe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disk_0" translatesAutoresizingMaskIntoConstraints="NO" id="Lcv-Yu-x75">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock_0" translatesAutoresizingMaskIntoConstraints="NO" id="mVW-mW-iUo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtR-az-b4a">
                                 <rect key="frame" x="122" y="140" width="76" height="40"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
@@ -228,28 +238,50 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="iBB-eQ-tNP" secondAttribute="trailing" constant="8" id="0zv-Bg-FlQ"/>
+                            <constraint firstItem="fjk-6l-XLe" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" id="2iX-XW-izX"/>
                             <constraint firstItem="73M-gk-b3q" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" constant="8" id="31n-OV-Ky9"/>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="iBB-eQ-tNP" secondAttribute="bottom" constant="8" id="65B-Te-lHA"/>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="FQt-40-gGm" secondAttribute="bottom" constant="8" id="GwR-Pr-js1"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="Lcv-Yu-x75" secondAttribute="bottom" id="Jap-b4-xp6"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="Lcv-Yu-x75" secondAttribute="trailing" id="Jpi-gk-Vu4"/>
                             <constraint firstItem="qtR-az-b4a" firstAttribute="centerX" secondItem="z8b-y2-1oH" secondAttribute="centerX" id="Mlt-wg-jHy"/>
                             <constraint firstItem="73M-gk-b3q" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" constant="8" id="MxW-ij-5SM"/>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="73M-gk-b3q" secondAttribute="trailing" constant="8" id="TEP-4D-5Of"/>
                             <constraint firstItem="iBB-eQ-tNP" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" constant="8" id="Uuh-bl-3Yi"/>
+                            <constraint firstItem="Lcv-Yu-x75" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" id="h25-pl-1D5"/>
                             <constraint firstItem="FQt-40-gGm" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" constant="8" id="hk6-ml-PZA"/>
+                            <constraint firstItem="mVW-mW-iUo" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" id="iYi-rl-ubb"/>
                             <constraint firstItem="qtR-az-b4a" firstAttribute="centerY" secondItem="IIa-uZ-Wqx" secondAttribute="centerY" id="j12-B8-m60"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="mVW-mW-iUo" secondAttribute="trailing" id="kPU-45-83X"/>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="73M-gk-b3q" secondAttribute="bottom" constant="8" id="njr-IY-hQH"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="fjk-6l-XLe" secondAttribute="trailing" id="r1x-v5-WOg"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="fjk-6l-XLe" secondAttribute="bottom" id="t1i-Da-YDD"/>
                             <constraint firstItem="iBB-eQ-tNP" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" constant="8" id="tAg-xs-9kE"/>
+                            <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="mVW-mW-iUo" secondAttribute="bottom" id="tZL-0a-rzO"/>
                             <constraint firstItem="FQt-40-gGm" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" constant="8" id="twa-Bc-sUd"/>
+                            <constraint firstItem="Lcv-Yu-x75" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" id="vmG-Zq-VaD"/>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="FQt-40-gGm" secondAttribute="trailing" constant="8" id="wNy-Ld-zaz"/>
+                            <constraint firstItem="mVW-mW-iUo" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" id="wr7-kV-l8m"/>
+                            <constraint firstItem="fjk-6l-XLe" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" id="z9R-rP-wAt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z8b-y2-1oH"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="FQt-40-gGm"/>
+                                <exclude reference="73M-gk-b3q"/>
+                                <exclude reference="iBB-eQ-tNP"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ktI-nR-pEk" appends="YES" id="DYT-pI-whA"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="diskImageView" destination="Lcv-Yu-x75" id="TIj-w1-Ewq"/>
                         <outlet property="diskView" destination="73M-gk-b3q" id="aWM-xO-b1a"/>
+                        <outlet property="lockImageView" destination="mVW-mW-iUo" id="iri-C4-Iaa"/>
                         <outlet property="lockView" destination="iBB-eQ-tNP" id="WtN-z1-uFv"/>
+                        <outlet property="numpadImageView" destination="fjk-6l-XLe" id="Dx4-Dj-9kZ"/>
                         <outlet property="numpadView" destination="FQt-40-gGm" id="ESh-VL-QTc"/>
                         <outlet property="rotaryDialView" destination="IIa-uZ-Wqx" id="r8p-SU-kxo"/>
                     </connections>
@@ -261,7 +293,7 @@
                     </connections>
                 </gestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1166" y="-102"/>
+            <point key="canvasLocation" x="1164.375" y="-102.46478873239437"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="ehk-pg-b4v">
@@ -275,7 +307,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SkinSelectionTableViewCell" textLabel="LHU-il-9nX" detailTextLabel="mWS-JB-nhI" imageView="hSQ-9V-JqR" style="IBUITableViewCellStyleValue1" id="I0Y-Xa-wWf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SkinSelectionTableViewCell" textLabel="LHU-il-9nX" detailTextLabel="mWS-JB-nhI" imageView="hSQ-9V-JqR" style="IBUITableViewCellStyleValue1" id="I0Y-Xa-wWf">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I0Y-Xa-wWf" id="UQp-ps-YYy">
@@ -409,6 +441,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hnI-yB-KT3">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.35757708549499512" green="0.57879179716110229" blue="0.58669441938400269" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -440,7 +473,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LEc-Jv-Mrj" firstAttribute="trailing" secondItem="1AX-z9-pBi" secondAttribute="trailingMargin" id="6eh-PG-QYa"/>
                             <constraint firstItem="LQJ-Vg-HfG" firstAttribute="top" secondItem="LEc-Jv-Mrj" secondAttribute="bottom" constant="8" id="EXB-mY-i7O"/>
@@ -461,9 +494,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="disk_0" width="320" height="320"/>
         <image name="ic_collections" width="24" height="24"/>
         <image name="ic_people_white" width="24" height="24"/>
         <image name="ic_settings_white" width="24" height="24"/>
+        <image name="lock_0" width="320" height="320"/>
+        <image name="numpad_0" width="320" height="320"/>
         <image name="skin_1" width="375" height="375"/>
     </resources>
 </document>

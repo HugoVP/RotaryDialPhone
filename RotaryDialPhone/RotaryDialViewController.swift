@@ -14,6 +14,9 @@ class RotaryDialViewController: UIViewController {
   @IBOutlet weak var numpadView: NumpadView!
   @IBOutlet weak var diskView: DiskView!
   @IBOutlet weak var lockView: LockView!
+  @IBOutlet weak var numpadImageView: UIImageView!
+  @IBOutlet weak var diskImageView: UIImageView!
+  @IBOutlet weak var lockImageView: UIImageView!
   
   var model: RotaryDial!
   
@@ -41,12 +44,6 @@ class RotaryDialViewController: UIViewController {
 extension RotaryDialViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    /* Setting rotary dials data service's delegate */
-    // rotaryDialsDataService.delegate = self
-    
-    /* Load models */
-    // rotaryDialsDataService.loadRotaryDialsData()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -56,8 +53,9 @@ extension RotaryDialViewController {
     model = rotaryDialsDataService.items[selectedItem]
     
     /* Set views */
+    setRotaryDialView()
     setAllViews()
-    
+
     numpadView.redraw()
     diskView.redraw()
     lockView.redraw()
@@ -75,6 +73,7 @@ extension RotaryDialViewController {
     case .changed:
       if let rotationAngle = sender.rotationAngle {
         diskView.transform = CGAffineTransform(rotationAngle: rotationAngle)
+        diskImageView.transform = CGAffineTransform(rotationAngle: rotationAngle)
       }
       
     case .ended:
@@ -116,6 +115,7 @@ extension RotaryDialViewController {
       options: .curveLinear,
       animations: {
         self.diskView.transform = CGAffineTransform(rotationAngle: midRotation)
+        self.diskImageView.transform = CGAffineTransform(rotationAngle: midRotation)
       },
       completion: { (finished) in
         UIView.animate(
@@ -124,6 +124,7 @@ extension RotaryDialViewController {
           options: .curveLinear,
           animations: {
             self.diskView.transform = CGAffineTransform(rotationAngle: 0)
+            self.diskImageView.transform = CGAffineTransform(rotationAngle: 0)
           },
           completion: { (finished) in
             if (ended) {
