@@ -86,7 +86,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="Ehj-yp-bqv" detailTextLabel="922-nU-dQy" style="IBUITableViewCellStyleSubtitle" id="zf0-5t-xNI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="Ehj-yp-bqv" detailTextLabel="922-nU-dQy" style="IBUITableViewCellStyleSubtitle" id="zf0-5t-xNI">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zf0-5t-xNI" id="Ckn-zZ-cuR">
@@ -139,81 +139,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="FQt-40-gGm" customClass="NumpadView" customModule="RotaryDialPhone" customModuleProvider="target">
-                                <rect key="frame" x="8" y="8" width="304" height="304"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="distanceFromHolesToCenter">
-                                        <real key="value" value="107.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="holesSeparationAngle">
-                                        <real key="value" value="0.52359877560000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="firstHoleAngle">
-                                        <real key="value" value="0.52359877560000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="holesCount">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="holesRadius">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                        <color key="value" red="0.56862745098039214" green="0.48627450980392156" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="numberFontSize">
-                                        <real key="value" value="34"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="73M-gk-b3q" customClass="DiskView" customModule="RotaryDialPhone" customModuleProvider="target">
-                                <rect key="frame" x="8" y="8" width="304" height="304"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="holesCount">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="holesRadius">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="distanceFromHolesToCenter">
-                                        <real key="value" value="107.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="holesSeparationAngle">
-                                        <real key="value" value="0.52359877560000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="firstHoleAngle">
-                                        <real key="value" value="0.52359877560000001"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="outterBound">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="innerBound">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                        <color key="value" red="0.83529411760000005" green="0.75294117650000003" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="iBB-eQ-tNP" customClass="LockView" customModule="RotaryDialPhone" customModuleProvider="target">
-                                <rect key="frame" x="8" y="8" width="304" height="304"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="lockAngle">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="holesRadius">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="distanceFromHolesToCenter">
-                                        <real key="value" value="107.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="numpad_0" translatesAutoresizingMaskIntoConstraints="NO" id="fjk-6l-XLe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                             </imageView>
@@ -237,52 +162,30 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="iBB-eQ-tNP" secondAttribute="trailing" constant="8" id="0zv-Bg-FlQ"/>
                             <constraint firstItem="fjk-6l-XLe" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" id="2iX-XW-izX"/>
-                            <constraint firstItem="73M-gk-b3q" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" constant="8" id="31n-OV-Ky9"/>
-                            <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="iBB-eQ-tNP" secondAttribute="bottom" constant="8" id="65B-Te-lHA"/>
-                            <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="FQt-40-gGm" secondAttribute="bottom" constant="8" id="GwR-Pr-js1"/>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="Lcv-Yu-x75" secondAttribute="bottom" id="Jap-b4-xp6"/>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="Lcv-Yu-x75" secondAttribute="trailing" id="Jpi-gk-Vu4"/>
                             <constraint firstItem="qtR-az-b4a" firstAttribute="centerX" secondItem="z8b-y2-1oH" secondAttribute="centerX" id="Mlt-wg-jHy"/>
-                            <constraint firstItem="73M-gk-b3q" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" constant="8" id="MxW-ij-5SM"/>
-                            <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="73M-gk-b3q" secondAttribute="trailing" constant="8" id="TEP-4D-5Of"/>
-                            <constraint firstItem="iBB-eQ-tNP" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" constant="8" id="Uuh-bl-3Yi"/>
                             <constraint firstItem="Lcv-Yu-x75" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" id="h25-pl-1D5"/>
-                            <constraint firstItem="FQt-40-gGm" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" constant="8" id="hk6-ml-PZA"/>
                             <constraint firstItem="mVW-mW-iUo" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" id="iYi-rl-ubb"/>
                             <constraint firstItem="qtR-az-b4a" firstAttribute="centerY" secondItem="IIa-uZ-Wqx" secondAttribute="centerY" id="j12-B8-m60"/>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="mVW-mW-iUo" secondAttribute="trailing" id="kPU-45-83X"/>
-                            <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="73M-gk-b3q" secondAttribute="bottom" constant="8" id="njr-IY-hQH"/>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="fjk-6l-XLe" secondAttribute="trailing" id="r1x-v5-WOg"/>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="fjk-6l-XLe" secondAttribute="bottom" id="t1i-Da-YDD"/>
-                            <constraint firstItem="iBB-eQ-tNP" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" constant="8" id="tAg-xs-9kE"/>
                             <constraint firstItem="z8b-y2-1oH" firstAttribute="bottom" secondItem="mVW-mW-iUo" secondAttribute="bottom" id="tZL-0a-rzO"/>
-                            <constraint firstItem="FQt-40-gGm" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" constant="8" id="twa-Bc-sUd"/>
                             <constraint firstItem="Lcv-Yu-x75" firstAttribute="top" secondItem="z8b-y2-1oH" secondAttribute="top" id="vmG-Zq-VaD"/>
-                            <constraint firstItem="z8b-y2-1oH" firstAttribute="trailing" secondItem="FQt-40-gGm" secondAttribute="trailing" constant="8" id="wNy-Ld-zaz"/>
                             <constraint firstItem="mVW-mW-iUo" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" id="wr7-kV-l8m"/>
                             <constraint firstItem="fjk-6l-XLe" firstAttribute="leading" secondItem="z8b-y2-1oH" secondAttribute="leading" id="z9R-rP-wAt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z8b-y2-1oH"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="FQt-40-gGm"/>
-                                <exclude reference="73M-gk-b3q"/>
-                                <exclude reference="iBB-eQ-tNP"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ktI-nR-pEk" appends="YES" id="DYT-pI-whA"/>
                         </connections>
                     </view>
                     <connections>
                         <outlet property="diskImageView" destination="Lcv-Yu-x75" id="TIj-w1-Ewq"/>
-                        <outlet property="diskView" destination="73M-gk-b3q" id="aWM-xO-b1a"/>
                         <outlet property="lockImageView" destination="mVW-mW-iUo" id="iri-C4-Iaa"/>
-                        <outlet property="lockView" destination="iBB-eQ-tNP" id="WtN-z1-uFv"/>
                         <outlet property="numpadImageView" destination="fjk-6l-XLe" id="Dx4-Dj-9kZ"/>
-                        <outlet property="numpadView" destination="FQt-40-gGm" id="ESh-VL-QTc"/>
                         <outlet property="rotaryDialView" destination="IIa-uZ-Wqx" id="r8p-SU-kxo"/>
                     </connections>
                 </viewController>
@@ -307,7 +210,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SkinSelectionTableViewCell" textLabel="LHU-il-9nX" detailTextLabel="mWS-JB-nhI" imageView="hSQ-9V-JqR" style="IBUITableViewCellStyleValue1" id="I0Y-Xa-wWf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SkinSelectionTableViewCell" textLabel="LHU-il-9nX" detailTextLabel="mWS-JB-nhI" imageView="hSQ-9V-JqR" style="IBUITableViewCellStyleValue1" id="I0Y-Xa-wWf">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I0Y-Xa-wWf" id="UQp-ps-YYy">

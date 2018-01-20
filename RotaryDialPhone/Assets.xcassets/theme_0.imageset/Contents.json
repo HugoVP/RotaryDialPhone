@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "theme_0@1x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Simulator Screen Shot - iPhone 7 - 2017-12-28 at 13.20.04.png",
+      "filename" : "theme_0@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "theme_0@3x.png",
       "scale" : "3x"
     }
   ],

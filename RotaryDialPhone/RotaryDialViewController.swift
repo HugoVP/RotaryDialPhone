@@ -11,9 +11,6 @@ import UIKit
 /* Attributes */
 class RotaryDialViewController: UIViewController {
   @IBOutlet weak var rotaryDialView: RotaryDialView!
-  @IBOutlet weak var numpadView: NumpadView!
-  @IBOutlet weak var diskView: DiskView!
-  @IBOutlet weak var lockView: LockView!
   @IBOutlet weak var numpadImageView: UIImageView!
   @IBOutlet weak var diskImageView: UIImageView!
   @IBOutlet weak var lockImageView: UIImageView!
@@ -53,12 +50,7 @@ extension RotaryDialViewController {
     model = rotaryDialsDataService.items[selectedItem]
     
     /* Set views */
-    setRotaryDialView()
     setAllViews()
-
-    numpadView.redraw()
-    diskView.redraw()
-    lockView.redraw()
   }
 }
 
@@ -72,7 +64,6 @@ extension RotaryDialViewController {
       
     case .changed:
       if let rotationAngle = sender.rotationAngle {
-        diskView.transform = CGAffineTransform(rotationAngle: rotationAngle)
         diskImageView.transform = CGAffineTransform(rotationAngle: rotationAngle)
       }
       
@@ -114,7 +105,6 @@ extension RotaryDialViewController {
       delay: 0,
       options: .curveLinear,
       animations: {
-        self.diskView.transform = CGAffineTransform(rotationAngle: midRotation)
         self.diskImageView.transform = CGAffineTransform(rotationAngle: midRotation)
       },
       completion: { (finished) in
@@ -123,7 +113,6 @@ extension RotaryDialViewController {
           delay: 0,
           options: .curveLinear,
           animations: {
-            self.diskView.transform = CGAffineTransform(rotationAngle: 0)
             self.diskImageView.transform = CGAffineTransform(rotationAngle: 0)
           },
           completion: { (finished) in
@@ -156,9 +145,9 @@ extension RotaryDialViewController {
   /* Set Views */
   func setAllViews() {
     setRotaryDialView()
-    setNumpadView()
-    setDiskView()
-    setLockView()
+    setNumpadImageView()
+    setDiskImageView()
+    setLockImageView()
   }
   
   /* Set rotaryDialView */
@@ -173,31 +162,16 @@ extension RotaryDialViewController {
   }
   
   /* Set numpadView */
-  func setNumpadView() {
-    numpadView.holesCount = model.holesCount
-    numpadView.holesRadius = model.holesRadius
-    numpadView.distanceFromHolesToCenter = model.distanceFromHolesToCenter
-    numpadView.holesSeparationAngle = model.holesSeparationAngle
-    numpadView.firstHoleAngle = model.firstHoleAngle
-    numpadView.number = model.number
-    numpadView.numberFontSize = model.numberFontSize
+  func setNumpadImageView() {
+    numpadImageView.image = UIImage(named: model.numpadImageViewName)
   }
   
   /* Set diskImageView */
-  func setDiskView() {
-    diskView.holesCount = model.holesCount
-    diskView.holesRadius = model.holesRadius
-    diskView.distanceFromHolesToCenter = model.distanceFromHolesToCenter
-    diskView.holesSeparationAngle = model.holesSeparationAngle
-    diskView.firstHoleAngle = model.firstHoleAngle
-    diskView.number = model.number
-    diskView.outterBound = model.outterDiskBound
-    diskView.innerBound = model.innerDiskBound
+  func setDiskImageView() {
+    diskImageView.image = UIImage(named: model.diskImageViewName)
   }
   
-  func setLockView() {
-    lockView.lockAngle = model.lockAngle
-    lockView.holesRadius = model.holesRadius
-    lockView.distanceFromHolesToCenter = model.distanceFromHolesToCenter
+  func setLockImageView() {
+    lockImageView.image = UIImage(named: model.lockImageViewName)
   }
 }

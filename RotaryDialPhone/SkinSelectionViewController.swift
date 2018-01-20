@@ -59,7 +59,6 @@ extension SkinSelectionViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    print("items.count: \(rotaryDialsDataService.items.count)")
     return rotaryDialsDataService.items.count
   }
   

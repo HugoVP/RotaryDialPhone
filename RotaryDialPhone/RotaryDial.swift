@@ -24,6 +24,11 @@ struct RotaryDial {
   private var _outterDiskBound: CGFloat!
   private var _innerDiskBound: CGFloat!
   
+  /* Image Views' names */
+  private var _numpadImageViewName: String!
+  private var _diskImageViewName: String!
+  private var _lockImageViewName: String!
+  
   var name: String {
     return _name
   }
@@ -72,6 +77,20 @@ struct RotaryDial {
     return _innerDiskBound
   }
   
+  /* Image Views' names */
+  
+  var numpadImageViewName: String {
+    return _numpadImageViewName
+  }
+  
+  var diskImageViewName: String {
+    return _diskImageViewName
+  }
+  
+  var lockImageViewName: String {
+    return _lockImageViewName
+  }
+  
   init(
     name: String,
     imageName: String,
@@ -84,7 +103,12 @@ struct RotaryDial {
     number: ((Int) -> Int)!,
     numberFontSize: CGFloat,
     outterDiskBound: CGFloat,
-    innerDiskBound: CGFloat
+    innerDiskBound: CGFloat,
+    
+    /* Image View's names */
+    numpadImageViewName: String,
+    diskImageViewName: String,
+    lockImageViewName: String
   ) {
     _name = name
     _imageName = imageName
@@ -98,5 +122,10 @@ struct RotaryDial {
     _numberFontSize = numberFontSize
     _outterDiskBound = outterDiskBound
     _innerDiskBound = innerDiskBound
+    
+    /* Image View's names */
+    _numpadImageViewName = numpadImageViewName
+    _diskImageViewName = diskImageViewName
+    _lockImageViewName = lockImageViewName
   }
 }
